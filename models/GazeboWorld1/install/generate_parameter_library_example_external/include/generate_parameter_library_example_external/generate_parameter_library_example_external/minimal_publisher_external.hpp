@@ -1,1 +1,0 @@
-/home/abigaildiehl/screw_sorting/models/GazeboWorld1/src/generate_parameter_library/example_external/include/generate_parameter_library_example_external/minimal_publisher_external.hpp

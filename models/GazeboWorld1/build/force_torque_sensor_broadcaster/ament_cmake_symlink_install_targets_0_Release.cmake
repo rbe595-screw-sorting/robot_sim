@@ -1,1 +1,0 @@
-ament_cmake_symlink_install_targets("TARGET_FILES" "/home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/force_torque_sensor_broadcaster/wrench_transformer_node" "TARGETS" "wrench_transformer_node" "RUNTIME_DESTINATION" "lib/force_torque_sensor_broadcaster")

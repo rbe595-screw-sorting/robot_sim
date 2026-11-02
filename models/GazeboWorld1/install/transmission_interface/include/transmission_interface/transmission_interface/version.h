@@ -1,1 +1,0 @@
-/home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/transmission_interface/ament_generate_version_header/transmission_interface/transmission_interface/version.h

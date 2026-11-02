@@ -1,1 +1,0 @@
-/home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/picknik_reset_fault_controller/ament_cmake_export_libraries/ament_cmake_export_libraries-extras.cmake

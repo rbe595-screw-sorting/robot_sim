@@ -1,3 +1,0 @@
-/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/joint_trajectory_controller/lib/libjoint_trajectory_controller.so
-/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/joint_trajectory_controller/share/joint_trajectory_controller/cmake/export_joint_trajectory_controllerExport.cmake
-/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/joint_trajectory_controller/share/joint_trajectory_controller/cmake/export_joint_trajectory_controllerExport-release.cmake

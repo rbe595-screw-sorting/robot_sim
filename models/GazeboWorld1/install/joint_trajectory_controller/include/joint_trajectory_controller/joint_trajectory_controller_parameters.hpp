@@ -1,1 +1,0 @@
-/home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/joint_trajectory_controller/include/joint_trajectory_controller/joint_trajectory_controller_parameters.hpp

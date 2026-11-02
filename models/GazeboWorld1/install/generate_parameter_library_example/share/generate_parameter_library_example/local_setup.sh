@@ -1,1 +1,0 @@
-/home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/generate_parameter_library_example/ament_cmake_environment_hooks/local_setup.sh

@@ -1,1 +1,0 @@
-ament_cmake_symlink_install_targets("TARGET_FILES" "/home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/hardware_interface_testing/libtest_components.so" "TARGETS" "test_components" "DESTINATION" "lib")

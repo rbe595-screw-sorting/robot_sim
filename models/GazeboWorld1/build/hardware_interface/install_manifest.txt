@@ -1,4 +1,0 @@
-/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/hardware_interface/lib/libmock_components.so
-/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/hardware_interface/lib/libhardware_interface.so
-/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/hardware_interface/share/hardware_interface/cmake/export_hardware_interfaceExport.cmake
-/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/hardware_interface/share/hardware_interface/cmake/export_hardware_interfaceExport-release.cmake

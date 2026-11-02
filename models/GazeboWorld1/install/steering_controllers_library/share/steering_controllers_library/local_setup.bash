@@ -1,1 +1,0 @@
-/home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/steering_controllers_library/ament_cmake_environment_hooks/local_setup.bash

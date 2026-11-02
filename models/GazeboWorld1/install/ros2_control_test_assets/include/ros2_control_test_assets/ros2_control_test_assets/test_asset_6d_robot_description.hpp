@@ -1,1 +1,0 @@
-/home/abigaildiehl/screw_sorting/models/GazeboWorld1/src/ros2_control/ros2_control_test_assets/include/ros2_control_test_assets/test_asset_6d_robot_description.hpp

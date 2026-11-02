@@ -1,1 +1,0 @@
-/home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/controller_manager_msgs/rosidl_generator_c/controller_manager_msgs/msg/detail/controller_manager_activity__struct.h

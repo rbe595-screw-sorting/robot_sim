@@ -1,1 +1,0 @@
-/home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/forward_command_controller/include/forward_command_controller/forward_command_controller_parameters.hpp

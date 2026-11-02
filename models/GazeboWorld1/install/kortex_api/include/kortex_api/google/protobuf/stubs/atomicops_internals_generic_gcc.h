@@ -1,1 +1,0 @@
-/home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/kortex_api/_deps/kinova_binary_api-src/include/google/protobuf/stubs/atomicops_internals_generic_gcc.h

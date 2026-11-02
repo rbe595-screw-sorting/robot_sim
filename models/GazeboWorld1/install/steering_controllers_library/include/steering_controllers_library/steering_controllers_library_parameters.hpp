@@ -1,1 +1,0 @@
-/home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/steering_controllers_library/include/steering_controllers_library/steering_controllers_library_parameters.hpp

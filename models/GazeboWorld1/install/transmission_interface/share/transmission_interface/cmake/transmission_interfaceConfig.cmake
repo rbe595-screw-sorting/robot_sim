@@ -1,1 +1,0 @@
-/home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/transmission_interface/ament_cmake_core/transmission_interfaceConfig.cmake

@@ -1,1 +1,0 @@
-/home/abigaildiehl/screw_sorting/models/GazeboWorld1/src/generate_parameter_library/generate_parameter_library_py/setup.py

@@ -1,1 +1,0 @@
-/home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/mecanum_drive_controller/include/mecanum_drive_controller/custom_validators.hpp

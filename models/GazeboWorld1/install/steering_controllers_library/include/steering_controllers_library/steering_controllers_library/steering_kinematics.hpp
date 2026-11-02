@@ -1,1 +1,0 @@
-/home/abigaildiehl/screw_sorting/models/GazeboWorld1/src/ros2_controllers/steering_controllers_library/include/steering_controllers_library/steering_kinematics.hpp

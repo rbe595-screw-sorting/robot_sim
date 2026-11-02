@@ -1,1 +1,0 @@
-/home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/ros_gz_interfaces/rosidl_typesupport_fastrtps_c/ros_gz_interfaces/msg/detail/joint_wrench__rosidl_typesupport_fastrtps_c.h

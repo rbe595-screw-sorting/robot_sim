@@ -1,5 +1,0 @@
-/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/joint_limits/lib/libjoint_limiter_interface.so
-/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/joint_limits/lib/libjoint_saturation_limiter.so
-/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/joint_limits/lib/libjoint_limits_helpers.so
-/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/joint_limits/share/joint_limits/cmake/export_joint_limitsExport.cmake
-/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/joint_limits/share/joint_limits/cmake/export_joint_limitsExport-release.cmake

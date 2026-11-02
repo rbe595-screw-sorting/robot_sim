@@ -1,1 +1,0 @@
-ament_cmake_symlink_install_targets("TARGET_FILES" "/home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/controller_manager_msgs/rosidl_generator_py/controller_manager_msgs/controller_manager_msgs_s__rosidl_typesupport_c.so" "TARGETS" "controller_manager_msgs_s__rosidl_typesupport_c" "DESTINATION" "lib/python3.12/site-packages/controller_manager_msgs")

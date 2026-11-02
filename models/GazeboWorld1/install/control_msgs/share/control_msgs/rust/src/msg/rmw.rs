@@ -1,1 +1,0 @@
-/home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/control_msgs/rosidl_generator_rs/control_msgs/rust/src/msg/rmw.rs

@@ -1,1 +1,0 @@
-/home/abigaildiehl/screw_sorting/models/GazeboWorld1/src/ros2_control/transmission_interface/include/transmission_interface/four_bar_linkage_transmission.hpp

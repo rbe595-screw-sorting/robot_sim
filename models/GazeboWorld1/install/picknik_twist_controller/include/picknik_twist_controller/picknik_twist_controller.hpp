@@ -1,1 +1,0 @@
-/home/abigaildiehl/screw_sorting/models/GazeboWorld1/src/picknik_controllers/picknik_twist_controller/include/picknik_twist_controller/picknik_twist_controller.hpp

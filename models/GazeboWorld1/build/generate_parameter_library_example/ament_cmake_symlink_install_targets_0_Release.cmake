@@ -1,1 +1,0 @@
-ament_cmake_symlink_install_targets("TARGET_FILES" "/home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/generate_parameter_library_example/test_node" "TARGETS" "test_node" "DESTINATION" "lib/generate_parameter_library_example")

@@ -1,1 +1,0 @@
-/home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/control_msgs/rosidl_typesupport_introspection_cpp/control_msgs/msg/detail/float64_values__rosidl_typesupport_introspection_cpp.hpp

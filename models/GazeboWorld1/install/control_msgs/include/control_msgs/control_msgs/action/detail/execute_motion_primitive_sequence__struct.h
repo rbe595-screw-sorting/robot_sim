@@ -1,1 +1,0 @@
-/home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/control_msgs/rosidl_generator_c/control_msgs/action/detail/execute_motion_primitive_sequence__struct.h

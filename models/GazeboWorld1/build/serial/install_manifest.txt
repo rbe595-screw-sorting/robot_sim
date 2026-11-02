@@ -1,3 +1,0 @@
-/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/serial/lib/libserial.a
-/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/serial/share/serial/cmake/export_serialExport.cmake
-/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/serial/share/serial/cmake/export_serialExport-release.cmake

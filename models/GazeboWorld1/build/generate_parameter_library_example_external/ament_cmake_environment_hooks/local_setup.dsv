@@ -1,3 +1,0 @@
-source;share/generate_parameter_library_example_external/environment/ament_prefix_path.sh
-source;share/generate_parameter_library_example_external/environment/library_path.sh
-source;share/generate_parameter_library_example_external/environment/path.sh

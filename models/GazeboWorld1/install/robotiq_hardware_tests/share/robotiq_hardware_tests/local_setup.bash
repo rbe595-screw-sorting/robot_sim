@@ -1,1 +1,0 @@
-/home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/robotiq_hardware_tests/ament_cmake_environment_hooks/local_setup.bash

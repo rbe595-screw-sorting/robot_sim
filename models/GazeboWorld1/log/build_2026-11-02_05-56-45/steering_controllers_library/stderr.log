@@ -1,5 +1,0 @@
-In file included from [01m[K/home/abigaildiehl/screw_sorting/models/GazeboWorld1/src/ros2_controllers/steering_controllers_library/src/steering_odometry.cpp:22[m[K:
-[01m[K/home/abigaildiehl/screw_sorting/models/GazeboWorld1/src/ros2_controllers/steering_controllers_library/include/steering_controllers_library/steering_odometry.hpp:25:2:[m[K [01;35m[Kwarning: [m[K#warning before C++23 is a GCC extension
-   25 | #[01;35m[Kwarning[m[K \
-      |  [01;35m[K^~~~~~~[m[K
-[01m[K/home/abigaildiehl/screw_sorting/models/GazeboWorld1/src/ros2_controllers/steering_controllers_library/include/steering_controllers_library/steering_odometry.hpp:25:2:[m[K [01;35m[Kwarning: [m[K#warning "This header is deprecated. Please update your code to use 'steering_kinematics.hpp' header." [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wcpp-Wcpp]8;;[m[K]

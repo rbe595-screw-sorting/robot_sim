@@ -1,1 +1,0 @@
-/home/abigaildiehl/screw_sorting/models/GazeboWorld1/src/ros2_control/hardware_interface/include/hardware_interface/actuator.hpp

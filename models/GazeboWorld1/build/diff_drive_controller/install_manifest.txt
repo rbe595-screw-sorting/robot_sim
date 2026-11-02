@@ -1,3 +1,0 @@
-/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/diff_drive_controller/lib/libdiff_drive_controller.so
-/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/diff_drive_controller/share/diff_drive_controller/cmake/export_diff_drive_controllerExport.cmake
-/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/diff_drive_controller/share/diff_drive_controller/cmake/export_diff_drive_controllerExport-release.cmake

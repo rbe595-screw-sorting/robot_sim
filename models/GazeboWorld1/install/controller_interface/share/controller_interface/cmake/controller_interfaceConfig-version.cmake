@@ -1,1 +1,0 @@
-/home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/controller_interface/ament_cmake_core/controller_interfaceConfig-version.cmake

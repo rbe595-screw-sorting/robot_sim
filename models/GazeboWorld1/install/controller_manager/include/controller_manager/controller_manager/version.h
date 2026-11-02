@@ -1,1 +1,0 @@
-/home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/controller_manager/ament_generate_version_header/controller_manager/controller_manager/version.h

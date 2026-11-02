@@ -1,1 +1,0 @@
-/home/abigaildiehl/screw_sorting/models/GazeboWorld1/src/ros2_kortex/kortex_driver/include/kortex_driver/kortex_math_util.hpp

@@ -1,1 +1,0 @@
-/home/abigaildiehl/screw_sorting/models/GazeboWorld1/src/ros2_control/controller_manager/include/controller_manager/controller_spec.hpp

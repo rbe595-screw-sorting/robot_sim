@@ -1,3 +1,0 @@
-/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/mecanum_drive_controller/lib/libmecanum_drive_controller.so
-/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/mecanum_drive_controller/share/mecanum_drive_controller/cmake/export_mecanum_drive_controllerExport.cmake
-/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/mecanum_drive_controller/share/mecanum_drive_controller/cmake/export_mecanum_drive_controllerExport-release.cmake
