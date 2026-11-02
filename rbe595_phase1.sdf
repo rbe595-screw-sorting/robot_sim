@@ -119,5 +119,26 @@
         <pose>0 0.1 0 0 0 0</pose>
         <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Coke</uri>
     </include>
+    <include>
+        <name>Table</name>
+        <pose>0 0 0 -1.5708 0 -1.5708</pose>
+        <uri>model://rbe595_table</uri>
+    </include>
+    <include>
+        <name>Bucket</name>
+        <pose>1 -1 0 -1.5708 0 0</pose>
+        <uri>model://assembly_1</uri>
+    </include>
+    <include>
+        <name>Scooper</name>
+        <pose>1 0 0 -1.5708 0 0</pose>
+        <uri>model://rbe595_scooper</uri>
+    </include>
+    <include>
+        <name>Kinova Gen3 Lite</name>
+        <pose>0 0 0 0 0 0</pose>
+        <uri>model://kinova_gen3_lite</uri>
+    </include>
+
   </world>
 </sdf>

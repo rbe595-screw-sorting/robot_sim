@@ -1,0 +1,32 @@
+<sdf version='1.11'>
+  <model name='assembly_1'>
+    <static>true</static>
+    <link name='root'>
+      <inertial>
+        <pose>1.16361e-33 0.071109099999999995 1.09648e-17 0 0 0</pose>
+        <mass>0.00084963900000000001</mass>
+        <inertia>
+          <ixx>4.5200599999999999e-06</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>4.6996099999999997e-06</iyy>
+          <iyz>0</iyz>
+          <izz>4.5200599999999999e-06</izz>
+        </inertia>
+      </inertial>
+      <visual name='root_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://assembly_1/meshes/Part_1.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.990196228 1 1 1</diffuse>
+          <ambient>0.990196228 1 1 1</ambient>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>

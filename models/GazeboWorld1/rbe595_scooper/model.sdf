@@ -1,0 +1,28 @@
+<sdf version='1.11'>
+  <model name='rbe595_scooper'>
+    <static>true</static>
+    <link name='root'>
+      <inertial>
+        <pose>-0.063288300000000006 0.030669600000000002 -0.037398800000000003 0 0 0</pose>
+        <mass>0.0055574800000000001</mass>
+        <inertia>
+          <ixx>1.22614e-06</ixx>
+          <ixy>1.22231e-06</ixy>
+          <ixz>2.8587899999999999e-07</ixz>
+          <iyy>6.6617699999999999e-06</iyy>
+          <iyz>3.6801999999999998e-07</iyz>
+          <izz>7.2984100000000001e-06</izz>
+        </inertia>
+      </inertial>
+      <visual name='root_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rbe595_scooper/meshes/_.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+</sdf>

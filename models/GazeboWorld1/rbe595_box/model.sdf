@@ -1,0 +1,31 @@
+<sdf version='1.11'>
+  <model name='rbe595_box'>
+    <link name='root'>
+      <inertial>
+        <pose>-1.11519e-17 0.057889799999999998 1.8646000000000001e-17 0 0 0</pose>
+        <mass>0.00091144800000000003</mass>
+        <inertia>
+          <ixx>4.8955799999999996e-06</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>5.4611400000000004e-06</iyy>
+          <iyz>0</iyz>
+          <izz>4.8955799999999996e-06</izz>
+        </inertia>
+      </inertial>
+      <visual name='root_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rbe595_box/meshes/Part_1.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.990196228 1 1 1</diffuse>
+          <ambient>0.990196228 1 1 1</ambient>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>
