@@ -1,0 +1,1 @@
+/home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/hardware_interface_testing/ament_cmake_core/hardware_interface_testingConfig.cmake

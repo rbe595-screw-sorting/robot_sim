@@ -1,0 +1,58 @@
+[0.014s] Invoking command in '/home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/serial': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/abigaildiehl/simulation_ws/install/vbrm_hw6:/home/abigaildiehl/simulation_ws/install/ur_move_merlab:/home/abigaildiehl/RBE4540/install/py_srvcli:/home/abigaildiehl/RBE4540/install/my_package:/home/abigaildiehl/RBE4540/install/force_vector_service:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/abigaildiehl/screw_sorting/models/GazeboWorld1/src/serial -DCMAKE_BUILD_TYPE=Release -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/serial
+[0.079s] -- The C compiler identification is GNU 13.3.0
+[0.142s] -- The CXX compiler identification is GNU 13.3.0
+[0.167s] -- Detecting C compiler ABI info
+[1.468s] -- Detecting C compiler ABI info - done
+[1.478s] -- Check for working C compiler: /usr/bin/cc - skipped
+[1.479s] -- Detecting C compile features
+[1.480s] -- Detecting C compile features - done
+[1.505s] -- Detecting CXX compiler ABI info
+[1.673s] -- Detecting CXX compiler ABI info - done
+[1.674s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[1.674s] -- Detecting CXX compile features
+[1.675s] -- Detecting CXX compile features - done
+[1.680s] -- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[1.872s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[1.940s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[2.098s] -- Configuring done (2.1s)
+[2.103s] -- Generating done (0.0s)
+[2.106s] -- Build files have been written to: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/serial
+[2.114s] Invoked command in '/home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/serial' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/abigaildiehl/simulation_ws/install/vbrm_hw6:/home/abigaildiehl/simulation_ws/install/ur_move_merlab:/home/abigaildiehl/RBE4540/install/py_srvcli:/home/abigaildiehl/RBE4540/install/my_package:/home/abigaildiehl/RBE4540/install/force_vector_service:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/abigaildiehl/screw_sorting/models/GazeboWorld1/src/serial -DCMAKE_BUILD_TYPE=Release -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/serial
+[2.115s] Invoking command in '/home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/serial': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/abigaildiehl/simulation_ws/install/vbrm_hw6:/home/abigaildiehl/simulation_ws/install/ur_move_merlab:/home/abigaildiehl/RBE4540/install/py_srvcli:/home/abigaildiehl/RBE4540/install/my_package:/home/abigaildiehl/RBE4540/install/force_vector_service:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/serial -- -j4 -l4
+[2.206s] [ 25%] [32mBuilding CXX object CMakeFiles/serial.dir/src/impl/unix.cc.o[0m
+[2.206s] [ 50%] [32mBuilding CXX object CMakeFiles/serial.dir/src/serial.cc.o[0m
+[2.919s] [ 75%] [32mBuilding CXX object CMakeFiles/serial.dir/src/impl/list_ports/list_ports_linux.cc.o[0m
+[5.474s] [100%] [32m[1mLinking CXX static library libserial.a[0m
+[6.488s] [100%] Built target serial
+[6.488s] Invoked command in '/home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/serial' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/abigaildiehl/simulation_ws/install/vbrm_hw6:/home/abigaildiehl/simulation_ws/install/ur_move_merlab:/home/abigaildiehl/RBE4540/install/py_srvcli:/home/abigaildiehl/RBE4540/install/my_package:/home/abigaildiehl/RBE4540/install/force_vector_service:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/serial -- -j4 -l4
+[6.489s] Invoking command in '/home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/serial': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/abigaildiehl/simulation_ws/install/vbrm_hw6:/home/abigaildiehl/simulation_ws/install/ur_move_merlab:/home/abigaildiehl/RBE4540/install/py_srvcli:/home/abigaildiehl/RBE4540/install/my_package:/home/abigaildiehl/RBE4540/install/force_vector_service:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/serial
+[6.489s] -- Install configuration: "Release"
+[6.489s] -- Execute custom install script
+[6.489s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/serial/include/serial/impl/unix.h
+[7.246s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/serial/include/serial/impl/win.h
+[7.276s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/serial/include/serial/serial.h
+[7.301s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/serial/include/serial/v8stdint.h
+[7.352s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/serial/share/serial/environment/library_path.sh
+[7.393s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/serial/share/serial/environment/library_path.dsv
+[7.446s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/serial/share/ament_index/resource_index/package_run_dependencies/serial
+[7.493s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/serial/share/ament_index/resource_index/parent_prefix_path/serial
+[7.542s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/serial/share/serial/environment/ament_prefix_path.sh
+[7.580s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/serial/share/serial/environment/ament_prefix_path.dsv
+[7.606s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/serial/share/serial/environment/path.sh
+[7.659s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/serial/share/serial/environment/path.dsv
+[7.700s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/serial/share/serial/local_setup.bash
+[7.744s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/serial/share/serial/local_setup.sh
+[7.806s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/serial/share/serial/local_setup.zsh
+[7.851s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/serial/share/serial/local_setup.dsv
+[7.891s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/serial/share/serial/package.dsv
+[7.923s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/serial/share/ament_index/resource_index/packages/serial
+[7.977s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/serial/share/serial/cmake/ament_cmake_export_include_directories-extras.cmake
+[8.008s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/serial/share/serial/cmake/ament_cmake_export_libraries-extras.cmake
+[8.029s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/serial/share/serial/cmake/ament_cmake_export_targets-extras.cmake
+[8.065s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/serial/share/serial/cmake/serialConfig.cmake
+[8.109s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/serial/share/serial/cmake/serialConfig-version.cmake
+[8.148s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/serial/share/serial/package.xml
+[8.215s] -- Installing: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/serial/lib/libserial.a
+[8.215s] -- Installing: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/serial/share/serial/cmake/export_serialExport.cmake
+[8.215s] -- Installing: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/serial/share/serial/cmake/export_serialExport-release.cmake
+[8.224s] Invoked command in '/home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/serial' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/abigaildiehl/simulation_ws/install/vbrm_hw6:/home/abigaildiehl/simulation_ws/install/ur_move_merlab:/home/abigaildiehl/RBE4540/install/py_srvcli:/home/abigaildiehl/RBE4540/install/my_package:/home/abigaildiehl/RBE4540/install/force_vector_service:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/serial

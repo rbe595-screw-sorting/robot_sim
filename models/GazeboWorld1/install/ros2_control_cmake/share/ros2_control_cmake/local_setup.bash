@@ -1,0 +1,1 @@
+/home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/ros2_control_cmake/ament_cmake_environment_hooks/local_setup.bash

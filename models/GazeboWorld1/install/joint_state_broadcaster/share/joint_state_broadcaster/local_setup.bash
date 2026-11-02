@@ -1,0 +1,1 @@
+/home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/joint_state_broadcaster/ament_cmake_environment_hooks/local_setup.bash

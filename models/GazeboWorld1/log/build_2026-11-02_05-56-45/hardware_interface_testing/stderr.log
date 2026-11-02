@@ -1,0 +1,14 @@
+[01m[K/home/abigaildiehl/screw_sorting/models/GazeboWorld1/src/ros2_control/hardware_interface_testing/test/test_components/test_actuator.cpp:[m[K In member function ‘[01m[Kvirtual hardware_interface::return_type TestActuator::[01;32m[Kprepare_command_mode_switch[m[K(const std::vector<std::__cxx11::basic_string<char> >&, const std::vector<std::__cxx11::basic_string<char> >&)[m[K’:
+[01m[K/home/abigaildiehl/screw_sorting/models/GazeboWorld1/src/ros2_control/hardware_interface_testing/test/test_components/test_actuator.cpp:172:38:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kstart_interfaces[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+  172 |     [01;35m[Kconst std::vector<std::string> & start_interfaces[m[K,
+      |     [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~[m[K
+[01m[K/home/abigaildiehl/screw_sorting/models/GazeboWorld1/src/ros2_control/hardware_interface_testing/test/test_components/test_actuator.cpp:173:38:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kstop_interfaces[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+  173 |     [01;35m[Kconst std::vector<std::string> & stop_interfaces[m[K) override
+      |     [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~[m[K
+[01m[K/home/abigaildiehl/screw_sorting/models/GazeboWorld1/src/ros2_control/hardware_interface_testing/test/test_components/test_actuator.cpp:[m[K In member function ‘[01m[Kvirtual hardware_interface::return_type TestActuator::[01;32m[Kperform_command_mode_switch[m[K(const std::vector<std::__cxx11::basic_string<char> >&, const std::vector<std::__cxx11::basic_string<char> >&)[m[K’:
+[01m[K/home/abigaildiehl/screw_sorting/models/GazeboWorld1/src/ros2_control/hardware_interface_testing/test/test_components/test_actuator.cpp:181:38:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kstart_interfaces[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+  181 |     [01;35m[Kconst std::vector<std::string> & start_interfaces[m[K,
+      |     [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~[m[K
+[01m[K/home/abigaildiehl/screw_sorting/models/GazeboWorld1/src/ros2_control/hardware_interface_testing/test/test_components/test_actuator.cpp:182:38:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kstop_interfaces[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+  182 |     [01;35m[Kconst std::vector<std::string> & stop_interfaces[m[K) override
+      |     [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~[m[K

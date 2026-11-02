@@ -1,0 +1,1 @@
+/home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/robotiq_controllers/ament_cmake_environment_hooks/local_setup.zsh

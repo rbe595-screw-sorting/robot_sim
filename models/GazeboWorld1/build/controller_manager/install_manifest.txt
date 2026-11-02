@@ -1,0 +1,3 @@
+/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/controller_manager/lib/libcontroller_manager.so
+/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/controller_manager/share/controller_manager/cmake/export_controller_managerExport.cmake
+/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/controller_manager/share/controller_manager/cmake/export_controller_managerExport-release.cmake

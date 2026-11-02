@@ -1,0 +1,1 @@
+/home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/ros_gz_interfaces/rosidl_typesupport_introspection_c/ros_gz_interfaces/msg/detail/video_record__rosidl_typesupport_introspection_c.h

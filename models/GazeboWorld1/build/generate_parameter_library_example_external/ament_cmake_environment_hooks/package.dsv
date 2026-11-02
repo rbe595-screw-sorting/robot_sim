@@ -1,0 +1,4 @@
+source;share/generate_parameter_library_example_external/local_setup.bash
+source;share/generate_parameter_library_example_external/local_setup.dsv
+source;share/generate_parameter_library_example_external/local_setup.sh
+source;share/generate_parameter_library_example_external/local_setup.zsh

@@ -1,0 +1,1 @@
+ament_cmake_symlink_install_targets("TARGET_FILES" "/home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/ros_gz_interfaces/rosidl_generator_py/ros_gz_interfaces/ros_gz_interfaces_s__rosidl_typesupport_fastrtps_c.so" "TARGETS" "ros_gz_interfaces_s__rosidl_typesupport_fastrtps_c" "DESTINATION" "lib/python3.12/site-packages/ros_gz_interfaces")

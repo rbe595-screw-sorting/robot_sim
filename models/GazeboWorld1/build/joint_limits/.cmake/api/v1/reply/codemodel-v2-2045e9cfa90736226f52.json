@@ -1,0 +1,247 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Release-acb3be0e6f009a976606.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14
+					]
+				},
+				{
+					"build" : "gmock",
+					"jsonFile" : "directory-gmock-Release-4c8667082ed8f149e75b.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.8"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "/opt/ros/jazzy/src/gmock_vendor",
+					"targetIndexes" : 
+					[
+						1,
+						2
+					]
+				},
+				{
+					"build" : "gtest",
+					"jsonFile" : "directory-gtest-Release-0908a8c91ddba5d6c989.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.8"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 2,
+					"source" : "/opt/ros/jazzy/src/gtest_vendor",
+					"targetIndexes" : 
+					[
+						3,
+						4
+					]
+				}
+			],
+			"name" : "Release",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1,
+						2
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "joint_limits",
+					"targetIndexes" : 
+					[
+						0,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						1
+					],
+					"name" : "gmock",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						1,
+						2
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						2
+					],
+					"name" : "gtest",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						3,
+						4
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_generate_version_header__joint_limits::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_generate_version_header__joint_limits-Release-c4bd04593be8082c8e38.json",
+					"name" : "ament_generate_version_header__joint_limits",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "gmock::@0590522bda6a4df7f28a",
+					"jsonFile" : "target-gmock-Release-2bbfc9756802604cc336.json",
+					"name" : "gmock",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "gmock_main::@0590522bda6a4df7f28a",
+					"jsonFile" : "target-gmock_main-Release-be9dbfeeb2880f0db912.json",
+					"name" : "gmock_main",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "gtest::@0af4add9fe94340e763e",
+					"jsonFile" : "target-gtest-Release-e0d031c5d04b9de2737e.json",
+					"name" : "gtest",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "gtest_main::@0af4add9fe94340e763e",
+					"jsonFile" : "target-gtest_main-Release-3c071e4a89bf58bcc10a.json",
+					"name" : "gtest_main",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "joint_limiter_interface::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-joint_limiter_interface-Release-becd121fb52cb001d515.json",
+					"name" : "joint_limiter_interface",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "joint_limits_helpers::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-joint_limits_helpers-Release-65ea00893aa4cc158899.json",
+					"name" : "joint_limits_helpers",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "joint_limits_rosparam_test::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-joint_limits_rosparam_test-Release-7b6ec185ee329f42d02f.json",
+					"name" : "joint_limits_rosparam_test",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "joint_limits_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-joint_limits_uninstall-Release-6a1597447d3faa050952.json",
+					"name" : "joint_limits_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "joint_limits_urdf_test::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-joint_limits_urdf_test-Release-3e6893b79ed2f07a8c7e.json",
+					"name" : "joint_limits_urdf_test",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "joint_saturation_limiter::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-joint_saturation_limiter-Release-5c66322af85933cd59c6.json",
+					"name" : "joint_saturation_limiter",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "test_joint_range_limiter::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_joint_range_limiter-Release-bfa3b6526525614de6cf.json",
+					"name" : "test_joint_range_limiter",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "test_joint_saturation_limiter::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_joint_saturation_limiter-Release-67adcda6c2c6ccba2bde.json",
+					"name" : "test_joint_saturation_limiter",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "test_joint_soft_limiter::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_joint_soft_limiter-Release-81447471a828d19cf95c.json",
+					"name" : "test_joint_soft_limiter",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-Release-252343e73e3ea412575e.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/joint_limits",
+		"source" : "/home/abigaildiehl/screw_sorting/models/GazeboWorld1/src/ros2_control/joint_limits"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

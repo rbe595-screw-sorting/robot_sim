@@ -1,0 +1,24 @@
+Running /home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/generate_parameter_library_py/generate_parameter_library_py/generate_python_module.py /home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/generate_parameter_module_example/generate_parameter_module_example/admittance_parameters.py generate_parameter_module_example/parameters.yaml generate_parameter_module_example.custom_validation
+Running /home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/generate_parameter_library_py/generate_parameter_library_py/generate_python_module.py /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/generate_parameter_module_example/lib/python3.12/site-packages/generate_parameter_module_example/admittance_parameters.py generate_parameter_module_example/parameters.yaml generate_parameter_module_example.custom_validation
+running develop
+running egg_info
+creating generate_parameter_module_example.egg-info
+writing generate_parameter_module_example.egg-info/PKG-INFO
+writing dependency_links to generate_parameter_module_example.egg-info/dependency_links.txt
+writing entry points to generate_parameter_module_example.egg-info/entry_points.txt
+writing requirements to generate_parameter_module_example.egg-info/requires.txt
+writing top-level names to generate_parameter_module_example.egg-info/top_level.txt
+writing manifest file 'generate_parameter_module_example.egg-info/SOURCES.txt'
+reading manifest file 'generate_parameter_module_example.egg-info/SOURCES.txt'
+writing manifest file 'generate_parameter_module_example.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/generate_parameter_module_example/lib/python3.12/site-packages/generate-parameter-module-example.egg-link (link to .)
+Installing test_node script to /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/generate_parameter_module_example/lib/generate_parameter_module_example
+
+Installed /home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/generate_parameter_module_example
+running symlink_data
+creating /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/generate_parameter_module_example/share/ament_index
+creating /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/generate_parameter_module_example/share/ament_index/resource_index
+creating /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/generate_parameter_module_example/share/ament_index/resource_index/packages
+symbolically linking /home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/generate_parameter_module_example/resource/generate_parameter_module_example -> /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/generate_parameter_module_example/share/ament_index/resource_index/packages
+symbolically linking /home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/generate_parameter_module_example/package.xml -> /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/generate_parameter_module_example/share/generate_parameter_module_example

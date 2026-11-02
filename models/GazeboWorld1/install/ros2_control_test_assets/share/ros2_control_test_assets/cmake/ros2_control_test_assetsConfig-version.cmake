@@ -1,0 +1,1 @@
+/home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/ros2_control_test_assets/ament_cmake_core/ros2_control_test_assetsConfig-version.cmake

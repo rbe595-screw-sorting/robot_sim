@@ -1,0 +1,240 @@
+[0.005s] Invoking command in '/home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/ros_gz_bridge': AMENT_PREFIX_PATH=/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces:/home/abigaildiehl/simulation_ws/install/visual_servo:/home/abigaildiehl/simulation_ws/install/ur_simulation_gz:/home/abigaildiehl/simulation_ws/install/robotiq_description:/home/abigaildiehl/simulation_ws/install/robotiq_controllers:/home/abigaildiehl/simulation_ws/install/pcl_python_merlab:/home/abigaildiehl/simulation_ws/install/common_interfaces_merlab:/home/abigaildiehl/RBE4540/install/force_vector_interfaces:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/home/abigaildiehl/simulation_ws/install/vbrm_hw6:/home/abigaildiehl/simulation_ws/install/ur_move_merlab:/home/abigaildiehl/RBE4540/install/py_srvcli:/home/abigaildiehl/RBE4540/install/my_package:/home/abigaildiehl/RBE4540/install/force_vector_service:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake /home/abigaildiehl/screw_sorting/models/GazeboWorld1/src/ros_gz/ros_gz_bridge -DCMAKE_BUILD_TYPE=Release -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_bridge
+[0.082s] -- The C compiler identification is GNU 13.3.0
+[0.147s] -- The CXX compiler identification is GNU 13.3.0
+[0.177s] -- Detecting C compiler ABI info
+[0.327s] -- Detecting C compiler ABI info - done
+[0.335s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.335s] -- Detecting C compile features
+[0.335s] -- Detecting C compile features - done
+[0.352s] -- Detecting CXX compiler ABI info
+[0.496s] -- Detecting CXX compiler ABI info - done
+[0.508s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.508s] -- Detecting CXX compile features
+[0.508s] -- Detecting CXX compile features - done
+[0.516s] -- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.732s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[0.822s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.926s] -- Found rclcpp: 28.1.22 (/opt/ros/jazzy/share/rclcpp/cmake)
+[1.015s] -- Found rosidl_generator_c: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[1.044s] -- Found rosidl_generator_cpp: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[1.076s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.110s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.247s] -- Found rmw_implementation_cmake: 7.3.4 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+[1.253s] -- Found rmw_fastrtps_cpp: 8.4.4 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+[1.410s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.13")  
+[1.433s] -- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") 
+[1.468s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.563s] -- Found rclcpp_components: 28.1.22 (/opt/ros/jazzy/share/rclcpp_components/cmake)
+[1.629s] -- Found yaml_cpp_vendor: 9.0.1 (/opt/ros/jazzy/share/yaml_cpp_vendor/cmake)
+[1.630s] -- Setting yaml-cpp_DIR to: '/opt/ros/jazzy/share/yaml_cpp_vendor/cmake/../../../opt/yaml_cpp_vendor/share/cmake/yaml-cpp'
+[1.653s] -- Found gz_transport_vendor: 0.0.9 (/opt/ros/jazzy/share/gz_transport_vendor/cmake)
+[1.735s] -- Looking for gz-transport13 -- found version 13.6.0
+[1.776s] -- Searching for dependencies of gz-transport13
+[1.999s] -- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so (found version "3.21.12") 
+[2.016s] -- Config-file not installed for ZeroMQ -- checking for pkg-config
+[2.025s] -- Checking for module 'libzmq >= 4'
+[2.053s] --   Found libzmq, version 4.3.5
+[2.146s] -- Found ZeroMQ: TRUE (Required is at least version "4") 
+[2.168s] -- Checking for module 'uuid'
+[2.200s] --   Found uuid, version 2.39.3
+[2.275s] -- Found UUID: TRUE  
+[2.289s] -- Looking for gz-utils2 -- found version 2.2.1
+[2.289s] -- Searching for dependencies of gz-utils2
+[2.293s] -- Searching for <gz-utils2> component [cli]
+[2.300s] -- Looking for gz-utils2-cli -- found version 2.2.1
+[2.301s] -- Searching for dependencies of gz-utils2-cli
+[2.310s] -- Looking for gz-msgs10 -- found version 10.4.0
+[2.310s] -- Searching for dependencies of gz-msgs10
+[2.338s] -- Looking for gz-utils2 -- found version 2.2.1
+[2.349s] -- Looking for gz-math7 -- found version 7.7.0
+[2.349s] -- Searching for dependencies of gz-math7
+[2.350s] -- Looking for gz-utils2 -- found version 2.2.1
+[2.365s] -- Checking for module 'tinyxml2'
+[2.393s] --   Found tinyxml2, version 10.0.0
+[2.488s] -- Looking for gz-msgs10 -- found version 10.4.0
+[2.625s] -- Found builtin_interfaces: 2.0.4 (/opt/ros/jazzy/share/builtin_interfaces/cmake)
+[2.705s] -- Found actuator_msgs: 0.0.1 (/opt/ros/jazzy/share/actuator_msgs/cmake)
+[2.724s] -- Found geometry_msgs: 5.3.8 (/opt/ros/jazzy/share/geometry_msgs/cmake)
+[2.774s] -- Found gps_msgs: 3.1.1 (/opt/ros/jazzy/share/gps_msgs/cmake)
+[2.839s] -- Found marine_acoustic_msgs: 2.1.0 (/opt/ros/jazzy/share/marine_acoustic_msgs/cmake)
+[2.893s] -- Found nav_msgs: 5.3.8 (/opt/ros/jazzy/share/nav_msgs/cmake)
+[2.893s] -- Found rcl_interfaces: 2.0.4 (/opt/ros/jazzy/share/rcl_interfaces/cmake)
+[2.923s] -- Found ros_gz_interfaces: 1.0.25 (/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/cmake)
+[2.924s] -- Found rosgraph_msgs: 2.0.4 (/opt/ros/jazzy/share/rosgraph_msgs/cmake)
+[2.962s] -- Found sensor_msgs: 5.3.8 (/opt/ros/jazzy/share/sensor_msgs/cmake)
+[2.963s] -- Found std_msgs: 5.3.8 (/opt/ros/jazzy/share/std_msgs/cmake)
+[3.042s] -- Found tf2_msgs: 0.36.23 (/opt/ros/jazzy/share/tf2_msgs/cmake)
+[3.071s] -- Found trajectory_msgs: 5.3.8 (/opt/ros/jazzy/share/trajectory_msgs/cmake)
+[3.135s] -- Found vision_msgs: 4.1.1 (/opt/ros/jazzy/share/vision_msgs/cmake)
+[3.376s] -- Found ament_lint_auto: 0.17.5 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+[3.579s] -- Found python_cmake_module: 0.11.1 (/opt/ros/jazzy/share/python_cmake_module/cmake)
+[3.750s] -- Found PythonExtra: /usr/bin/python3  
+[3.797s] -- Found gtest sources under '/opt/ros/jazzy/src/gtest_vendor': C++ tests using 'Google Test' will be built
+[3.802s] -- Found Threads: TRUE  
+[3.855s] -- Added test 'copyright' to check source files copyright and LICENSE
+[3.866s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[3.868s] -- Configured cppcheck include dirs: $<BUILD_INTERFACE:/home/abigaildiehl/screw_sorting/models/GazeboWorld1/src/ros_gz/ros_gz_bridge/include>;$<BUILD_INTERFACE:/home/abigaildiehl/screw_sorting/models/GazeboWorld1/src/ros_gz/ros_gz_bridge/src>;/home/abigaildiehl/screw_sorting/models/GazeboWorld1/src/ros_gz/ros_gz_bridge/include;/home/abigaildiehl/screw_sorting/models/GazeboWorld1/src/ros_gz/ros_gz_bridge/test;/home/abigaildiehl/screw_sorting/models/GazeboWorld1/src/ros_gz/ros_gz_bridge/test/subscribers;/home/abigaildiehl/screw_sorting/models/GazeboWorld1/src/ros_gz/ros_gz_bridge/src
+[3.869s] -- Configured cppcheck exclude dirs and/or files: 
+[3.878s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[3.878s] -- Configured cpplint exclude dirs and/or files: 
+[3.882s] -- Added test 'flake8' to check Python code syntax and style conventions
+[3.882s] -- Configured 'flake8' exclude dirs and/or files: 
+[3.886s] -- Added test 'lint_cmake' to check CMake code style
+[3.889s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[3.897s] -- Added test 'uncrustify' to check C / C++ code style
+[3.897s] -- Configured uncrustify additional arguments: 
+[3.900s] -- Added test 'xmllint' to check XML markup files
+[3.906s] -- Configuring done (3.9s)
+[4.111s] -- Generating done (0.2s)
+[4.155s] -- Build files have been written to: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/ros_gz_bridge
+[5.777s] Invoked command in '/home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/ros_gz_bridge' returned '0': AMENT_PREFIX_PATH=/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces:/home/abigaildiehl/simulation_ws/install/visual_servo:/home/abigaildiehl/simulation_ws/install/ur_simulation_gz:/home/abigaildiehl/simulation_ws/install/robotiq_description:/home/abigaildiehl/simulation_ws/install/robotiq_controllers:/home/abigaildiehl/simulation_ws/install/pcl_python_merlab:/home/abigaildiehl/simulation_ws/install/common_interfaces_merlab:/home/abigaildiehl/RBE4540/install/force_vector_interfaces:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/home/abigaildiehl/simulation_ws/install/vbrm_hw6:/home/abigaildiehl/simulation_ws/install/ur_move_merlab:/home/abigaildiehl/RBE4540/install/py_srvcli:/home/abigaildiehl/RBE4540/install/my_package:/home/abigaildiehl/RBE4540/install/force_vector_service:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake /home/abigaildiehl/screw_sorting/models/GazeboWorld1/src/ros_gz/ros_gz_bridge -DCMAKE_BUILD_TYPE=Release -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_bridge
+[5.781s] Invoking command in '/home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/ros_gz_bridge': AMENT_PREFIX_PATH=/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces:/home/abigaildiehl/simulation_ws/install/visual_servo:/home/abigaildiehl/simulation_ws/install/ur_simulation_gz:/home/abigaildiehl/simulation_ws/install/robotiq_description:/home/abigaildiehl/simulation_ws/install/robotiq_controllers:/home/abigaildiehl/simulation_ws/install/pcl_python_merlab:/home/abigaildiehl/simulation_ws/install/common_interfaces_merlab:/home/abigaildiehl/RBE4540/install/force_vector_interfaces:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/home/abigaildiehl/simulation_ws/install/vbrm_hw6:/home/abigaildiehl/simulation_ws/install/ur_move_merlab:/home/abigaildiehl/RBE4540/install/py_srvcli:/home/abigaildiehl/RBE4540/install/my_package:/home/abigaildiehl/RBE4540/install/force_vector_service:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/ros_gz_bridge -- -j4 -l4
+[5.899s] [  0%] Built target ament_cmake_python_symlink_ros_gz_bridge_setup
+[5.940s] [  0%] [32mBuilding CXX object CMakeFiles/bridge_node.dir/rclcpp_components/node_main_bridge_node.cpp.o[0m
+[9.833s] [  1%] [32m[1mLinking CXX executable bridge_node[0m
+[9.991s] [  1%] Built target bridge_node
+[10.032s] [  2%] [32mBuilding CXX object gtest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o[0m
+[10.995s] [  3%] [32m[1mLinking CXX static library libgtest_main.a[0m
+[11.125s] [  3%] Built target gtest_main
+[11.178s] [  4%] [32mBuilding CXX object gtest/CMakeFiles/gtest.dir/src/gtest-all.cc.o[0m
+[19.990s] [  5%] [32m[1mLinking CXX static library libgtest.a[0m
+[20.117s] [  5%] Built target gtest
+[20.139s] [  6%] [34m[1mGenerating factories for interface types[0m
+[21.665s] [  7%] [32mBuilding CXX object CMakeFiles/ros_gz_bridge.dir/src/bridge_config.cpp.o[0m
+[27.656s] [  8%] [32mBuilding CXX object CMakeFiles/ros_gz_bridge.dir/src/bridge_handle.cpp.o[0m
+[37.113s] [  9%] [32mBuilding CXX object CMakeFiles/ros_gz_bridge.dir/src/bridge_handle_ros_to_gz.cpp.o[0m
+[42.251s] [ 10%] [32mBuilding CXX object CMakeFiles/ros_gz_bridge.dir/src/bridge_handle_gz_to_ros.cpp.o[0m
+[46.452s] [ 11%] [32mBuilding CXX object CMakeFiles/ros_gz_bridge.dir/src/factory_interface.cpp.o[0m
+[50.822s] [ 12%] [32mBuilding CXX object CMakeFiles/ros_gz_bridge.dir/src/service_factory_interface.cpp.o[0m
+[53.874s] [ 13%] [32mBuilding CXX object CMakeFiles/ros_gz_bridge.dir/src/service_factories/ros_gz_interfaces.cpp.o[0m
+[66.239s] [ 14%] [32mBuilding CXX object CMakeFiles/ros_gz_bridge.dir/src/ros_gz_bridge.cpp.o[0m
+[73.504s] In file included from [01m[K/usr/include/c++/13/mutex:43[m[K,
+[73.504s]                  from [01m[K/opt/ros/jazzy/opt/gz_transport_vendor/include/gz/transport13/gz/transport/Node.hh:23[m[K,
+[73.504s]                  from [01m[K/home/abigaildiehl/screw_sorting/models/GazeboWorld1/src/ros_gz/ros_gz_bridge/include/ros_gz_bridge/ros_gz_bridge.hpp:23[m[K,
+[73.504s]                  from [01m[K/home/abigaildiehl/screw_sorting/models/GazeboWorld1/src/ros_gz/ros_gz_bridge/src/ros_gz_bridge.cpp:15[m[K:
+[73.504s] In constructor ‘[01m[Kconstexpr std::chrono::duration<_Rep, _Period>::[01;32m[Kduration[m[K(const _Rep2&) [35m[K[with _Rep2 = int; <template-parameter-2-2> = void; _Rep = long int; _Period = std::ratio<1, 1000>][m[K[m[K’,
+[73.504s]     inlined from ‘[01m[Kros_gz_bridge::RosGzBridge::[01;32m[KRosGzBridge[m[K(const rclcpp::NodeOptions&)[m[K’ at [01m[K/home/abigaildiehl/screw_sorting/models/GazeboWorld1/src/ros_gz/ros_gz_bridge/src/ros_gz_bridge.cpp:115:45[m[K:
+[73.504s] [01m[K/usr/include/c++/13/bits/chrono.h:574:17:[m[K [01;35m[Kwarning: [m[K‘[01m[Kheartbeat[m[K’ may be used uninitialized [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wmaybe-uninitialized-Wmaybe-uninitialized]8;;[m[K]
+[73.505s]   574 |           : __r([01;35m[Kstatic_cast<rep>(__rep)[m[K) { }
+[73.505s]       |                 [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[73.505s] [01m[K/home/abigaildiehl/screw_sorting/models/GazeboWorld1/src/ros_gz/ros_gz_bridge/src/ros_gz_bridge.cpp:[m[K In constructor ‘[01m[Kros_gz_bridge::RosGzBridge::[01;32m[KRosGzBridge[m[K(const rclcpp::NodeOptions&)[m[K’:
+[73.505s] [01m[K/home/abigaildiehl/screw_sorting/models/GazeboWorld1/src/ros_gz/ros_gz_bridge/src/ros_gz_bridge.cpp:113:7:[m[K [01;36m[Knote: [m[K‘[01m[Kheartbeat[m[K’ was declared here
+[73.505s]   113 |   int [01;36m[Kheartbeat[m[K;
+[73.505s]       |       [01;36m[K^~~~~~~~~[m[K
+[74.102s] [01m[K/home/abigaildiehl/screw_sorting/models/GazeboWorld1/src/ros_gz/ros_gz_bridge/src/ros_gz_bridge.cpp:[m[K In member function ‘[01m[Kvoid ros_gz_bridge::RosGzBridge::[01;32m[Kspin[m[K()[m[K’:
+[74.102s] [01m[K/home/abigaildiehl/screw_sorting/models/GazeboWorld1/src/ros_gz/ros_gz_bridge/src/ros_gz_bridge.cpp:125:10:[m[K [01;35m[Kwarning: [m[K‘[01m[Kexpand_names[m[K’ may be used uninitialized [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wmaybe-uninitialized-Wmaybe-uninitialized]8;;[m[K]
+[74.102s]   125 |     bool [01;35m[Kexpand_names[m[K;
+[74.102s]       |          [01;35m[K^~~~~~~~~~~~[m[K
+[74.548s] [ 15%] [32mBuilding CXX object CMakeFiles/ros_gz_bridge.dir/src/convert/utils.cpp.o[0m
+[74.828s] [ 16%] [32mBuilding CXX object CMakeFiles/ros_gz_bridge.dir/src/convert/builtin_interfaces.cpp.o[0m
+[75.882s] [ 17%] [32mBuilding CXX object CMakeFiles/ros_gz_bridge.dir/src/convert/actuator_msgs.cpp.o[0m
+[76.903s] [ 18%] [32mBuilding CXX object CMakeFiles/ros_gz_bridge.dir/src/convert/geometry_msgs.cpp.o[0m
+[78.329s] [ 19%] [32mBuilding CXX object CMakeFiles/ros_gz_bridge.dir/src/convert/gps_msgs.cpp.o[0m
+[79.516s] [ 20%] [32mBuilding CXX object CMakeFiles/ros_gz_bridge.dir/src/convert/marine_acoustic_msgs.cpp.o[0m
+[80.872s] [ 21%] [32mBuilding CXX object CMakeFiles/ros_gz_bridge.dir/src/convert/nav_msgs.cpp.o[0m
+[81.995s] [ 22%] [32mBuilding CXX object CMakeFiles/ros_gz_bridge.dir/src/convert/rcl_interfaces.cpp.o[0m
+[83.036s] [ 23%] [32mBuilding CXX object CMakeFiles/ros_gz_bridge.dir/src/convert/ros_gz_interfaces.cpp.o[0m
+[88.901s] [ 24%] [32mBuilding CXX object CMakeFiles/ros_gz_bridge.dir/src/convert/rosgraph_msgs.cpp.o[0m
+[90.156s] [ 25%] [32mBuilding CXX object CMakeFiles/ros_gz_bridge.dir/src/convert/sensor_msgs.cpp.o[0m
+[92.944s] [ 26%] [32mBuilding CXX object CMakeFiles/ros_gz_bridge.dir/src/convert/std_msgs.cpp.o[0m
+[94.518s] [ 27%] [32mBuilding CXX object CMakeFiles/ros_gz_bridge.dir/src/convert/tf2_msgs.cpp.o[0m
+[96.091s] [ 28%] [32mBuilding CXX object CMakeFiles/ros_gz_bridge.dir/src/convert/trajectory_msgs.cpp.o[0m
+[97.777s] [ 29%] [32mBuilding CXX object CMakeFiles/ros_gz_bridge.dir/src/convert/vision_msgs.cpp.o[0m
+[99.980s] [ 30%] [32mBuilding CXX object CMakeFiles/ros_gz_bridge.dir/generated/get_factory.cpp.o[0m
+[103.826s] [ 31%] [32mBuilding CXX object CMakeFiles/ros_gz_bridge.dir/generated/get_mappings.cpp.o[0m
+[104.769s] [ 32%] [32mBuilding CXX object CMakeFiles/ros_gz_bridge.dir/generated/factories/builtin_interfaces.cpp.o[0m
+[120.630s] [ 33%] [32mBuilding CXX object CMakeFiles/ros_gz_bridge.dir/generated/factories/actuator_msgs.cpp.o[0m
+[129.244s] [ 34%] [32mBuilding CXX object CMakeFiles/ros_gz_bridge.dir/generated/factories/geometry_msgs.cpp.o[0m
+[212.622s] [ 35%] [32mBuilding CXX object CMakeFiles/ros_gz_bridge.dir/generated/factories/gps_msgs.cpp.o[0m
+[224.888s] [ 36%] [32mBuilding CXX object CMakeFiles/ros_gz_bridge.dir/generated/factories/marine_acoustic_msgs.cpp.o[0m
+[237.612s] [ 37%] [32mBuilding CXX object CMakeFiles/ros_gz_bridge.dir/generated/factories/nav_msgs.cpp.o[0m
+[250.201s] [ 38%] [32mBuilding CXX object CMakeFiles/ros_gz_bridge.dir/generated/factories/rcl_interfaces.cpp.o[0m
+[262.932s] [ 39%] [32mBuilding CXX object CMakeFiles/ros_gz_bridge.dir/generated/factories/ros_gz_interfaces.cpp.o[0m
+[396.904s] [ 40%] [32mBuilding CXX object CMakeFiles/ros_gz_bridge.dir/generated/factories/rosgraph_msgs.cpp.o[0m
+[411.680s] [ 41%] [32mBuilding CXX object CMakeFiles/ros_gz_bridge.dir/generated/factories/sensor_msgs.cpp.o[0m
+[487.211s] [ 42%] [32mBuilding CXX object CMakeFiles/ros_gz_bridge.dir/generated/factories/std_msgs.cpp.o[0m
+[540.542s] [ 43%] [32mBuilding CXX object CMakeFiles/ros_gz_bridge.dir/generated/factories/tf2_msgs.cpp.o[0m
+[554.766s] [ 44%] [32mBuilding CXX object CMakeFiles/ros_gz_bridge.dir/generated/factories/trajectory_msgs.cpp.o[0m
+[568.701s] [ 45%] [32mBuilding CXX object CMakeFiles/ros_gz_bridge.dir/generated/factories/vision_msgs.cpp.o[0m
+[594.764s] [ 46%] [32m[1mLinking CXX shared library libros_gz_bridge.so[0m
+[598.001s] [ 46%] Built target ros_gz_bridge
+[598.050s] [ 47%] [32mBuilding CXX object CMakeFiles/test_utils.dir/test/utils/gz_test_msg.cpp.o[0m
+[609.585s] [ 48%] [32mBuilding CXX object CMakeFiles/test_utils.dir/test/utils/ros_test_msg.cpp.o[0m
+[622.100s] [ 49%] [32m[1mLinking CXX static library libtest_utils.a[0m
+[622.317s] [ 49%] Built target test_utils
+[622.400s] [ 50%] [32mBuilding CXX object CMakeFiles/ros_gz_bridge_gid_filtering.dir/test/test_gid_filtering.cpp.o[0m
+[635.792s] [ 51%] [32m[1mLinking CXX executable ros_gz_bridge_gid_filtering[0m
+[636.076s] [ 51%] Built target ros_gz_bridge_gid_filtering
+[636.135s] [ 52%] [32mBuilding CXX object CMakeFiles/ros_gz_bridge_node_lifetime.dir/test/test_node_lifetime.cpp.o[0m
+[646.040s] [ 53%] [32m[1mLinking CXX executable ros_gz_bridge_node_lifetime[0m
+[647.847s] [ 53%] Built target ros_gz_bridge_node_lifetime
+[647.912s] [ 54%] [32mBuilding CXX object CMakeFiles/parameter_bridge.dir/src/parameter_bridge.cpp.o[0m
+[653.143s] [ 55%] [32m[1mLinking CXX executable parameter_bridge[0m
+[654.652s] [ 55%] Built target parameter_bridge
+[654.707s] [ 56%] [32mBuilding CXX object CMakeFiles/static_bridge.dir/src/static_bridge.cpp.o[0m
+[660.172s] [ 57%] [32m[1mLinking CXX executable static_bridge[0m
+[661.860s] [ 57%] Built target static_bridge
+[661.907s] [ 58%] [32mBuilding CXX object CMakeFiles/bridge_types.dir/src/bridge_types.cpp.o[0m
+[662.584s] [ 59%] [32m[1mLinking CXX executable bridge_types[0m
+[664.150s] [ 59%] Built target bridge_types
+[664.195s] [ 60%] [32mBuilding CXX object CMakeFiles/test_ros_gz_interfaces.dir/src/convert/ros_gz_interfaces.cpp.o[0m
+[670.248s] [ 61%] [32mBuilding CXX object CMakeFiles/test_ros_gz_interfaces.dir/src/convert/ros_gz_interfaces_TEST.cpp.o[0m
+[678.415s] [ 62%] [32m[1mLinking CXX executable test_ros_gz_interfaces[0m
+[680.527s] [ 62%] Built target test_ros_gz_interfaces
+[680.585s] [ 63%] [32mBuilding CXX object CMakeFiles/test_sensor_msgs.dir/src/convert/sensor_msgs_TEST.cpp.o[0m
+[684.036s] [ 64%] [32m[1mLinking CXX executable test_sensor_msgs[0m
+[685.492s] [ 64%] Built target test_sensor_msgs
+[685.529s] [ 65%] [34m[1mGenerating test helpers[0m
+[686.593s] [ 66%] [32mBuilding CXX object CMakeFiles/test_gz_publisher.dir/generated/test/gz_publisher.cpp.o[0m
+[694.354s] [ 67%] [32m[1mLinking CXX executable test_gz_publisher[0m
+[694.809s] [ 67%] Built target test_gz_publisher
+[694.864s] [ 68%] [32mBuilding CXX object CMakeFiles/test_ros_publisher.dir/generated/test/ros_publisher.cpp.o[0m
+[794.269s] [ 69%] [32mBuilding CXX object CMakeFiles/test_gz_subscriber.dir/generated/test/gz_subscriber.cpp.o[0m
+[797.582s] [ 69%] Built target ament_cmake_python_symlink_ros_gz_bridge
+[797.588s] [ 70%] [32mBuilding CXX object CMakeFiles/test_gz_server.dir/test/serverclient/gz_server.cpp.o[0m
+[797.726s] [ 71%] [32mBuilding CXX object CMakeFiles/test_rcl_interfaces.dir/src/convert/rcl_interfaces.cpp.o[0m
+[802.678s] [ 72%] [32mBuilding CXX object CMakeFiles/test_rcl_interfaces.dir/src/convert/rcl_interfaces_TEST.cpp.o[0m
+[808.318s] [ 73%] [32m[1mLinking CXX executable test_rcl_interfaces[0m
+[812.870s] [ 74%] [32m[1mLinking CXX executable test_gz_server[0m
+[813.354s] [ 74%] Built target test_rcl_interfaces
+[813.531s] [ 74%] Built target test_gz_server
+[825.948s] [ 75%] [32m[1mLinking CXX executable test_gz_subscriber[0m
+[826.401s] [ 76%] Built target test_gz_subscriber
+[828.465s] [ 77%] [32m[1mLinking CXX executable test_ros_publisher[0m
+[829.204s] [ 78%] Built target test_ros_publisher
+[829.260s] [ 79%] [32mBuilding CXX object CMakeFiles/test_launch_action_subscriber.dir/test/subscribers/launch_action_subscriber.cpp.o[0m
+[851.311s] [ 80%] [32m[1mLinking CXX executable test_launch_action_subscriber[0m
+[851.737s] [ 80%] Built target test_launch_action_subscriber
+[851.805s] [ 80%] [32mBuilding CXX object CMakeFiles/ros_gz_bridge_bridge_config.dir/test/bridge_config.cpp.o[0m
+[854.751s] [ 81%] [32m[1mLinking CXX executable ros_gz_bridge_bridge_config[0m
+[856.635s] [ 81%] Built target ros_gz_bridge_bridge_config
+[856.985s] running egg_info
+[856.986s] creating ros_gz_bridge.egg-info
+[857.018s] writing ros_gz_bridge.egg-info/PKG-INFO
+[857.020s] writing dependency_links to ros_gz_bridge.egg-info/dependency_links.txt
+[857.020s] writing entry points to ros_gz_bridge.egg-info/entry_points.txt
+[857.021s] writing top-level names to ros_gz_bridge.egg-info/top_level.txt
+[857.021s] writing manifest file 'ros_gz_bridge.egg-info/SOURCES.txt'
+[857.099s] reading manifest file 'ros_gz_bridge.egg-info/SOURCES.txt'
+[857.100s] writing manifest file 'ros_gz_bridge.egg-info/SOURCES.txt'
+[857.157s] [ 81%] Built target ament_cmake_python_build_ros_gz_bridge_egg
+[857.216s] [ 82%] [32mBuilding CXX object CMakeFiles/test_ros_subscriber.dir/test/subscribers/ros_subscriber.cpp.o[0m
+[862.821s] [ 83%] [32mBuilding CXX object CMakeFiles/test_ros_subscriber.dir/generated/test/actuator_msgs_subscriber.cpp.o[0m
+[876.606s] [ 84%] [32mBuilding CXX object CMakeFiles/test_ros_subscriber.dir/generated/test/geometry_msgs_subscriber.cpp.o[0m
+[948.166s] [ 85%] [32mBuilding CXX object CMakeFiles/test_ros_subscriber.dir/generated/test/gps_msgs_subscriber.cpp.o[0m
+[960.317s] [ 86%] [32mBuilding CXX object CMakeFiles/test_ros_subscriber.dir/generated/test/marine_acoustic_msgs_subscriber.cpp.o[0m
+[972.560s] [ 87%] [32mBuilding CXX object CMakeFiles/test_ros_subscriber.dir/generated/test/nav_msgs_subscriber.cpp.o[0m
+[986.871s] [ 88%] [32mBuilding CXX object CMakeFiles/test_ros_subscriber.dir/generated/test/rcl_interfaces_subscriber.cpp.o[0m
+[1000.052s] [ 89%] [32mBuilding CXX object CMakeFiles/test_ros_subscriber.dir/generated/test/ros_gz_interfaces_subscriber.cpp.o[0m
+[1092.384s] [ 90%] [32mBuilding CXX object CMakeFiles/test_ros_subscriber.dir/generated/test/rosgraph_msgs_subscriber.cpp.o[0m
+[1105.081s] [ 91%] [32mBuilding CXX object CMakeFiles/test_ros_subscriber.dir/generated/test/sensor_msgs_subscriber.cpp.o[0m
+[1160.793s] [ 92%] [32mBuilding CXX object CMakeFiles/test_ros_subscriber.dir/generated/test/std_msgs_subscriber.cpp.o[0m
+[1206.052s] [ 93%] [32mBuilding CXX object CMakeFiles/test_ros_subscriber.dir/generated/test/tf2_msgs_subscriber.cpp.o[0m
+[1219.367s] [ 94%] [32mBuilding CXX object CMakeFiles/test_ros_subscriber.dir/generated/test/trajectory_msgs_subscriber.cpp.o[0m
+[1232.408s] [ 95%] [32mBuilding CXX object CMakeFiles/test_ros_subscriber.dir/generated/test/vision_msgs_subscriber.cpp.o[0m
+[1255.457s] [ 96%] [32mBuilding CXX object CMakeFiles/test_ros_subscriber.dir/generated/test/builtin_interfaces_subscriber.cpp.o[0m
+[1269.410s] [ 97%] [32m[1mLinking CXX executable test_ros_subscriber[0m
+[1271.787s] [ 98%] Built target test_ros_subscriber
+[1271.856s] [ 99%] [32mBuilding CXX object CMakeFiles/test_ros_client.dir/test/serverclient/ros_client.cpp.o[0m
+[1278.505s] [100%] [32m[1mLinking CXX executable test_ros_client[0m
+[1278.794s] [100%] Built target test_ros_client

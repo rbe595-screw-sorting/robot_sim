@@ -1,0 +1,1 @@
+/home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/ros_gz_interfaces/rosidl_generator_cpp/ros_gz_interfaces/msg/logical_camera_image_model.hpp

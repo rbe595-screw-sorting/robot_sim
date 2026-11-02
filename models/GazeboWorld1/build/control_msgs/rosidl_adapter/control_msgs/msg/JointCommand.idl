@@ -1,0 +1,27 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from control_msgs/msg/JointCommand.msg
+// generated code does not contain a copyright notice
+
+#include "std_msgs/msg/Header.idl"
+
+module control_msgs {
+  module msg {
+    @verbatim (language="comment", text=
+      "This message contains the command for a specific interface across multiple joints.")
+    struct JointCommand {
+      std_msgs::msg::Header header;
+
+      @verbatim (language="comment", text=
+        "List of joint names to command.")
+      sequence<string> joint_names;
+
+      @verbatim (language="comment", text=
+        "The specific interface type to command (e.g., \"position\", \"velocity\", \"effort\").")
+      string interface_name;
+
+      @verbatim (language="comment", text=
+        "The commanded values. The length of this array must exactly match the length of joint_names.")
+      sequence<double> values;
+    };
+  };
+};

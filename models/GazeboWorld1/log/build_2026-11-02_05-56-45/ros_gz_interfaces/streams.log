@@ -1,0 +1,1006 @@
+[0.024s] Invoking command in '/home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/ros_gz_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/abigaildiehl/simulation_ws/install/vbrm_hw6:/home/abigaildiehl/simulation_ws/install/ur_move_merlab:/home/abigaildiehl/RBE4540/install/py_srvcli:/home/abigaildiehl/RBE4540/install/my_package:/home/abigaildiehl/RBE4540/install/force_vector_service:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/abigaildiehl/screw_sorting/models/GazeboWorld1/src/ros_gz/ros_gz_interfaces -DCMAKE_BUILD_TYPE=Release -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces
+[0.117s] -- The C compiler identification is GNU 13.3.0
+[0.202s] -- The CXX compiler identification is GNU 13.3.0
+[0.235s] -- Detecting C compiler ABI info
+[0.438s] -- Detecting C compiler ABI info - done
+[0.445s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.445s] -- Detecting C compile features
+[0.446s] -- Detecting C compile features - done
+[0.470s] -- Detecting CXX compiler ABI info
+[0.664s] -- Detecting CXX compiler ABI info - done
+[0.675s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.675s] -- Detecting CXX compile features
+[0.676s] -- Detecting CXX compile features - done
+[0.683s] -- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.889s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[0.965s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[1.054s] -- Found builtin_interfaces: 2.0.4 (/opt/ros/jazzy/share/builtin_interfaces/cmake)
+[1.123s] -- Found rosidl_generator_c: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[1.154s] -- Found rosidl_generator_cpp: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[1.184s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.221s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.259s] -- Found rcl_interfaces: 2.0.4 (/opt/ros/jazzy/share/rcl_interfaces/cmake)
+[1.320s] -- Found std_msgs: 5.3.8 (/opt/ros/jazzy/share/std_msgs/cmake)
+[1.347s] -- Found geometry_msgs: 5.3.8 (/opt/ros/jazzy/share/geometry_msgs/cmake)
+[1.370s] -- Found rosidl_default_generators: 1.6.1 (/opt/ros/jazzy/share/rosidl_default_generators/cmake)
+[1.405s] -- Found rosidl_adapter: 4.6.9 (/opt/ros/jazzy/share/rosidl_adapter/cmake)
+[2.400s] -- Found ament_cmake_cppcheck: 0.17.5 (/opt/ros/jazzy/share/ament_cmake_cppcheck/cmake)
+[2.414s] -- Found ament_cmake_cpplint: 0.17.5 (/opt/ros/jazzy/share/ament_cmake_cpplint/cmake)
+[2.427s] -- Found ament_cmake_uncrustify: 0.17.5 (/opt/ros/jazzy/share/ament_cmake_uncrustify/cmake)
+[2.449s] -- Found ament_cmake_ros: 0.12.2 (/opt/ros/jazzy/share/ament_cmake_ros/cmake)
+[3.670s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[4.109s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[4.129s] -- Found python_cmake_module: 0.11.1 (/opt/ros/jazzy/share/python_cmake_module/cmake)
+[4.371s] -- Found PythonExtra: /usr/bin/python3  
+[4.989s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter Development NumPy Development.Module Development.Embed 
+[5.100s] -- Found ament_cmake_flake8: 0.17.5 (/opt/ros/jazzy/share/ament_cmake_flake8/cmake)
+[5.114s] -- Found ament_cmake_pep257: 0.17.5 (/opt/ros/jazzy/share/ament_cmake_pep257/cmake)
+[5.203s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[5.228s] -- Configuring done (5.2s)
+[5.354s] -- Generating done (0.1s)
+[5.369s] -- Build files have been written to: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/ros_gz_interfaces
+[5.388s] Invoked command in '/home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/ros_gz_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/abigaildiehl/simulation_ws/install/vbrm_hw6:/home/abigaildiehl/simulation_ws/install/ur_move_merlab:/home/abigaildiehl/RBE4540/install/py_srvcli:/home/abigaildiehl/RBE4540/install/my_package:/home/abigaildiehl/RBE4540/install/force_vector_service:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/abigaildiehl/screw_sorting/models/GazeboWorld1/src/ros_gz/ros_gz_interfaces -DCMAKE_BUILD_TYPE=Release -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces
+[5.390s] Invoking command in '/home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/ros_gz_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/abigaildiehl/simulation_ws/install/vbrm_hw6:/home/abigaildiehl/simulation_ws/install/ur_move_merlab:/home/abigaildiehl/RBE4540/install/py_srvcli:/home/abigaildiehl/RBE4540/install/my_package:/home/abigaildiehl/RBE4540/install/force_vector_service:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/ros_gz_interfaces -- -j4 -l4
+[5.526s] [  1%] [34m[1mGenerating Rust code for ROS interfaces[0m
+[7.361s] [  1%] Built target ros_gz_interfaces__rs
+[7.443s] [  1%] Built target ament_cmake_python_symlink_ros_gz_interfaces
+[7.491s] [  1%] [34m[1mGenerating type hashes for ROS interfaces[0m
+[9.641s] [  1%] Built target ros_gz_interfaces__rosidl_generator_type_description
+[9.950s] running egg_info
+[9.951s] creating ros_gz_interfaces.egg-info
+[9.974s] writing ros_gz_interfaces.egg-info/PKG-INFO
+[9.974s] writing dependency_links to ros_gz_interfaces.egg-info/dependency_links.txt
+[9.974s] writing top-level names to ros_gz_interfaces.egg-info/top_level.txt
+[9.974s] writing manifest file 'ros_gz_interfaces.egg-info/SOURCES.txt'
+[10.050s] reading manifest file 'ros_gz_interfaces.egg-info/SOURCES.txt'
+[10.050s] writing manifest file 'ros_gz_interfaces.egg-info/SOURCES.txt'
+[10.108s] [  1%] Built target ament_cmake_python_build_ros_gz_interfaces_egg
+[10.158s] [  1%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[14.658s] [  1%] Built target ros_gz_interfaces__cpp
+[14.683s] [  1%] [34m[1mGenerating C code for ROS interfaces[0m
+[20.004s] [  1%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/air_speed__functions.c.o[0m
+[20.004s] [  2%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/air_speed__description.c.o[0m
+[20.076s] [  3%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/altimeter__description.c.o[0m
+[20.107s] [  3%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/altimeter__functions.c.o[0m
+[20.155s] [  3%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/altimeter__type_support.c.o[0m
+[20.206s] [  4%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/contact__description.c.o[0m
+[20.239s] [  4%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/contact__functions.c.o[0m
+[20.293s] [  4%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/contact__type_support.c.o[0m
+[20.358s] [  5%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/contacts__description.c.o[0m
+[20.377s] [  5%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/contacts__functions.c.o[0m
+[20.450s] [  5%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/contacts__type_support.c.o[0m
+[20.497s] [  6%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/dataframe__description.c.o[0m
+[20.498s] [  6%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/dataframe__functions.c.o[0m
+[20.613s] [  6%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/dataframe__type_support.c.o[0m
+[20.641s] [  7%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/entity__description.c.o[0m
+[20.664s] [  7%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/entity__functions.c.o[0m
+[20.696s] [  7%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/entity__type_support.c.o[0m
+[20.759s] [  8%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/entity_factory__description.c.o[0m
+[20.819s] [  8%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/entity_factory__functions.c.o[0m
+[20.829s] [  8%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/entity_factory__type_support.c.o[0m
+[20.919s] [  9%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/entity_wrench__description.c.o[0m
+[20.941s] [  9%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/entity_wrench__functions.c.o[0m
+[21.032s] [  9%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/entity_wrench__type_support.c.o[0m
+[21.032s] [ 10%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/float32_array__description.c.o[0m
+[21.094s] [ 10%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/float32_array__type_support.c.o[0m
+[21.094s] [ 10%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/float32_array__functions.c.o[0m
+[21.138s] [ 11%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/gui_camera__description.c.o[0m
+[21.197s] [ 11%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/gui_camera__functions.c.o[0m
+[21.222s] [ 11%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/gui_camera__type_support.c.o[0m
+[21.266s] [ 12%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/joint_wrench__description.c.o[0m
+[21.320s] [ 12%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/joint_wrench__functions.c.o[0m
+[21.337s] [ 12%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/joint_wrench__type_support.c.o[0m
+[21.383s] [ 13%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/light__description.c.o[0m
+[21.452s] [ 13%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/light__functions.c.o[0m
+[21.472s] [ 13%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/light__type_support.c.o[0m
+[21.588s] [ 14%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/logical_camera_image__description.c.o[0m
+[21.612s] [ 14%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/logical_camera_image__functions.c.o[0m
+[21.658s] [ 14%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/logical_camera_image__type_support.c.o[0m
+[21.711s] [ 15%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/logical_camera_image_model__description.c.o[0m
+[21.730s] [ 15%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/logical_camera_image_model__functions.c.o[0m
+[21.856s] [ 15%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/logical_camera_image_model__type_support.c.o[0m
+[21.893s] [ 16%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/log_playback_statistics__description.c.o[0m
+[21.989s] [ 16%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/log_playback_statistics__type_support.c.o[0m
+[22.076s] [ 17%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/material_color__description.c.o[0m
+[22.078s] [ 17%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/material_color__functions.c.o[0m
+[22.179s] [ 17%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/material_color__type_support.c.o[0m
+[22.223s] [ 18%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/param_vec__description.c.o[0m
+[22.307s] [ 18%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/param_vec__functions.c.o[0m
+[22.416s] [ 18%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/param_vec__type_support.c.o[0m
+[22.474s] [ 19%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/sensor_noise__description.c.o[0m
+[22.535s] [ 19%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/sensor_noise__functions.c.o[0m
+[22.633s] [ 19%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/sensor_noise__type_support.c.o[0m
+[22.689s] [ 20%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/string_vec__description.c.o[0m
+[22.770s] [ 20%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/string_vec__functions.c.o[0m
+[22.883s] [ 20%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/string_vec__type_support.c.o[0m
+[22.938s] [ 21%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/track_visual__description.c.o[0m
+[23.005s] [ 21%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/track_visual__functions.c.o[0m
+[23.137s] [ 21%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/track_visual__type_support.c.o[0m
+[23.188s] [ 21%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/video_record__description.c.o[0m
+[23.260s] [ 22%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/video_record__functions.c.o[0m
+[23.395s] [ 22%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/video_record__type_support.c.o[0m
+[23.446s] [ 22%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/world_control__description.c.o[0m
+[23.525s] [ 23%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/world_control__functions.c.o[0m
+[23.656s] [ 23%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/world_control__type_support.c.o[0m
+[23.710s] [ 23%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/world_reset__description.c.o[0m
+[23.774s] [ 24%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/world_reset__functions.c.o[0m
+[23.872s] [ 24%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/world_reset__type_support.c.o[0m
+[23.926s] [ 24%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/world_statistics__description.c.o[0m
+[23.997s] [ 25%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/world_statistics__functions.c.o[0m
+[24.127s] [ 25%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/world_statistics__type_support.c.o[0m
+[24.171s] [ 25%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/srv/detail/control_world__description.c.o[0m
+[24.390s] [ 26%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/srv/detail/control_world__functions.c.o[0m
+[24.451s] [ 26%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/srv/detail/control_world__type_support.c.o[0m
+[24.523s] [ 26%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/srv/detail/delete_entity__description.c.o[0m
+[24.589s] [ 27%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/srv/detail/delete_entity__functions.c.o[0m
+[24.786s] [ 27%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/srv/detail/delete_entity__type_support.c.o[0m
+[24.859s] [ 27%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/srv/detail/set_entity_pose__description.c.o[0m
+[24.961s] [ 28%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/srv/detail/set_entity_pose__functions.c.o[0m
+[25.222s] [ 28%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/srv/detail/set_entity_pose__type_support.c.o[0m
+[25.287s] [ 28%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/srv/detail/spawn_entity__description.c.o[0m
+[25.380s] [ 29%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/srv/detail/spawn_entity__functions.c.o[0m
+[25.575s] [ 29%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/srv/detail/spawn_entity__type_support.c.o[0m
+[25.634s] [ 29%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/log_playback_statistics__functions.c.o[0m
+[25.719s] [ 29%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_c.dir/rosidl_generator_c/ros_gz_interfaces/msg/detail/air_speed__type_support.c.o[0m
+[25.764s] [ 29%] [32m[1mLinking C shared library libros_gz_interfaces__rosidl_generator_c.so[0m
+[25.839s] [ 29%] Built target ros_gz_interfaces__rosidl_generator_c
+[25.866s] [ 29%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[25.866s] [ 29%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[29.001s] [ 30%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[29.957s] [ 30%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[30.129s] [ 30%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ros_gz_interfaces/msg/detail/dds_fastrtps/air_speed__type_support.cpp.o[0m
+[30.578s] [ 31%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ros_gz_interfaces/msg/detail/dds_fastrtps/altimeter__type_support.cpp.o[0m
+[31.140s] [ 31%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ros_gz_interfaces/msg/detail/dds_fastrtps/contact__type_support.cpp.o[0m
+[32.115s] [ 31%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ros_gz_interfaces/msg/detail/dds_fastrtps/contacts__type_support.cpp.o[0m
+[33.010s] [ 32%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ros_gz_interfaces/msg/detail/dds_fastrtps/dataframe__type_support.cpp.o[0m
+[33.781s] [ 32%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ros_gz_interfaces/msg/detail/dds_fastrtps/entity__type_support.cpp.o[0m
+[34.378s] [ 32%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/ros_gz_interfaces/msg/air_speed__type_support.cpp.o[0m
+[34.512s] [ 32%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/ros_gz_interfaces/msg/altimeter__type_support.cpp.o[0m
+[34.681s] [ 33%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/ros_gz_interfaces/msg/contact__type_support.cpp.o[0m
+[34.916s] [ 33%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/ros_gz_interfaces/msg/contacts__type_support.cpp.o[0m
+[35.023s] [ 33%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ros_gz_interfaces/msg/detail/dds_fastrtps/entity_factory__type_support.cpp.o[0m
+[35.125s] [ 33%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/ros_gz_interfaces/msg/dataframe__type_support.cpp.o[0m
+[35.214s] [ 34%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ros_gz_interfaces/msg/detail/air_speed__type_support_c.cpp.o[0m
+[35.263s] [ 34%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/ros_gz_interfaces/msg/entity__type_support.cpp.o[0m
+[35.418s] [ 35%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/ros_gz_interfaces/msg/entity_factory__type_support.cpp.o[0m
+[35.626s] [ 35%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/ros_gz_interfaces/msg/entity_wrench__type_support.cpp.o[0m
+[36.137s] [ 35%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/ros_gz_interfaces/msg/float32_array__type_support.cpp.o[0m
+[36.324s] [ 36%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/ros_gz_interfaces/msg/gui_camera__type_support.cpp.o[0m
+[36.347s] [ 36%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ros_gz_interfaces/msg/detail/altimeter__type_support_c.cpp.o[0m
+[36.427s] [ 36%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ros_gz_interfaces/msg/detail/air_speed__type_support.c.o[0m
+[36.433s] [ 37%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ros_gz_interfaces/msg/detail/dds_fastrtps/entity_wrench__type_support.cpp.o[0m
+[36.474s] [ 37%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/ros_gz_interfaces/msg/joint_wrench__type_support.cpp.o[0m
+[36.563s] [ 37%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/ros_gz_interfaces/msg/light__type_support.cpp.o[0m
+[36.589s] [ 38%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ros_gz_interfaces/msg/detail/altimeter__type_support.c.o[0m
+[36.710s] [ 39%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/ros_gz_interfaces/msg/logical_camera_image__type_support.cpp.o[0m
+[36.805s] [ 39%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ros_gz_interfaces/msg/detail/contact__type_support.c.o[0m
+[36.822s] [ 39%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/ros_gz_interfaces/msg/logical_camera_image_model__type_support.cpp.o[0m
+[37.040s] [ 39%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/ros_gz_interfaces/msg/log_playback_statistics__type_support.cpp.o[0m
+[37.135s] [ 39%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ros_gz_interfaces/msg/detail/contacts__type_support.c.o[0m
+[37.219s] [ 40%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/ros_gz_interfaces/msg/material_color__type_support.cpp.o[0m
+[37.279s] [ 41%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ros_gz_interfaces/msg/detail/dataframe__type_support.c.o[0m
+[37.288s] [ 41%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ros_gz_interfaces/msg/detail/dds_fastrtps/float32_array__type_support.cpp.o[0m
+[37.352s] [ 41%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/ros_gz_interfaces/msg/param_vec__type_support.cpp.o[0m
+[37.417s] [ 41%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ros_gz_interfaces/msg/detail/contact__type_support_c.cpp.o[0m
+[37.442s] [ 41%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ros_gz_interfaces/msg/detail/entity__type_support.c.o[0m
+[37.511s] [ 41%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/ros_gz_interfaces/msg/sensor_noise__type_support.cpp.o[0m
+[37.955s] [ 42%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/ros_gz_interfaces/msg/string_vec__type_support.cpp.o[0m
+[37.986s] [ 42%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ros_gz_interfaces/msg/detail/entity_factory__type_support.c.o[0m
+[38.043s] [ 42%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ros_gz_interfaces/msg/detail/dds_fastrtps/gui_camera__type_support.cpp.o[0m
+[38.078s] [ 42%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/ros_gz_interfaces/msg/track_visual__type_support.cpp.o[0m
+[38.167s] [ 42%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/ros_gz_interfaces/msg/video_record__type_support.cpp.o[0m
+[38.182s] [ 42%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ros_gz_interfaces/msg/detail/entity_wrench__type_support.c.o[0m
+[38.203s] [ 43%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ros_gz_interfaces/msg/detail/contacts__type_support_c.cpp.o[0m
+[38.656s] [ 44%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/ros_gz_interfaces/msg/world_control__type_support.cpp.o[0m
+[38.682s] [ 45%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ros_gz_interfaces/msg/detail/float32_array__type_support.c.o[0m
+[38.746s] [ 46%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ros_gz_interfaces/msg/detail/dds_fastrtps/joint_wrench__type_support.cpp.o[0m
+[38.788s] [ 46%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/ros_gz_interfaces/msg/world_reset__type_support.cpp.o[0m
+[38.807s] [ 46%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ros_gz_interfaces/msg/detail/gui_camera__type_support.c.o[0m
+[38.875s] [ 46%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/ros_gz_interfaces/msg/world_statistics__type_support.cpp.o[0m
+[38.972s] [ 47%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/ros_gz_interfaces/srv/control_world__type_support.cpp.o[0m
+[38.976s] [ 47%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ros_gz_interfaces/msg/detail/joint_wrench__type_support.c.o[0m
+[39.035s] [ 47%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ros_gz_interfaces/msg/detail/dataframe__type_support_c.cpp.o[0m
+[39.114s] [ 47%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/ros_gz_interfaces/srv/delete_entity__type_support.cpp.o[0m
+[39.117s] [ 48%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ros_gz_interfaces/msg/detail/light__type_support.c.o[0m
+[39.268s] [ 48%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ros_gz_interfaces/msg/detail/logical_camera_image__type_support.c.o[0m
+[39.280s] [ 48%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/ros_gz_interfaces/srv/set_entity_pose__type_support.cpp.o[0m
+[39.447s] [ 48%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ros_gz_interfaces/msg/detail/logical_camera_image_model__type_support.c.o[0m
+[39.462s] [ 49%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/ros_gz_interfaces/srv/spawn_entity__type_support.cpp.o[0m
+[39.657s] [ 49%] [32m[1mLinking CXX shared library libros_gz_interfaces__rosidl_typesupport_c.so[0m
+[39.679s] [ 49%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ros_gz_interfaces/msg/detail/dds_fastrtps/light__type_support.cpp.o[0m
+[39.730s] [ 50%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ros_gz_interfaces/msg/detail/log_playback_statistics__type_support.c.o[0m
+[39.757s] [ 50%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ros_gz_interfaces/msg/detail/entity__type_support_c.cpp.o[0m
+[39.868s] [ 50%] Built target ros_gz_interfaces__rosidl_typesupport_c
+[39.868s] [ 50%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ros_gz_interfaces/msg/detail/material_color__type_support.c.o[0m
+[40.013s] [ 50%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ros_gz_interfaces/msg/detail/param_vec__type_support.c.o[0m
+[40.230s] [ 51%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ros_gz_interfaces/msg/detail/sensor_noise__type_support.c.o[0m
+[40.446s] [ 51%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ros_gz_interfaces/msg/detail/string_vec__type_support.c.o[0m
+[40.562s] [ 51%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ros_gz_interfaces/msg/detail/track_visual__type_support.c.o[0m
+[40.566s] [ 51%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ros_gz_interfaces/msg/detail/dds_fastrtps/logical_camera_image__type_support.cpp.o[0m
+[40.582s] [ 51%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ros_gz_interfaces/msg/detail/entity_factory__type_support_c.cpp.o[0m
+[41.206s] [ 52%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ros_gz_interfaces/msg/detail/video_record__type_support.c.o[0m
+[41.208s] [ 53%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ros_gz_interfaces/msg/detail/dds_fastrtps/logical_camera_image_model__type_support.cpp.o[0m
+[41.262s] [ 53%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ros_gz_interfaces/msg/detail/world_control__type_support.c.o[0m
+[41.310s] [ 53%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ros_gz_interfaces/msg/detail/world_reset__type_support.c.o[0m
+[41.361s] [ 54%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ros_gz_interfaces/msg/detail/entity_wrench__type_support_c.cpp.o[0m
+[41.604s] [ 55%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ros_gz_interfaces/msg/detail/world_statistics__type_support.c.o[0m
+[41.745s] [ 55%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ros_gz_interfaces/srv/detail/control_world__type_support.c.o[0m
+[41.745s] [ 55%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ros_gz_interfaces/msg/detail/dds_fastrtps/log_playback_statistics__type_support.cpp.o[0m
+[42.065s] [ 55%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ros_gz_interfaces/msg/detail/float32_array__type_support_c.cpp.o[0m
+[42.102s] [ 55%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ros_gz_interfaces/srv/detail/delete_entity__type_support.c.o[0m
+[42.252s] [ 56%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ros_gz_interfaces/srv/detail/set_entity_pose__type_support.c.o[0m
+[42.371s] [ 56%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ros_gz_interfaces/srv/detail/spawn_entity__type_support.c.o[0m
+[42.434s] [ 56%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ros_gz_interfaces/msg/detail/dds_fastrtps/material_color__type_support.cpp.o[0m
+[42.463s] [ 56%] [32m[1mLinking C shared library libros_gz_interfaces__rosidl_typesupport_introspection_c.so[0m
+[42.688s] [ 56%] Built target ros_gz_interfaces__rosidl_typesupport_introspection_c
+[42.739s] [ 56%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ros_gz_interfaces/msg/detail/gui_camera__type_support_c.cpp.o[0m
+[43.064s] [ 57%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ros_gz_interfaces/msg/detail/dds_fastrtps/param_vec__type_support.cpp.o[0m
+[43.280s] [ 58%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ros_gz_interfaces/msg/detail/joint_wrench__type_support_c.cpp.o[0m
+[43.742s] [ 58%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ros_gz_interfaces/msg/detail/light__type_support_c.cpp.o[0m
+[43.758s] [ 58%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ros_gz_interfaces/msg/detail/dds_fastrtps/sensor_noise__type_support.cpp.o[0m
+[44.212s] [ 58%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ros_gz_interfaces/msg/detail/dds_fastrtps/string_vec__type_support.cpp.o[0m
+[44.697s] [ 58%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ros_gz_interfaces/msg/detail/logical_camera_image__type_support_c.cpp.o[0m
+[44.863s] [ 59%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ros_gz_interfaces/msg/detail/dds_fastrtps/track_visual__type_support.cpp.o[0m
+[45.395s] [ 60%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ros_gz_interfaces/msg/detail/logical_camera_image_model__type_support_c.cpp.o[0m
+[45.400s] [ 60%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ros_gz_interfaces/msg/detail/dds_fastrtps/video_record__type_support.cpp.o[0m
+[45.885s] [ 60%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ros_gz_interfaces/msg/detail/log_playback_statistics__type_support_c.cpp.o[0m
+[45.919s] [ 60%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ros_gz_interfaces/msg/detail/dds_fastrtps/world_control__type_support.cpp.o[0m
+[46.360s] [ 61%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ros_gz_interfaces/msg/detail/dds_fastrtps/world_reset__type_support.cpp.o[0m
+[46.823s] [ 61%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ros_gz_interfaces/msg/detail/material_color__type_support_c.cpp.o[0m
+[46.849s] [ 61%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ros_gz_interfaces/msg/detail/dds_fastrtps/world_statistics__type_support.cpp.o[0m
+[46.915s] [ 62%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ros_gz_interfaces/msg/detail/param_vec__type_support_c.cpp.o[0m
+[47.357s] [ 62%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ros_gz_interfaces/msg/detail/sensor_noise__type_support_c.cpp.o[0m
+[47.420s] [ 62%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ros_gz_interfaces/srv/detail/dds_fastrtps/control_world__type_support.cpp.o[0m
+[47.884s] [ 62%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ros_gz_interfaces/msg/detail/string_vec__type_support_c.cpp.o[0m
+[48.358s] [ 63%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ros_gz_interfaces/srv/detail/dds_fastrtps/delete_entity__type_support.cpp.o[0m
+[48.420s] [ 64%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ros_gz_interfaces/msg/detail/track_visual__type_support_c.cpp.o[0m
+[49.001s] [ 64%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ros_gz_interfaces/msg/detail/video_record__type_support_c.cpp.o[0m
+[49.152s] [ 64%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ros_gz_interfaces/srv/detail/dds_fastrtps/set_entity_pose__type_support.cpp.o[0m
+[49.555s] [ 64%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ros_gz_interfaces/msg/detail/world_control__type_support_c.cpp.o[0m
+[49.913s] [ 64%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ros_gz_interfaces/srv/detail/dds_fastrtps/spawn_entity__type_support.cpp.o[0m
+[50.148s] [ 65%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ros_gz_interfaces/msg/detail/world_reset__type_support_c.cpp.o[0m
+[50.670s] [ 65%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ros_gz_interfaces/msg/detail/world_statistics__type_support_c.cpp.o[0m
+[50.839s] [ 66%] [32m[1mLinking CXX shared library libros_gz_interfaces__rosidl_typesupport_fastrtps_cpp.so[0m
+[51.226s] [ 66%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ros_gz_interfaces/srv/detail/control_world__type_support_c.cpp.o[0m
+[51.249s] [ 66%] Built target ros_gz_interfaces__rosidl_typesupport_fastrtps_cpp
+[51.862s] [ 67%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ros_gz_interfaces/srv/detail/delete_entity__type_support_c.cpp.o[0m
+[52.493s] [ 67%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ros_gz_interfaces/srv/detail/set_entity_pose__type_support_c.cpp.o[0m
+[53.123s] [ 67%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ros_gz_interfaces/srv/detail/spawn_entity__type_support_c.cpp.o[0m
+[53.668s] [ 68%] [32m[1mLinking CXX shared library libros_gz_interfaces__rosidl_typesupport_fastrtps_c.so[0m
+[53.777s] [ 68%] Built target ros_gz_interfaces__rosidl_typesupport_fastrtps_c
+[53.803s] [ 68%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[56.257s] [ 69%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ros_gz_interfaces/msg/air_speed__type_support.cpp.o[0m
+[56.630s] [ 69%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ros_gz_interfaces/msg/contact__type_support.cpp.o[0m
+[56.970s] [ 70%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ros_gz_interfaces/msg/contacts__type_support.cpp.o[0m
+[57.346s] [ 70%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ros_gz_interfaces/msg/dataframe__type_support.cpp.o[0m
+[57.660s] [ 70%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ros_gz_interfaces/msg/entity__type_support.cpp.o[0m
+[58.060s] [ 71%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ros_gz_interfaces/msg/entity_factory__type_support.cpp.o[0m
+[58.480s] [ 71%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ros_gz_interfaces/msg/entity_wrench__type_support.cpp.o[0m
+[58.830s] [ 71%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ros_gz_interfaces/msg/float32_array__type_support.cpp.o[0m
+[59.259s] [ 72%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ros_gz_interfaces/msg/gui_camera__type_support.cpp.o[0m
+[59.684s] [ 72%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ros_gz_interfaces/msg/joint_wrench__type_support.cpp.o[0m
+[60.041s] [ 72%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ros_gz_interfaces/msg/light__type_support.cpp.o[0m
+[60.458s] [ 73%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ros_gz_interfaces/msg/logical_camera_image__type_support.cpp.o[0m
+[60.851s] [ 73%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ros_gz_interfaces/msg/logical_camera_image_model__type_support.cpp.o[0m
+[61.266s] [ 73%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ros_gz_interfaces/msg/log_playback_statistics__type_support.cpp.o[0m
+[61.584s] [ 74%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ros_gz_interfaces/msg/material_color__type_support.cpp.o[0m
+[61.988s] [ 74%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ros_gz_interfaces/msg/param_vec__type_support.cpp.o[0m
+[62.333s] [ 74%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ros_gz_interfaces/msg/sensor_noise__type_support.cpp.o[0m
+[62.754s] [ 75%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ros_gz_interfaces/msg/string_vec__type_support.cpp.o[0m
+[63.047s] [ 75%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ros_gz_interfaces/msg/track_visual__type_support.cpp.o[0m
+[63.387s] [ 75%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ros_gz_interfaces/msg/video_record__type_support.cpp.o[0m
+[63.715s] [ 76%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ros_gz_interfaces/msg/world_control__type_support.cpp.o[0m
+[64.085s] [ 76%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ros_gz_interfaces/msg/world_reset__type_support.cpp.o[0m
+[64.463s] [ 76%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ros_gz_interfaces/msg/world_statistics__type_support.cpp.o[0m
+[64.848s] [ 77%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ros_gz_interfaces/srv/control_world__type_support.cpp.o[0m
+[65.380s] [ 77%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ros_gz_interfaces/srv/delete_entity__type_support.cpp.o[0m
+[65.866s] [ 77%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ros_gz_interfaces/srv/set_entity_pose__type_support.cpp.o[0m
+[66.320s] [ 78%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ros_gz_interfaces/srv/spawn_entity__type_support.cpp.o[0m
+[66.829s] [ 78%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ros_gz_interfaces/msg/altimeter__type_support.cpp.o[0m
+[67.160s] [ 78%] [32m[1mLinking CXX shared library libros_gz_interfaces__rosidl_typesupport_cpp.so[0m
+[67.289s] [ 78%] Built target ros_gz_interfaces__rosidl_typesupport_cpp
+[67.320s] [ 79%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[70.544s] [ 79%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ros_gz_interfaces/msg/detail/air_speed__type_support.cpp.o[0m
+[70.927s] [ 79%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ros_gz_interfaces/msg/detail/contacts__type_support.cpp.o[0m
+[71.599s] [ 79%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ros_gz_interfaces/msg/detail/dataframe__type_support.cpp.o[0m
+[72.031s] [ 80%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ros_gz_interfaces/msg/detail/entity__type_support.cpp.o[0m
+[72.405s] [ 80%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ros_gz_interfaces/msg/detail/entity_factory__type_support.cpp.o[0m
+[72.855s] [ 80%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ros_gz_interfaces/msg/detail/entity_wrench__type_support.cpp.o[0m
+[73.260s] [ 81%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ros_gz_interfaces/msg/detail/float32_array__type_support.cpp.o[0m
+[73.737s] [ 81%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ros_gz_interfaces/msg/detail/gui_camera__type_support.cpp.o[0m
+[74.174s] [ 81%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ros_gz_interfaces/msg/detail/joint_wrench__type_support.cpp.o[0m
+[74.587s] [ 82%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ros_gz_interfaces/msg/detail/light__type_support.cpp.o[0m
+[74.982s] [ 82%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ros_gz_interfaces/msg/detail/logical_camera_image__type_support.cpp.o[0m
+[75.458s] [ 82%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ros_gz_interfaces/msg/detail/logical_camera_image_model__type_support.cpp.o[0m
+[75.783s] [ 83%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ros_gz_interfaces/msg/detail/contact__type_support.cpp.o[0m
+[75.790s] [ 84%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ros_gz_interfaces/msg/detail/log_playback_statistics__type_support.cpp.o[0m
+[76.503s] [ 84%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ros_gz_interfaces/msg/detail/material_color__type_support.cpp.o[0m
+[76.802s] [ 84%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ros_gz_interfaces/msg/detail/param_vec__type_support.cpp.o[0m
+[78.109s] [ 85%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ros_gz_interfaces/msg/detail/sensor_noise__type_support.cpp.o[0m
+[78.703s] [ 85%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ros_gz_interfaces/msg/detail/altimeter__type_support.cpp.o[0m
+[79.119s] [ 85%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ros_gz_interfaces/msg/detail/string_vec__type_support.cpp.o[0m
+[81.569s] [ 85%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ros_gz_interfaces/msg/detail/track_visual__type_support.cpp.o[0m
+[81.570s] [ 86%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ros_gz_interfaces/msg/detail/video_record__type_support.cpp.o[0m
+[81.570s] [ 86%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ros_gz_interfaces/msg/detail/world_control__type_support.cpp.o[0m
+[82.261s] [ 86%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ros_gz_interfaces/msg/detail/world_reset__type_support.cpp.o[0m
+[82.262s] [ 87%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ros_gz_interfaces/msg/detail/world_statistics__type_support.cpp.o[0m
+[83.361s] [ 87%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ros_gz_interfaces/srv/detail/control_world__type_support.cpp.o[0m
+[84.136s] [ 87%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ros_gz_interfaces/srv/detail/delete_entity__type_support.cpp.o[0m
+[84.199s] [ 88%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ros_gz_interfaces/srv/detail/set_entity_pose__type_support.cpp.o[0m
+[86.341s] [ 88%] [32mBuilding CXX object CMakeFiles/ros_gz_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ros_gz_interfaces/srv/detail/spawn_entity__type_support.cpp.o[0m
+[87.766s] [ 88%] [32m[1mLinking CXX shared library libros_gz_interfaces__rosidl_typesupport_introspection_cpp.so[0m
+[88.036s] [ 88%] Built target ros_gz_interfaces__rosidl_typesupport_introspection_cpp
+[88.204s] [ 88%] Built target ros_gz_interfaces
+[88.206s] [ 88%] [34m[1mGenerating Python code for ROS interfaces[0m
+[94.077s] [ 88%] Built target ros_gz_interfaces__py
+[94.133s] [ 89%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_py.dir/rosidl_generator_py/ros_gz_interfaces/msg/_air_speed_s.c.o[0m
+[94.415s] [ 90%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_py.dir/rosidl_generator_py/ros_gz_interfaces/msg/_contacts_s.c.o[0m
+[94.591s] [ 90%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_py.dir/rosidl_generator_py/ros_gz_interfaces/msg/_dataframe_s.c.o[0m
+[94.825s] [ 90%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_py.dir/rosidl_generator_py/ros_gz_interfaces/msg/_entity_s.c.o[0m
+[95.028s] [ 91%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_py.dir/rosidl_generator_py/ros_gz_interfaces/msg/_entity_factory_s.c.o[0m
+[95.238s] [ 91%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_py.dir/rosidl_generator_py/ros_gz_interfaces/msg/_entity_wrench_s.c.o[0m
+[95.418s] [ 91%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_py.dir/rosidl_generator_py/ros_gz_interfaces/msg/_float32_array_s.c.o[0m
+[95.613s] [ 92%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_py.dir/rosidl_generator_py/ros_gz_interfaces/msg/_gui_camera_s.c.o[0m
+[95.802s] [ 92%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_py.dir/rosidl_generator_py/ros_gz_interfaces/msg/_joint_wrench_s.c.o[0m
+[95.972s] [ 92%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_py.dir/rosidl_generator_py/ros_gz_interfaces/msg/_light_s.c.o[0m
+[96.181s] [ 93%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_py.dir/rosidl_generator_py/ros_gz_interfaces/msg/_logical_camera_image_s.c.o[0m
+[96.343s] [ 93%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_py.dir/rosidl_generator_py/ros_gz_interfaces/msg/_logical_camera_image_model_s.c.o[0m
+[96.487s] [ 93%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_py.dir/rosidl_generator_py/ros_gz_interfaces/msg/_log_playback_statistics_s.c.o[0m
+[96.678s] [ 94%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_py.dir/rosidl_generator_py/ros_gz_interfaces/msg/_material_color_s.c.o[0m
+[96.866s] [ 94%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_py.dir/rosidl_generator_py/ros_gz_interfaces/msg/_param_vec_s.c.o[0m
+[97.049s] [ 94%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_py.dir/rosidl_generator_py/ros_gz_interfaces/msg/_sensor_noise_s.c.o[0m
+[97.273s] [ 95%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_py.dir/rosidl_generator_py/ros_gz_interfaces/msg/_string_vec_s.c.o[0m
+[97.458s] [ 95%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_py.dir/rosidl_generator_py/ros_gz_interfaces/msg/_track_visual_s.c.o[0m
+[97.639s] [ 95%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_py.dir/rosidl_generator_py/ros_gz_interfaces/msg/_video_record_s.c.o[0m
+[97.822s] [ 96%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_py.dir/rosidl_generator_py/ros_gz_interfaces/msg/_world_control_s.c.o[0m
+[98.025s] [ 96%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_py.dir/rosidl_generator_py/ros_gz_interfaces/msg/_world_reset_s.c.o[0m
+[98.207s] [ 96%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_py.dir/rosidl_generator_py/ros_gz_interfaces/msg/_world_statistics_s.c.o[0m
+[98.403s] [ 97%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_py.dir/rosidl_generator_py/ros_gz_interfaces/srv/_control_world_s.c.o[0m
+[98.632s] [ 97%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_py.dir/rosidl_generator_py/ros_gz_interfaces/srv/_delete_entity_s.c.o[0m
+[98.896s] [ 97%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_py.dir/rosidl_generator_py/ros_gz_interfaces/srv/_set_entity_pose_s.c.o[0m
+[99.175s] [ 98%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_py.dir/rosidl_generator_py/ros_gz_interfaces/srv/_spawn_entity_s.c.o[0m
+[99.465s] [ 98%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_py.dir/rosidl_generator_py/ros_gz_interfaces/msg/_contact_s.c.o[0m
+[99.739s] [ 98%] [32mBuilding C object CMakeFiles/ros_gz_interfaces__rosidl_generator_py.dir/rosidl_generator_py/ros_gz_interfaces/msg/_altimeter_s.c.o[0m
+[99.934s] [ 98%] [32m[1mLinking C shared library libros_gz_interfaces__rosidl_generator_py.so[0m
+[100.036s] [ 98%] Built target ros_gz_interfaces__rosidl_generator_py
+[100.081s] [ 99%] [32mBuilding C object CMakeFiles/ros_gz_interfaces_s__rosidl_typesupport_fastrtps_c.dir/rosidl_generator_py/ros_gz_interfaces/_ros_gz_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[100.688s] [ 99%] [32m[1mLinking C shared module rosidl_generator_py/ros_gz_interfaces/ros_gz_interfaces_s__rosidl_typesupport_fastrtps_c.so[0m
+[100.750s] [ 99%] Built target ros_gz_interfaces_s__rosidl_typesupport_fastrtps_c
+[100.794s] [ 99%] [32mBuilding C object CMakeFiles/ros_gz_interfaces_s__rosidl_typesupport_c.dir/rosidl_generator_py/ros_gz_interfaces/_ros_gz_interfaces_s.ep.rosidl_typesupport_c.c.o[0m
+[101.387s] [ 99%] [32m[1mLinking C shared module rosidl_generator_py/ros_gz_interfaces/ros_gz_interfaces_s__rosidl_typesupport_c.so[0m
+[101.473s] [ 99%] Built target ros_gz_interfaces_s__rosidl_typesupport_c
+[101.514s] [ 99%] [32mBuilding C object CMakeFiles/ros_gz_interfaces_s__rosidl_typesupport_introspection_c.dir/rosidl_generator_py/ros_gz_interfaces/_ros_gz_interfaces_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[102.117s] [100%] [32m[1mLinking C shared module rosidl_generator_py/ros_gz_interfaces/ros_gz_interfaces_s__rosidl_typesupport_introspection_c.so[0m
+[102.187s] [100%] Built target ros_gz_interfaces_s__rosidl_typesupport_introspection_c
+[102.217s] Invoked command in '/home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/ros_gz_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/abigaildiehl/simulation_ws/install/vbrm_hw6:/home/abigaildiehl/simulation_ws/install/ur_move_merlab:/home/abigaildiehl/RBE4540/install/py_srvcli:/home/abigaildiehl/RBE4540/install/my_package:/home/abigaildiehl/RBE4540/install/force_vector_service:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/ros_gz_interfaces -- -j4 -l4
+[102.218s] Invoking command in '/home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/ros_gz_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/abigaildiehl/simulation_ws/install/vbrm_hw6:/home/abigaildiehl/simulation_ws/install/ur_move_merlab:/home/abigaildiehl/RBE4540/install/py_srvcli:/home/abigaildiehl/RBE4540/install/my_package:/home/abigaildiehl/RBE4540/install/force_vector_service:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/ros_gz_interfaces
+[102.234s] -- Install configuration: "Release"
+[102.235s] -- Execute custom install script
+[102.236s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ament_index/resource_index/rosidl_interfaces/ros_gz_interfaces
+[102.256s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/AirSpeed.json
+[102.277s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/Altimeter.json
+[102.297s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/Contact.json
+[102.317s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/Contacts.json
+[102.338s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/Dataframe.json
+[102.352s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/Entity.json
+[102.371s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/EntityFactory.json
+[102.390s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/EntityWrench.json
+[102.409s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/Float32Array.json
+[102.430s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/GuiCamera.json
+[102.446s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/JointWrench.json
+[102.464s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/Light.json
+[102.481s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/LogicalCameraImage.json
+[102.499s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/LogicalCameraImageModel.json
+[102.518s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/LogPlaybackStatistics.json
+[102.536s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/MaterialColor.json
+[102.553s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/ParamVec.json
+[102.568s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/SensorNoise.json
+[102.584s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/StringVec.json
+[102.598s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/TrackVisual.json
+[102.615s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/VideoRecord.json
+[102.631s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/WorldControl.json
+[102.649s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/WorldReset.json
+[102.665s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/WorldStatistics.json
+[102.683s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/srv/ControlWorld.json
+[102.700s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/srv/DeleteEntity.json
+[102.720s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/srv/SetEntityPose.json
+[102.736s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/srv/SpawnEntity.json
+[102.774s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/air_speed.h
+[102.791s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/altimeter.h
+[102.809s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/contact.h
+[102.826s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/contacts.h
+[102.843s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/dataframe.h
+[102.861s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/air_speed__functions.h
+[102.881s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/air_speed__struct.h
+[102.899s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/air_speed__type_support.h
+[102.917s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/altimeter__functions.h
+[102.936s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/altimeter__struct.h
+[102.952s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/altimeter__type_support.h
+[102.968s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/contact__functions.h
+[102.985s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/contact__struct.h
+[103.004s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/contact__type_support.h
+[103.020s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/contacts__functions.h
+[103.038s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/contacts__struct.h
+[103.053s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/contacts__type_support.h
+[103.070s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/dataframe__functions.h
+[103.092s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/dataframe__struct.h
+[103.106s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/dataframe__type_support.h
+[103.123s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/entity__functions.h
+[103.141s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/entity__struct.h
+[103.156s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/entity__type_support.h
+[103.176s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/entity_factory__functions.h
+[103.194s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/entity_factory__struct.h
+[103.210s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/entity_factory__type_support.h
+[103.226s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/entity_wrench__functions.h
+[103.243s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/entity_wrench__struct.h
+[103.258s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/entity_wrench__type_support.h
+[103.277s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/float32_array__functions.h
+[103.295s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/float32_array__struct.h
+[103.313s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/float32_array__type_support.h
+[103.335s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/gui_camera__functions.h
+[103.353s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/gui_camera__struct.h
+[103.390s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/gui_camera__type_support.h
+[103.400s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/joint_wrench__functions.h
+[103.417s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/joint_wrench__struct.h
+[103.436s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/joint_wrench__type_support.h
+[103.453s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/light__functions.h
+[103.471s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/light__struct.h
+[103.486s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/light__type_support.h
+[103.506s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/log_playback_statistics__functions.h
+[103.526s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/log_playback_statistics__struct.h
+[103.543s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/log_playback_statistics__type_support.h
+[103.562s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/logical_camera_image__functions.h
+[103.583s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/logical_camera_image__struct.h
+[103.599s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/logical_camera_image__type_support.h
+[103.616s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/logical_camera_image_model__functions.h
+[103.633s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/logical_camera_image_model__struct.h
+[103.649s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/logical_camera_image_model__type_support.h
+[103.663s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/material_color__functions.h
+[103.681s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/material_color__struct.h
+[103.699s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/material_color__type_support.h
+[103.716s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/param_vec__functions.h
+[103.736s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/param_vec__struct.h
+[103.754s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/param_vec__type_support.h
+[103.774s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/sensor_noise__functions.h
+[103.794s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/sensor_noise__struct.h
+[103.814s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/sensor_noise__type_support.h
+[103.834s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/string_vec__functions.h
+[103.854s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/string_vec__struct.h
+[103.869s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/string_vec__type_support.h
+[103.893s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/track_visual__functions.h
+[103.913s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/track_visual__struct.h
+[103.930s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/track_visual__type_support.h
+[103.982s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/video_record__functions.h
+[103.998s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/video_record__struct.h
+[104.023s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/video_record__type_support.h
+[104.031s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/world_control__functions.h
+[104.048s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/world_control__struct.h
+[104.064s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/world_control__type_support.h
+[104.082s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/world_reset__functions.h
+[104.097s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/world_reset__struct.h
+[104.115s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/world_reset__type_support.h
+[104.144s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/world_statistics__functions.h
+[104.161s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/world_statistics__struct.h
+[104.176s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/world_statistics__type_support.h
+[104.196s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/entity.h
+[104.212s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/entity_factory.h
+[104.230s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/entity_wrench.h
+[104.249s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/float32_array.h
+[104.266s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/gui_camera.h
+[104.286s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/joint_wrench.h
+[104.306s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/light.h
+[104.325s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/log_playback_statistics.h
+[104.343s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/logical_camera_image.h
+[104.360s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/logical_camera_image_model.h
+[104.373s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/material_color.h
+[104.393s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/param_vec.h
+[104.409s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/rosidl_generator_c__visibility_control.h
+[104.423s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/sensor_noise.h
+[104.438s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/string_vec.h
+[104.459s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/track_visual.h
+[104.475s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/video_record.h
+[104.495s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/world_control.h
+[104.516s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/world_reset.h
+[104.534s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/world_statistics.h
+[104.556s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/srv/control_world.h
+[104.569s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/srv/delete_entity.h
+[104.586s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/srv/detail/control_world__functions.h
+[104.604s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/srv/detail/control_world__struct.h
+[104.623s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/srv/detail/control_world__type_support.h
+[104.641s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/srv/detail/delete_entity__functions.h
+[104.660s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/srv/detail/delete_entity__struct.h
+[104.678s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/srv/detail/delete_entity__type_support.h
+[104.697s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/srv/detail/set_entity_pose__functions.h
+[104.718s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/srv/detail/set_entity_pose__struct.h
+[104.734s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/srv/detail/set_entity_pose__type_support.h
+[104.749s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/srv/detail/spawn_entity__functions.h
+[104.765s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/srv/detail/spawn_entity__struct.h
+[104.783s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/srv/detail/spawn_entity__type_support.h
+[104.802s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/srv/set_entity_pose.h
+[104.820s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/srv/spawn_entity.h
+[104.835s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/environment/library_path.sh
+[104.852s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/environment/library_path.dsv
+[104.871s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/air_speed__rosidl_typesupport_fastrtps_c.h
+[104.891s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/altimeter__rosidl_typesupport_fastrtps_c.h
+[104.911s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/contact__rosidl_typesupport_fastrtps_c.h
+[104.929s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/contacts__rosidl_typesupport_fastrtps_c.h
+[104.945s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/dataframe__rosidl_typesupport_fastrtps_c.h
+[104.963s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/entity__rosidl_typesupport_fastrtps_c.h
+[104.979s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/entity_factory__rosidl_typesupport_fastrtps_c.h
+[104.997s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/entity_wrench__rosidl_typesupport_fastrtps_c.h
+[105.017s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/float32_array__rosidl_typesupport_fastrtps_c.h
+[105.033s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/gui_camera__rosidl_typesupport_fastrtps_c.h
+[105.051s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/joint_wrench__rosidl_typesupport_fastrtps_c.h
+[105.068s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/light__rosidl_typesupport_fastrtps_c.h
+[105.084s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/log_playback_statistics__rosidl_typesupport_fastrtps_c.h
+[105.101s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/logical_camera_image__rosidl_typesupport_fastrtps_c.h
+[105.117s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/logical_camera_image_model__rosidl_typesupport_fastrtps_c.h
+[105.135s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/material_color__rosidl_typesupport_fastrtps_c.h
+[105.150s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/param_vec__rosidl_typesupport_fastrtps_c.h
+[105.169s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/sensor_noise__rosidl_typesupport_fastrtps_c.h
+[105.188s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/string_vec__rosidl_typesupport_fastrtps_c.h
+[105.204s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/track_visual__rosidl_typesupport_fastrtps_c.h
+[105.222s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/video_record__rosidl_typesupport_fastrtps_c.h
+[105.241s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/world_control__rosidl_typesupport_fastrtps_c.h
+[105.257s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/world_reset__rosidl_typesupport_fastrtps_c.h
+[105.273s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/world_statistics__rosidl_typesupport_fastrtps_c.h
+[105.288s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[105.311s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/srv/detail/control_world__rosidl_typesupport_fastrtps_c.h
+[105.329s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/srv/detail/delete_entity__rosidl_typesupport_fastrtps_c.h
+[105.346s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/srv/detail/set_entity_pose__rosidl_typesupport_fastrtps_c.h
+[105.363s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/srv/detail/spawn_entity__rosidl_typesupport_fastrtps_c.h
+[105.383s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/air_speed.hpp
+[105.398s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/altimeter.hpp
+[105.411s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/contact.hpp
+[105.431s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/contacts.hpp
+[105.447s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/dataframe.hpp
+[105.465s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/air_speed__builder.hpp
+[105.481s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/air_speed__struct.hpp
+[105.500s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/air_speed__traits.hpp
+[105.516s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/air_speed__type_support.hpp
+[105.532s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/altimeter__builder.hpp
+[105.548s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/altimeter__struct.hpp
+[105.567s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/altimeter__traits.hpp
+[105.582s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/altimeter__type_support.hpp
+[105.597s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/contact__builder.hpp
+[105.615s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/contact__struct.hpp
+[105.645s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/contact__traits.hpp
+[105.658s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/contact__type_support.hpp
+[105.683s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/contacts__builder.hpp
+[105.703s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/contacts__struct.hpp
+[105.726s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/contacts__traits.hpp
+[105.757s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/contacts__type_support.hpp
+[105.761s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/dataframe__builder.hpp
+[105.779s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/dataframe__struct.hpp
+[105.798s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/dataframe__traits.hpp
+[105.817s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/dataframe__type_support.hpp
+[105.837s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/entity__builder.hpp
+[105.852s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/entity__struct.hpp
+[105.869s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/entity__traits.hpp
+[105.900s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/entity__type_support.hpp
+[105.913s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/entity_factory__builder.hpp
+[105.931s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/entity_factory__struct.hpp
+[105.948s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/entity_factory__traits.hpp
+[105.965s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/entity_factory__type_support.hpp
+[105.981s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/entity_wrench__builder.hpp
+[106.002s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/entity_wrench__struct.hpp
+[106.027s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/entity_wrench__traits.hpp
+[106.046s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/entity_wrench__type_support.hpp
+[106.061s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/float32_array__builder.hpp
+[106.082s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/float32_array__struct.hpp
+[106.101s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/float32_array__traits.hpp
+[106.119s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/float32_array__type_support.hpp
+[106.134s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/gui_camera__builder.hpp
+[106.154s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/gui_camera__struct.hpp
+[106.173s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/gui_camera__traits.hpp
+[106.187s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/gui_camera__type_support.hpp
+[106.205s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/joint_wrench__builder.hpp
+[106.226s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/joint_wrench__struct.hpp
+[106.247s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/joint_wrench__traits.hpp
+[106.268s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/joint_wrench__type_support.hpp
+[106.289s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/light__builder.hpp
+[106.316s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/light__struct.hpp
+[106.334s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/light__traits.hpp
+[106.353s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/light__type_support.hpp
+[106.374s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/log_playback_statistics__builder.hpp
+[106.393s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/log_playback_statistics__struct.hpp
+[106.417s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/log_playback_statistics__traits.hpp
+[106.453s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/log_playback_statistics__type_support.hpp
+[106.485s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/logical_camera_image__builder.hpp
+[106.504s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/logical_camera_image__struct.hpp
+[106.527s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/logical_camera_image__traits.hpp
+[106.546s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/logical_camera_image__type_support.hpp
+[106.566s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/logical_camera_image_model__builder.hpp
+[106.585s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/logical_camera_image_model__struct.hpp
+[106.603s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/logical_camera_image_model__traits.hpp
+[106.627s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/logical_camera_image_model__type_support.hpp
+[106.643s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/material_color__builder.hpp
+[106.663s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/material_color__struct.hpp
+[106.681s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/material_color__traits.hpp
+[106.709s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/material_color__type_support.hpp
+[106.718s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/param_vec__builder.hpp
+[106.734s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/param_vec__struct.hpp
+[106.754s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/param_vec__traits.hpp
+[106.772s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/param_vec__type_support.hpp
+[106.788s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/sensor_noise__builder.hpp
+[106.809s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/sensor_noise__struct.hpp
+[106.829s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/sensor_noise__traits.hpp
+[106.853s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/sensor_noise__type_support.hpp
+[106.871s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/string_vec__builder.hpp
+[106.892s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/string_vec__struct.hpp
+[106.910s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/string_vec__traits.hpp
+[106.934s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/string_vec__type_support.hpp
+[106.953s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/track_visual__builder.hpp
+[106.972s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/track_visual__struct.hpp
+[106.990s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/track_visual__traits.hpp
+[107.008s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/track_visual__type_support.hpp
+[107.027s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/video_record__builder.hpp
+[107.048s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/video_record__struct.hpp
+[107.067s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/video_record__traits.hpp
+[107.087s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/video_record__type_support.hpp
+[107.105s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/world_control__builder.hpp
+[107.122s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/world_control__struct.hpp
+[107.148s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/world_control__traits.hpp
+[107.163s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/world_control__type_support.hpp
+[107.182s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/world_reset__builder.hpp
+[107.200s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/world_reset__struct.hpp
+[107.220s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/world_reset__traits.hpp
+[107.241s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/world_reset__type_support.hpp
+[107.261s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/world_statistics__builder.hpp
+[107.278s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/world_statistics__struct.hpp
+[107.299s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/world_statistics__traits.hpp
+[107.315s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/world_statistics__type_support.hpp
+[107.331s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/entity.hpp
+[107.353s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/entity_factory.hpp
+[107.373s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/entity_wrench.hpp
+[107.393s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/float32_array.hpp
+[107.411s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/gui_camera.hpp
+[107.429s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/joint_wrench.hpp
+[107.449s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/light.hpp
+[107.469s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/log_playback_statistics.hpp
+[107.489s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/logical_camera_image.hpp
+[107.510s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/logical_camera_image_model.hpp
+[107.527s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/material_color.hpp
+[107.542s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/param_vec.hpp
+[107.559s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/rosidl_generator_cpp__visibility_control.hpp
+[107.575s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/sensor_noise.hpp
+[107.591s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/string_vec.hpp
+[107.611s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/track_visual.hpp
+[107.629s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/video_record.hpp
+[107.650s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/world_control.hpp
+[107.668s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/world_reset.hpp
+[107.689s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/world_statistics.hpp
+[107.707s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/srv/control_world.hpp
+[107.725s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/srv/delete_entity.hpp
+[107.744s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/srv/detail/control_world__builder.hpp
+[107.763s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/srv/detail/control_world__struct.hpp
+[107.792s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/srv/detail/control_world__traits.hpp
+[107.809s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/srv/detail/control_world__type_support.hpp
+[107.827s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/srv/detail/delete_entity__builder.hpp
+[107.844s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/srv/detail/delete_entity__struct.hpp
+[107.862s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/srv/detail/delete_entity__traits.hpp
+[107.881s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/srv/detail/delete_entity__type_support.hpp
+[107.895s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/srv/detail/set_entity_pose__builder.hpp
+[107.908s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/srv/detail/set_entity_pose__struct.hpp
+[107.922s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/srv/detail/set_entity_pose__traits.hpp
+[107.938s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/srv/detail/set_entity_pose__type_support.hpp
+[107.951s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/srv/detail/spawn_entity__builder.hpp
+[107.971s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/srv/detail/spawn_entity__struct.hpp
+[107.990s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/srv/detail/spawn_entity__traits.hpp
+[108.008s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/srv/detail/spawn_entity__type_support.hpp
+[108.023s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/srv/set_entity_pose.hpp
+[108.041s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/srv/spawn_entity.hpp
+[108.055s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/air_speed__rosidl_typesupport_fastrtps_cpp.hpp
+[108.071s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/altimeter__rosidl_typesupport_fastrtps_cpp.hpp
+[108.088s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/contact__rosidl_typesupport_fastrtps_cpp.hpp
+[108.104s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/contacts__rosidl_typesupport_fastrtps_cpp.hpp
+[108.118s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/dataframe__rosidl_typesupport_fastrtps_cpp.hpp
+[108.132s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/entity__rosidl_typesupport_fastrtps_cpp.hpp
+[108.147s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/entity_factory__rosidl_typesupport_fastrtps_cpp.hpp
+[108.167s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/entity_wrench__rosidl_typesupport_fastrtps_cpp.hpp
+[108.184s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/float32_array__rosidl_typesupport_fastrtps_cpp.hpp
+[108.203s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/gui_camera__rosidl_typesupport_fastrtps_cpp.hpp
+[108.221s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/joint_wrench__rosidl_typesupport_fastrtps_cpp.hpp
+[108.236s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/light__rosidl_typesupport_fastrtps_cpp.hpp
+[108.252s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/log_playback_statistics__rosidl_typesupport_fastrtps_cpp.hpp
+[108.272s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/logical_camera_image__rosidl_typesupport_fastrtps_cpp.hpp
+[108.290s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/logical_camera_image_model__rosidl_typesupport_fastrtps_cpp.hpp
+[108.303s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/material_color__rosidl_typesupport_fastrtps_cpp.hpp
+[108.317s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/param_vec__rosidl_typesupport_fastrtps_cpp.hpp
+[108.331s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/sensor_noise__rosidl_typesupport_fastrtps_cpp.hpp
+[108.350s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/string_vec__rosidl_typesupport_fastrtps_cpp.hpp
+[108.365s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/track_visual__rosidl_typesupport_fastrtps_cpp.hpp
+[108.379s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/video_record__rosidl_typesupport_fastrtps_cpp.hpp
+[108.392s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/world_control__rosidl_typesupport_fastrtps_cpp.hpp
+[108.405s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/world_reset__rosidl_typesupport_fastrtps_cpp.hpp
+[108.418s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/world_statistics__rosidl_typesupport_fastrtps_cpp.hpp
+[108.430s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[108.445s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/srv/detail/control_world__rosidl_typesupport_fastrtps_cpp.hpp
+[108.462s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/srv/detail/delete_entity__rosidl_typesupport_fastrtps_cpp.hpp
+[108.478s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/srv/detail/set_entity_pose__rosidl_typesupport_fastrtps_cpp.hpp
+[108.491s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/srv/detail/spawn_entity__rosidl_typesupport_fastrtps_cpp.hpp
+[108.504s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/air_speed__rosidl_typesupport_introspection_c.h
+[108.520s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/altimeter__rosidl_typesupport_introspection_c.h
+[108.536s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/contact__rosidl_typesupport_introspection_c.h
+[108.553s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/contacts__rosidl_typesupport_introspection_c.h
+[108.570s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/dataframe__rosidl_typesupport_introspection_c.h
+[108.587s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/entity__rosidl_typesupport_introspection_c.h
+[108.600s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/entity_factory__rosidl_typesupport_introspection_c.h
+[108.614s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/entity_wrench__rosidl_typesupport_introspection_c.h
+[108.628s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/float32_array__rosidl_typesupport_introspection_c.h
+[108.645s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/gui_camera__rosidl_typesupport_introspection_c.h
+[108.659s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/joint_wrench__rosidl_typesupport_introspection_c.h
+[108.673s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/light__rosidl_typesupport_introspection_c.h
+[108.687s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/log_playback_statistics__rosidl_typesupport_introspection_c.h
+[108.702s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/logical_camera_image__rosidl_typesupport_introspection_c.h
+[108.716s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/logical_camera_image_model__rosidl_typesupport_introspection_c.h
+[108.731s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/material_color__rosidl_typesupport_introspection_c.h
+[108.748s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/param_vec__rosidl_typesupport_introspection_c.h
+[108.765s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/sensor_noise__rosidl_typesupport_introspection_c.h
+[108.780s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/string_vec__rosidl_typesupport_introspection_c.h
+[108.795s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/track_visual__rosidl_typesupport_introspection_c.h
+[108.809s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/video_record__rosidl_typesupport_introspection_c.h
+[108.824s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/world_control__rosidl_typesupport_introspection_c.h
+[108.837s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/world_reset__rosidl_typesupport_introspection_c.h
+[108.851s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/world_statistics__rosidl_typesupport_introspection_c.h
+[108.865s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[108.880s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/srv/detail/control_world__rosidl_typesupport_introspection_c.h
+[108.898s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/srv/detail/delete_entity__rosidl_typesupport_introspection_c.h
+[108.914s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/srv/detail/set_entity_pose__rosidl_typesupport_introspection_c.h
+[108.929s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/srv/detail/spawn_entity__rosidl_typesupport_introspection_c.h
+[108.944s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/air_speed__rosidl_typesupport_introspection_cpp.hpp
+[108.958s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/altimeter__rosidl_typesupport_introspection_cpp.hpp
+[108.972s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/contact__rosidl_typesupport_introspection_cpp.hpp
+[108.986s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/contacts__rosidl_typesupport_introspection_cpp.hpp
+[109.000s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/dataframe__rosidl_typesupport_introspection_cpp.hpp
+[109.014s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/entity__rosidl_typesupport_introspection_cpp.hpp
+[109.027s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/entity_factory__rosidl_typesupport_introspection_cpp.hpp
+[109.040s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/entity_wrench__rosidl_typesupport_introspection_cpp.hpp
+[109.058s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/float32_array__rosidl_typesupport_introspection_cpp.hpp
+[109.073s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/gui_camera__rosidl_typesupport_introspection_cpp.hpp
+[109.087s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/joint_wrench__rosidl_typesupport_introspection_cpp.hpp
+[109.100s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/light__rosidl_typesupport_introspection_cpp.hpp
+[109.118s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/log_playback_statistics__rosidl_typesupport_introspection_cpp.hpp
+[109.135s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/logical_camera_image__rosidl_typesupport_introspection_cpp.hpp
+[109.145s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/logical_camera_image_model__rosidl_typesupport_introspection_cpp.hpp
+[109.159s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/material_color__rosidl_typesupport_introspection_cpp.hpp
+[109.175s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/param_vec__rosidl_typesupport_introspection_cpp.hpp
+[109.190s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/sensor_noise__rosidl_typesupport_introspection_cpp.hpp
+[109.204s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/string_vec__rosidl_typesupport_introspection_cpp.hpp
+[109.219s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/track_visual__rosidl_typesupport_introspection_cpp.hpp
+[109.233s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/video_record__rosidl_typesupport_introspection_cpp.hpp
+[109.246s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/world_control__rosidl_typesupport_introspection_cpp.hpp
+[109.260s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/world_reset__rosidl_typesupport_introspection_cpp.hpp
+[109.277s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/msg/detail/world_statistics__rosidl_typesupport_introspection_cpp.hpp
+[109.294s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/srv/detail/control_world__rosidl_typesupport_introspection_cpp.hpp
+[109.307s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/srv/detail/delete_entity__rosidl_typesupport_introspection_cpp.hpp
+[109.325s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/srv/detail/set_entity_pose__rosidl_typesupport_introspection_cpp.hpp
+[109.341s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/include/ros_gz_interfaces/ros_gz_interfaces/srv/detail/spawn_entity__rosidl_typesupport_introspection_cpp.hpp
+[109.356s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/environment/pythonpath.sh
+[109.370s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/environment/pythonpath.dsv
+[109.384s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces-1.0.25-py3.12.egg-info/PKG-INFO
+[109.398s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces-1.0.25-py3.12.egg-info/SOURCES.txt
+[109.413s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces-1.0.25-py3.12.egg-info/dependency_links.txt
+[109.429s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces-1.0.25-py3.12.egg-info/top_level.txt
+[109.445s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/__init__.py
+[109.459s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/_ros_gz_interfaces_s.ep.rosidl_typesupport_c.c
+[109.473s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/_ros_gz_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
+[109.490s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/_ros_gz_interfaces_s.ep.rosidl_typesupport_introspection_c.c
+[109.505s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/__init__.py
+[109.518s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_air_speed.py
+[109.536s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_air_speed_s.c
+[109.550s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_altimeter.py
+[109.566s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_altimeter_s.c
+[109.582s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_contact.py
+[109.596s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_contact_s.c
+[109.610s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_contacts.py
+[109.632s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_contacts_s.c
+[109.650s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_dataframe.py
+[109.668s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_dataframe_s.c
+[109.696s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_entity.py
+[109.716s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_entity_factory.py
+[109.733s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_entity_factory_s.c
+[109.762s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_entity_s.c
+[109.775s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_entity_wrench.py
+[109.791s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_entity_wrench_s.c
+[109.811s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_float32_array.py
+[109.823s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_float32_array_s.c
+[109.838s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_gui_camera.py
+[109.851s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_gui_camera_s.c
+[109.876s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_joint_wrench.py
+[109.891s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_joint_wrench_s.c
+[109.907s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_light.py
+[109.923s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_light_s.c
+[109.945s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_log_playback_statistics.py
+[109.960s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_log_playback_statistics_s.c
+[109.973s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_logical_camera_image.py
+[109.987s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_logical_camera_image_model.py
+[110.003s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_logical_camera_image_model_s.c
+[110.030s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_logical_camera_image_s.c
+[110.044s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_material_color.py
+[110.067s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_material_color_s.c
+[110.083s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_param_vec.py
+[110.098s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_param_vec_s.c
+[110.113s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_sensor_noise.py
+[110.128s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_sensor_noise_s.c
+[110.142s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_string_vec.py
+[110.157s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_string_vec_s.c
+[110.172s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_track_visual.py
+[110.186s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_track_visual_s.c
+[110.202s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_video_record.py
+[110.217s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_video_record_s.c
+[110.232s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_world_control.py
+[110.246s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_world_control_s.c
+[110.261s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_world_reset.py
+[110.276s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_world_reset_s.c
+[110.291s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_world_statistics.py
+[110.305s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_world_statistics_s.c
+[110.319s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/ros_gz_interfaces_s__rosidl_typesupport_c.so
+[110.336s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/ros_gz_interfaces_s__rosidl_typesupport_fastrtps_c.so
+[110.354s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/ros_gz_interfaces_s__rosidl_typesupport_introspection_c.so
+[110.368s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/srv/__init__.py
+[110.383s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/srv/_control_world.py
+[110.400s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/srv/_control_world_s.c
+[110.415s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/srv/_delete_entity.py
+[110.431s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/srv/_delete_entity_s.c
+[110.446s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/srv/_set_entity_pose.py
+[110.462s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/srv/_set_entity_pose_s.c
+[110.476s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/srv/_spawn_entity.py
+[110.490s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/srv/_spawn_entity_s.c
+[110.503s] -- Up-to-date symlink: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/ros_gz_interfaces_s__rosidl_typesupport_fastrtps_c.so
+[110.503s] -- Up-to-date symlink: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/ros_gz_interfaces_s__rosidl_typesupport_introspection_c.so
+[110.503s] -- Up-to-date symlink: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/ros_gz_interfaces_s__rosidl_typesupport_c.so
+[110.504s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/rust/Cargo.toml
+[110.518s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/rust/build.rs
+[110.533s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/rust/src/lib.rs
+[110.548s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/rust/src/msg.rs
+[110.562s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/rust/src/msg/rmw.rs
+[110.576s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/rust/src/srv.rs
+[110.590s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/rust/src/srv/rmw.rs
+[110.603s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/AirSpeed.idl
+[110.620s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/Altimeter.idl
+[110.634s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/Contact.idl
+[110.652s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/Contacts.idl
+[110.668s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/Dataframe.idl
+[110.682s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/Entity.idl
+[110.696s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/EntityFactory.idl
+[110.710s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/EntityWrench.idl
+[110.724s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/Float32Array.idl
+[110.739s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/GuiCamera.idl
+[110.752s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/JointWrench.idl
+[110.766s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/Light.idl
+[110.779s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/LogicalCameraImage.idl
+[110.793s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/LogicalCameraImageModel.idl
+[110.807s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/LogPlaybackStatistics.idl
+[110.820s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/MaterialColor.idl
+[110.834s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/ParamVec.idl
+[110.849s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/SensorNoise.idl
+[110.864s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/StringVec.idl
+[110.878s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/TrackVisual.idl
+[110.893s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/VideoRecord.idl
+[110.906s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/WorldControl.idl
+[110.925s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/WorldReset.idl
+[110.945s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/WorldStatistics.idl
+[110.963s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/srv/ControlWorld.idl
+[110.976s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/srv/DeleteEntity.idl
+[110.990s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/srv/SetEntityPose.idl
+[111.008s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/srv/SpawnEntity.idl
+[111.027s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/AirSpeed.msg
+[111.040s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/Altimeter.msg
+[111.054s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/Contact.msg
+[111.073s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/Contacts.msg
+[111.086s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/Dataframe.msg
+[111.100s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/Entity.msg
+[111.113s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/EntityFactory.msg
+[111.129s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/EntityWrench.msg
+[111.143s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/Float32Array.msg
+[111.157s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/GuiCamera.msg
+[111.170s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/JointWrench.msg
+[111.184s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/Light.msg
+[111.198s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/LogicalCameraImage.msg
+[111.213s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/LogicalCameraImageModel.msg
+[111.229s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/LogPlaybackStatistics.msg
+[111.244s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/MaterialColor.msg
+[111.260s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/ParamVec.msg
+[111.275s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/SensorNoise.msg
+[111.291s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/StringVec.msg
+[111.308s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/TrackVisual.msg
+[111.324s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/VideoRecord.msg
+[111.341s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/WorldControl.msg
+[111.355s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/WorldReset.msg
+[111.372s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/msg/WorldStatistics.msg
+[111.389s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/srv/ControlWorld.srv
+[111.403s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/srv/DeleteEntity.srv
+[111.417s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/srv/SetEntityPose.srv
+[111.431s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/srv/SpawnEntity.srv
+[111.445s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ament_index/resource_index/package_run_dependencies/ros_gz_interfaces
+[111.459s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ament_index/resource_index/parent_prefix_path/ros_gz_interfaces
+[111.473s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/environment/ament_prefix_path.sh
+[111.486s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/environment/ament_prefix_path.dsv
+[111.500s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/environment/path.sh
+[111.514s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/environment/path.dsv
+[111.527s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/local_setup.bash
+[111.541s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/local_setup.sh
+[111.554s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/local_setup.zsh
+[111.568s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/local_setup.dsv
+[111.583s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/package.dsv
+[111.597s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ament_index/resource_index/packages/ros_gz_interfaces
+[111.611s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/cmake/rosidl_cmake-extras.cmake
+[111.627s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake
+[111.641s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/cmake/ament_cmake_export_include_directories-extras.cmake
+[111.655s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/cmake/ament_cmake_export_libraries-extras.cmake
+[111.673s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/cmake/ament_cmake_export_targets-extras.cmake
+[111.686s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[111.700s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[111.714s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/cmake/rosidl_cmake_aggregate_target-extras.cmake
+[111.728s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/cmake/ros_gz_interfacesConfig.cmake
+[111.742s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/cmake/ros_gz_interfacesConfig-version.cmake
+[111.756s] -- Symlinking: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/package.xml
+[111.769s] -- Installing: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/libros_gz_interfaces__rosidl_generator_c.so
+[111.770s] -- Set non-toolchain portion of runtime path of "/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/libros_gz_interfaces__rosidl_generator_c.so" to ""
+[111.770s] -- Installing: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/libros_gz_interfaces__rosidl_typesupport_fastrtps_c.so
+[111.772s] -- Set non-toolchain portion of runtime path of "/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/libros_gz_interfaces__rosidl_typesupport_fastrtps_c.so" to ""
+[111.772s] -- Installing: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/libros_gz_interfaces__rosidl_typesupport_fastrtps_cpp.so
+[111.772s] -- Set non-toolchain portion of runtime path of "/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/libros_gz_interfaces__rosidl_typesupport_fastrtps_cpp.so" to ""
+[111.772s] -- Installing: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/libros_gz_interfaces__rosidl_typesupport_introspection_c.so
+[111.773s] -- Set non-toolchain portion of runtime path of "/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/libros_gz_interfaces__rosidl_typesupport_introspection_c.so" to ""
+[111.773s] -- Installing: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/libros_gz_interfaces__rosidl_typesupport_c.so
+[111.774s] -- Set non-toolchain portion of runtime path of "/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/libros_gz_interfaces__rosidl_typesupport_c.so" to ""
+[111.774s] -- Installing: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/libros_gz_interfaces__rosidl_typesupport_introspection_cpp.so
+[111.775s] -- Set non-toolchain portion of runtime path of "/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/libros_gz_interfaces__rosidl_typesupport_introspection_cpp.so" to ""
+[111.775s] -- Installing: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/libros_gz_interfaces__rosidl_typesupport_cpp.so
+[111.776s] -- Set non-toolchain portion of runtime path of "/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/libros_gz_interfaces__rosidl_typesupport_cpp.so" to ""
+[111.857s] Listing '/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces'...
+[111.857s] Compiling '/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/__init__.py'...
+[111.857s] Listing '/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg'...
+[111.858s] Compiling '/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/__init__.py'...
+[111.858s] Compiling '/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_air_speed.py'...
+[111.858s] Compiling '/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_altimeter.py'...
+[111.858s] Compiling '/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_contact.py'...
+[111.858s] Compiling '/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_contacts.py'...
+[111.858s] Compiling '/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_dataframe.py'...
+[111.858s] Compiling '/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_entity.py'...
+[111.858s] Compiling '/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_entity_factory.py'...
+[111.858s] Compiling '/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_entity_wrench.py'...
+[111.858s] Compiling '/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_float32_array.py'...
+[111.858s] Compiling '/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_gui_camera.py'...
+[111.858s] Compiling '/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_joint_wrench.py'...
+[111.858s] Compiling '/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_light.py'...
+[111.858s] Compiling '/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_log_playback_statistics.py'...
+[111.858s] Compiling '/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_logical_camera_image.py'...
+[111.858s] Compiling '/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_logical_camera_image_model.py'...
+[111.858s] Compiling '/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_material_color.py'...
+[111.859s] Compiling '/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_param_vec.py'...
+[111.859s] Compiling '/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_sensor_noise.py'...
+[111.859s] Compiling '/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_string_vec.py'...
+[111.859s] Compiling '/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_track_visual.py'...
+[111.859s] Compiling '/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_video_record.py'...
+[111.859s] Compiling '/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_world_control.py'...
+[111.859s] Compiling '/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_world_reset.py'...
+[111.859s] Compiling '/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/msg/_world_statistics.py'...
+[111.859s] Listing '/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/srv'...
+[111.859s] Compiling '/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/srv/__init__.py'...
+[111.859s] Compiling '/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/srv/_control_world.py'...
+[111.859s] Compiling '/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/srv/_delete_entity.py'...
+[111.859s] Compiling '/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/srv/_set_entity_pose.py'...
+[111.859s] Compiling '/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/python3.12/site-packages/ros_gz_interfaces/srv/_spawn_entity.py'...
+[111.864s] -- Installing: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/libros_gz_interfaces__rosidl_generator_py.so
+[111.864s] -- Set non-toolchain portion of runtime path of "/home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/lib/libros_gz_interfaces__rosidl_generator_py.so" to ""
+[111.865s] -- Installing: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/cmake/export_ros_gz_interfaces__rosidl_generator_cExport.cmake
+[111.865s] -- Installing: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/cmake/export_ros_gz_interfaces__rosidl_generator_cExport-release.cmake
+[111.866s] -- Installing: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/cmake/export_ros_gz_interfaces__rosidl_typesupport_fastrtps_cExport.cmake
+[111.867s] -- Installing: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/cmake/export_ros_gz_interfaces__rosidl_typesupport_fastrtps_cExport-release.cmake
+[111.874s] -- Installing: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/cmake/export_ros_gz_interfaces__rosidl_generator_cppExport.cmake
+[111.875s] -- Installing: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/cmake/export_ros_gz_interfaces__rosidl_typesupport_fastrtps_cppExport.cmake
+[111.875s] -- Installing: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/cmake/export_ros_gz_interfaces__rosidl_typesupport_fastrtps_cppExport-release.cmake
+[111.877s] -- Installing: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/cmake/ros_gz_interfaces__rosidl_typesupport_introspection_cExport.cmake
+[111.877s] -- Installing: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/cmake/ros_gz_interfaces__rosidl_typesupport_introspection_cExport-release.cmake
+[111.878s] -- Installing: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/cmake/ros_gz_interfaces__rosidl_typesupport_cExport.cmake
+[111.878s] -- Installing: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/cmake/ros_gz_interfaces__rosidl_typesupport_cExport-release.cmake
+[111.878s] -- Installing: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/cmake/ros_gz_interfaces__rosidl_typesupport_introspection_cppExport.cmake
+[111.878s] -- Installing: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/cmake/ros_gz_interfaces__rosidl_typesupport_introspection_cppExport-release.cmake
+[111.879s] -- Installing: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/cmake/ros_gz_interfaces__rosidl_typesupport_cppExport.cmake
+[111.879s] -- Installing: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/cmake/ros_gz_interfaces__rosidl_typesupport_cppExport-release.cmake
+[111.879s] -- Installing: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/cmake/export_ros_gz_interfaces__rosidl_generator_pyExport.cmake
+[111.879s] -- Installing: /home/abigaildiehl/screw_sorting/models/GazeboWorld1/install/ros_gz_interfaces/share/ros_gz_interfaces/cmake/export_ros_gz_interfaces__rosidl_generator_pyExport-release.cmake
+[111.880s] Invoked command in '/home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/ros_gz_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/abigaildiehl/simulation_ws/install/vbrm_hw6:/home/abigaildiehl/simulation_ws/install/ur_move_merlab:/home/abigaildiehl/RBE4540/install/py_srvcli:/home/abigaildiehl/RBE4540/install/my_package:/home/abigaildiehl/RBE4540/install/force_vector_service:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/ros_gz_interfaces

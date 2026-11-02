@@ -1,0 +1,41 @@
+[01m[K/home/abigaildiehl/screw_sorting/models/GazeboWorld1/src/ros2_controllers/force_torque_sensor_broadcaster/src/force_torque_sensor_broadcaster.cpp:[m[K In member function ‘[01m[Kvirtual std::vector<std::shared_ptr<hardware_interface::StateInterface> > force_torque_sensor_broadcaster::ForceTorqueSensorBroadcaster::[01;32m[Kon_export_state_interfaces_list[m[K()[m[K’:
+[01m[K/home/abigaildiehl/screw_sorting/models/GazeboWorld1/src/ros2_controllers/force_torque_sensor_broadcaster/src/force_torque_sensor_broadcaster.cpp:247:18:[m[K [01;35m[Kwarning: [m[Kignoring return value of ‘[01m[Kbool hardware_interface::Handle::[01;32m[Kset_value[m[K(const T&) [35m[K[with T = double][m[K[m[K’, declared with attribute ‘[01m[Knodiscard[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-result-Wunused-result]8;;[m[K]
+  247 |     [01;35m[Ksi->set_value(wrench_raw_.wrench.force.x)[m[K;
+      |     [01;35m[K~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/home/abigaildiehl/screw_sorting/models/GazeboWorld1/src/ros2_control/controller_interface/include/controller_interface/controller_interface_base.hpp:27[m[K,
+                 from [01m[K/home/abigaildiehl/screw_sorting/models/GazeboWorld1/src/ros2_control/controller_interface/include/controller_interface/chainable_controller_interface.hpp:23[m[K,
+                 from [01m[K/home/abigaildiehl/screw_sorting/models/GazeboWorld1/src/ros2_controllers/force_torque_sensor_broadcaster/include/force_torque_sensor_broadcaster/force_torque_sensor_broadcaster.hpp:26[m[K,
+                 from [01m[K/home/abigaildiehl/screw_sorting/models/GazeboWorld1/src/ros2_controllers/force_torque_sensor_broadcaster/src/force_torque_sensor_broadcaster.cpp:19[m[K:
+[01m[K/home/abigaildiehl/screw_sorting/models/GazeboWorld1/src/ros2_control/hardware_interface/include/hardware_interface/handle.hpp:519:22:[m[K [01;36m[Knote: [m[Kdeclared here
+  519 |   [[nodiscard]] bool [01;36m[Kset_value[m[K(const T & value)
+      |                      [01;36m[K^~~~~~~~~[m[K
+[01m[K/home/abigaildiehl/screw_sorting/models/GazeboWorld1/src/ros2_controllers/force_torque_sensor_broadcaster/src/force_torque_sensor_broadcaster.cpp:253:18:[m[K [01;35m[Kwarning: [m[Kignoring return value of ‘[01m[Kbool hardware_interface::Handle::[01;32m[Kset_value[m[K(const T&) [35m[K[with T = double][m[K[m[K’, declared with attribute ‘[01m[Knodiscard[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-result-Wunused-result]8;;[m[K]
+  253 |     [01;35m[Ksi->set_value(wrench_raw_.wrench.force.y)[m[K;
+      |     [01;35m[K~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/abigaildiehl/screw_sorting/models/GazeboWorld1/src/ros2_control/hardware_interface/include/hardware_interface/handle.hpp:519:22:[m[K [01;36m[Knote: [m[Kdeclared here
+  519 |   [[nodiscard]] bool [01;36m[Kset_value[m[K(const T & value)
+      |                      [01;36m[K^~~~~~~~~[m[K
+[01m[K/home/abigaildiehl/screw_sorting/models/GazeboWorld1/src/ros2_controllers/force_torque_sensor_broadcaster/src/force_torque_sensor_broadcaster.cpp:259:18:[m[K [01;35m[Kwarning: [m[Kignoring return value of ‘[01m[Kbool hardware_interface::Handle::[01;32m[Kset_value[m[K(const T&) [35m[K[with T = double][m[K[m[K’, declared with attribute ‘[01m[Knodiscard[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-result-Wunused-result]8;;[m[K]
+  259 |     [01;35m[Ksi->set_value(wrench_raw_.wrench.force.z)[m[K;
+      |     [01;35m[K~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/abigaildiehl/screw_sorting/models/GazeboWorld1/src/ros2_control/hardware_interface/include/hardware_interface/handle.hpp:519:22:[m[K [01;36m[Knote: [m[Kdeclared here
+  519 |   [[nodiscard]] bool [01;36m[Kset_value[m[K(const T & value)
+      |                      [01;36m[K^~~~~~~~~[m[K
+[01m[K/home/abigaildiehl/screw_sorting/models/GazeboWorld1/src/ros2_controllers/force_torque_sensor_broadcaster/src/force_torque_sensor_broadcaster.cpp:265:18:[m[K [01;35m[Kwarning: [m[Kignoring return value of ‘[01m[Kbool hardware_interface::Handle::[01;32m[Kset_value[m[K(const T&) [35m[K[with T = double][m[K[m[K’, declared with attribute ‘[01m[Knodiscard[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-result-Wunused-result]8;;[m[K]
+  265 |     [01;35m[Ksi->set_value(wrench_raw_.wrench.torque.x)[m[K;
+      |     [01;35m[K~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/abigaildiehl/screw_sorting/models/GazeboWorld1/src/ros2_control/hardware_interface/include/hardware_interface/handle.hpp:519:22:[m[K [01;36m[Knote: [m[Kdeclared here
+  519 |   [[nodiscard]] bool [01;36m[Kset_value[m[K(const T & value)
+      |                      [01;36m[K^~~~~~~~~[m[K
+[01m[K/home/abigaildiehl/screw_sorting/models/GazeboWorld1/src/ros2_controllers/force_torque_sensor_broadcaster/src/force_torque_sensor_broadcaster.cpp:271:18:[m[K [01;35m[Kwarning: [m[Kignoring return value of ‘[01m[Kbool hardware_interface::Handle::[01;32m[Kset_value[m[K(const T&) [35m[K[with T = double][m[K[m[K’, declared with attribute ‘[01m[Knodiscard[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-result-Wunused-result]8;;[m[K]
+  271 |     [01;35m[Ksi->set_value(wrench_raw_.wrench.torque.y)[m[K;
+      |     [01;35m[K~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/abigaildiehl/screw_sorting/models/GazeboWorld1/src/ros2_control/hardware_interface/include/hardware_interface/handle.hpp:519:22:[m[K [01;36m[Knote: [m[Kdeclared here
+  519 |   [[nodiscard]] bool [01;36m[Kset_value[m[K(const T & value)
+      |                      [01;36m[K^~~~~~~~~[m[K
+[01m[K/home/abigaildiehl/screw_sorting/models/GazeboWorld1/src/ros2_controllers/force_torque_sensor_broadcaster/src/force_torque_sensor_broadcaster.cpp:277:18:[m[K [01;35m[Kwarning: [m[Kignoring return value of ‘[01m[Kbool hardware_interface::Handle::[01;32m[Kset_value[m[K(const T&) [35m[K[with T = double][m[K[m[K’, declared with attribute ‘[01m[Knodiscard[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-result-Wunused-result]8;;[m[K]
+  277 |     [01;35m[Ksi->set_value(wrench_raw_.wrench.torque.z)[m[K;
+      |     [01;35m[K~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/abigaildiehl/screw_sorting/models/GazeboWorld1/src/ros2_control/hardware_interface/include/hardware_interface/handle.hpp:519:22:[m[K [01;36m[Knote: [m[Kdeclared here
+  519 |   [[nodiscard]] bool [01;36m[Kset_value[m[K(const T & value)
+      |                      [01;36m[K^~~~~~~~~[m[K

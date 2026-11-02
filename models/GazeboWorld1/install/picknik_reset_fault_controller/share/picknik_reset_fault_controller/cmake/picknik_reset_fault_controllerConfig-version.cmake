@@ -1,0 +1,1 @@
+/home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/picknik_reset_fault_controller/ament_cmake_core/picknik_reset_fault_controllerConfig-version.cmake

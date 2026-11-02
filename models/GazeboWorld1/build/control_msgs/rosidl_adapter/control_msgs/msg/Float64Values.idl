@@ -1,0 +1,26 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from control_msgs/msg/Float64Values.msg
+// generated code does not contain a copyright notice
+
+#include "std_msgs/msg/Header.idl"
+
+module control_msgs {
+  module msg {
+    struct Float64Values {
+      std_msgs::msg::Header header;
+
+      @verbatim (language="comment", text=
+        "List of values corresponding to the interfaces or joints defined in Keys.msg" "\n"
+        "The size and order must match that of Keys.msg" "\n"
+        "Each value corresponds to the key at the same index in Keys.msg" "\n"
+        "" "\n"
+        "For example. if Keys.msg has keys = [\"joint1/position\", \"joint2/velocity\"], then" "\n"
+        "InterfacesValues.msg could have values = [1.57, 0.0]. The first value (1.57) corresponds to \"joint1/position\"" "\n"
+        "and the second value (0.0) corresponds to \"joint2/velocity\"" "\n"
+        "" "\n"
+        "This message is used by the interfaces_state_broadcaster to publish the values of the interfaces via" "\n"
+        "ROS 2 topics ~/names (Keys.msg) and ~/values (InterfacesValues.msg)")
+      sequence<double> values;
+    };
+  };
+};

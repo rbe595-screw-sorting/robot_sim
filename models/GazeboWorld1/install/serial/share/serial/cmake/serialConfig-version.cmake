@@ -1,0 +1,1 @@
+/home/abigaildiehl/screw_sorting/models/GazeboWorld1/build/serial/ament_cmake_core/serialConfig-version.cmake
