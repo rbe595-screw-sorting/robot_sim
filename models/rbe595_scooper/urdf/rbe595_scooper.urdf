@@ -9,7 +9,7 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 -0 0" />
             <geometry>
-                <mesh filename="package://rbe595_scooper/meshes/_.stl" scale="1 1 1" />
+                <mesh filename="../meshes/_.stl" scale="1 1 1" />
             </geometry>
         </visual>
     </link>

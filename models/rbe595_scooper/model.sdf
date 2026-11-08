@@ -19,7 +19,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://rbe595_scooper/meshes/_.stl</uri>
+            <uri>model://rbe595_bucket/meshes/Part_1.stl</uri>
           </mesh>
         </geometry>
       </visual>

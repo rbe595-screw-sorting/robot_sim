@@ -127,7 +127,7 @@
     <include>
         <name>Bucket</name>
         <pose>1 -1 0 -1.5708 0 0</pose>
-        <uri>model://assembly_1</uri>
+        <uri>model://rbe595_bucket</uri>
     </include>
     <include>
         <name>Scooper</name>
