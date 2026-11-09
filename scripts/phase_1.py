@@ -29,25 +29,25 @@ ik_service = "/compute_ik"
 #home
 
 waypoints = {
-    "home" : (0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0),
+    "home" : (0.2, -0.3, 0.5, 1.0, 1.0, 1.0, 1.0),
 
-    #scooper located at 0.2, -0.5, 0, 1.57, 0, 1.57
+    #scooper located at 0.3 0.5 0 1.57 0 -1.57
     #approach at 0.2, -0.5, 0.2, 0, 0, 0 
 
-    "scooper_approach" : (0.2, -0.5, 0.2, 0, 0, 0, 1.0), 
-    "scooper_grasp" : (0.2, 0.25, 0.5, 0.0, 0.0, 0.0, 1.0),
-    "scooper_lift" : (0.2, 0.5, 0.5, 0.0, 0.0, 0.0, 1.0),
+    "scooper_approach" : (0.3, 0.4, 0.3, 0.7071, 0.7071, 0.0, 0.0), 
+    "scooper_grasp" : (0.3, 0.4, 0.15, 0.7071, 0.7071, 0.0, 0.0),
+    "scooper_lift" : (0.3, 0.4, 0.3, 0.7071, 0.7071, 0.0, 0.0),
 
-    #bucket located at -0.3, -0.5, 0, 1.57, 0, 1.57
+    #bucket located at 0.3 -0.5 0 1.57 0 1.57
 
-    "bucket_approach" : (-0.3, -0.4, 0.0, 0.0, 0.0, 0.0, 1.0),
-    "pick_bucket" : (-0.2, -0.3, 0.0, 0.0, 0.0, 0.0, 1.0),
-    "center_screws" : (0.2, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0),
+    "bucket_approach" : (0.3, -0.4, 0.5,  0.7071, 0.7071, 0.0, 0.0),
+    "pick_bucket" : (0.3, -0.4, 0.1,  0.7071, 0.7071, 0.0, 0.0),
+    "center_screws" : (0.3, -0.4, 0.5,  0.7071, 0.7071, 0.0, 0.0),
 
     #rotation test here! 
     "drop_bucket" : (0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0),
 
-    "leave_scoop" : (0.2, 0.20, 0.5, 0.0, 0.0, 0.0, 1.0),
+    "leave_scoop" : (0.3, 0.4, 0.15, 0.7071, 0.7071, 0.0, 0.0),
 } 
 
 class Phase_1(Node):
@@ -207,6 +207,7 @@ class Phase_1(Node):
         self.gripper(0.0)
 
         initial_sequence = [
+            "home",
             "scooper_approach",
             "scooper_grasp"
         ]
@@ -224,7 +225,7 @@ class Phase_1(Node):
             "scooper_approach", 
             "scooper_grasp" ,
             "scooper_lift" ,
-            "bucket_appraoch", 
+            "bucket_approach", 
             "pick_bucket" ,
             "center_screws", 
             "drop_bucket" 
