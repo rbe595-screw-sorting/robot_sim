@@ -1,5 +1,5 @@
 <launch>
-      <arg name="urdf_file" default="$(find rbe595_scooper)/urdf/rbe595_scooper.urdf"/>
+      <arg name="urdf_file" default="$(find rbe595_scoop)/urdf/rbe595_scoop.urdf"/>
       <param name="robot_description" textfile="$(arg urdf_file)"/>
 
       <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen"/>

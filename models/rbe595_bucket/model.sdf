@@ -32,8 +32,10 @@
           </mesh>
         </geometry>
         <material>
-          <diffuse>0.990196228 1 1 1</diffuse>
-          <ambient>0.990196228 1 1 1</ambient>
+          <ambient>0.1 0.3 0.9 1</ambient>
+          <diffuse>0.1 0.3 0.9 1</diffuse>
+          <specular>0.2 0.2 0.2 1</specular>
+          <emissive>0 0 0 1</emissive>
         </material>
       </visual>
     </link>

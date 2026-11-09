@@ -1,27 +1,40 @@
 <sdf version='1.11'>
-  <model name='rbe595_scooper'>
+  <model name='rbe595_scoop'>
     <static>true</static>
-    <link name='root'>
+    <link name='scoop_link'>
       <inertial>
-        <pose>-0.063288300000000006 0.030669600000000002 -0.037398800000000003 0 0 0</pose>
-        <mass>0.0055574800000000001</mass>
+        <pose>0.018779400000000002 0.014420499999999999 0 0 0 0</pose>
+        <mass>0.050000000000000003</mass>
         <inertia>
-          <ixx>1.22614e-06</ixx>
-          <ixy>1.22231e-06</ixy>
-          <ixz>2.8587899999999999e-07</ixz>
-          <iyy>6.6617699999999999e-06</iyy>
-          <iyz>3.6801999999999998e-07</iyz>
-          <izz>7.2984100000000001e-06</izz>
+          <ixx>2.3316100000000001e-08</ixx>
+          <ixy>-5.7985699999999998e-09</ixy>
+          <ixz>0</ixz>
+          <iyy>6.4119499999999994e-08</iyy>
+          <iyz>0</iyz>
+          <izz>5.5618299999999998e-08</izz>
         </inertia>
       </inertial>
-      <visual name='root_visual'>
-        <pose>0 0 0 0 0 0</pose>
+      <collision name='scoop_link_collision'>
+        <pose>0.021319299999999999 0 0 0 0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://rbe595_bucket/meshes/Part_1.stl</uri>
+            <uri>model://rbe595_scooper/meshes/Part_1.stl</uri>
           </mesh>
         </geometry>
+      </collision>
+      <visual name='scoop_link_visual'>
+        <pose>0.021319299999999999 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rbe595_scooper/meshes/Part_1.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1 0.5 0.0625 1</diffuse>
+          <ambient>1 0.5 0.0625 1</ambient>
+        </material>
       </visual>
     </link>
   </model>

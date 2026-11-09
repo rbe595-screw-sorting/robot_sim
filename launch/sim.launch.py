@@ -2,9 +2,10 @@ import os
 
 from ament_index_python import get_package_share_directory
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription, SetEnvironmentVariable
+from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription, SetEnvironmentVariable, TimerAction
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration
+
 
 def generate_launch_description():
     # base file path for the package
@@ -34,6 +35,11 @@ def generate_launch_description():
     # arguments for gz sim
     arguments = LaunchDescription([
         DeclareLaunchArgument('world', default_value='empty', description=worlds),
+
+        DeclareLaunchArgument('robot_x', default_value = '0.0'),
+        DeclareLaunchArgument('robot_y', default_value = '0.0'),
+        DeclareLaunchArgument('robot_z', default_value = '0.0')
+
     ])
 
     # actually run gazebo
@@ -58,10 +64,48 @@ def generate_launch_description():
         ]
     )
 
+    #launch the robot: 
+    kinova_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(pkg_path, 'launch', 'kortex_sim_control.launch.py')
+        ),
+        launch_arguments={
+            'sim_gazebo': 'true',
+            'start_gazebo': 'false',
+            'robot_type': 'gen3_lite',
+            'robot_controller': 'joint_trajectory_controller',
+            'robot_pos_controller': 'twist_controller',
+            'dof': '6',
+            # 'description_file': 'gen3_lite_gen3_lite_2f.xacro',
+            'description_file' : 'kinova.urdf.xacro',
+            'robot_name': 'gen3_lite',
+            'gripper': 'gen3_lite_2f',
+            'launch_rviz': 'false',
+            'use_sim_time': 'true',
+            'spawn_x': LaunchConfiguration('robot_x'),
+            'spawn_y': LaunchConfiguration('robot_y'),
+            'spawn_z': LaunchConfiguration('robot_z'),
+        }.items()
+    )
+
+    deployed_kinova_launch = TimerAction(
+        period = 8.0,
+        actions = [kinova_launch]
+    )
+
     # launch each item defined above by returning the variable
     return LaunchDescription([
         gz_sim_resource,
         arguments,
+
+        DeclareLaunchArgument('robot_x', default_value='0.0'),
+        DeclareLaunchArgument('robot_y', default_value='0.0'),
+        DeclareLaunchArgument('robot_z', default_value='0.3'),
+
+        DeclareLaunchArgument('launch_rviz', default_value='false', description='Launch RViz'),
+
         gzserver_cmd,
-        gzclient_cmd
+        gzclient_cmd,
+
+        deployed_kinova_launch,
     ])

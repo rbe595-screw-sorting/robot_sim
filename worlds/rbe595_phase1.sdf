@@ -37,6 +37,16 @@
           <far>25000</far>
         </camera_clip>
       </plugin>
+      <!-- Interactive camera controls -->
+      <plugin filename="InteractiveViewControl" name="Interactive view control">
+        <gz-gui>
+            <property key="resizable" type="bool">false</property>
+            <property key="width" type="double">5</property>
+            <property key="height" type="double">5</property>
+            <property key="state" type="string">floating</property>
+            <property key="showTitleBar" type="bool">false</property>
+        </gz-gui>
+      </plugin>
       <plugin filename="GzSceneManager" name="Scene Manager">
         <gz-gui>
           <property key="resizable" type="bool">false</property>
@@ -109,7 +119,7 @@
       </attenuation>
       <direction>-0.5 0.1 -0.9</direction>
     </light>
-    <include>
+    <!-- <include>
         <name>Coke0</name>
         <pose>0 0 0 0 0 0</pose>
         <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Coke</uri>
@@ -118,7 +128,7 @@
         <name>Coke1</name>
         <pose>0 0.1 0 0 0 0</pose>
         <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Coke</uri>
-    </include>
+    </include> -->
     <include>
         <name>Table</name>
         <pose>0 0 0 -1.5708 0 -1.5708</pose>
@@ -126,12 +136,12 @@
     </include>
     <include>
         <name>Bucket</name>
-        <pose>1 -1 0 -1.5708 0 0</pose>
+        <pose>-0.3 -0.3 0 1.57 0 0</pose>
         <uri>model://rbe595_bucket</uri>
     </include>
     <include>
         <name>Scooper</name>
-        <pose>1 0 0 -1.5708 0 0</pose>
+        <pose>0.2 0.2 0.5 1.57 0 1.57</pose>
         <uri>model://rbe595_scooper</uri>
     </include>
   </world>
