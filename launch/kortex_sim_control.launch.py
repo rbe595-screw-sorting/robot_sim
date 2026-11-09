@@ -58,10 +58,10 @@ def launch_setup(context, *args, **kwargs):
     description_file = LaunchConfiguration("description_file")
     robot_name = LaunchConfiguration("robot_name")
     prefix = LaunchConfiguration("prefix")
-    robot_traj_controller = LaunchConfiguration("robot_controller")
-    robot_pos_controller = LaunchConfiguration("robot_pos_controller")
+    robot_traj_controller = LaunchConfiguration("robot_controller").perform(context)
+    robot_pos_controller = LaunchConfiguration("robot_pos_controller").perform(context)
     robot_hand_controller = LaunchConfiguration("robot_hand_controller")
-    robot_lite_hand_controller = LaunchConfiguration("robot_lite_hand_controller")
+    robot_lite_hand_controller = "gen3_lite_2f_gripper_controller"
     launch_rviz = LaunchConfiguration("launch_rviz")
     use_sim_time = LaunchConfiguration("use_sim_time")
     gripper = LaunchConfiguration("gripper")
@@ -418,6 +418,19 @@ def generate_launch_description():
             description="Gripper to use",
         )
     )
+
+    DeclareLaunchArgument(
+        "robot_pos_controller",
+        default_value="twist_controller",
+        description="Robot position controller",
+    ),
+
+    DeclareLaunchArgument(
+        "robot_lite_hand_controller",
+        default_value="gen3_lite_2f_gripper_controller",
+        description="Gen3 Lite gripper controller",
+    ),
+
     declared_arguments.append(
         DeclareLaunchArgument("launch_rviz", default_value="false", description="Launch RViz?")
     )
