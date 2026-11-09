@@ -15,7 +15,7 @@ arm_group = "arm"
 base_frame = "base_link"
 ee_link = "end_effector_link"
 
-joints = ["joint1", "joint2", "joint3", "joint4", "joint5", "joint6"]
+joints = ["joint_1", "joint_2", "joint_3", "joint_4", "joint_5", "joint_6"]
 
 arm_action = "/joint_trajectory_controller/follow_joint_trajectory"
 gripper_action = "/gen3_lite_2f_gripper_controller/gripper_cmd"
@@ -25,7 +25,7 @@ ik_service = "/compute_ik"
 
 #home
 #approach s, grasp s, lift s, position s
-#pick b, position b, drop b, leave b
+#pick b, position b, drop b, leave 
 #home
 
 waypoints = {
@@ -47,7 +47,7 @@ waypoints = {
 
 class Phase_1(Node):
     def __init__(self):
-        super().__init__("phase_1")
+        super().__init__("Phase_1")
 
         self.ik_client = self.create_client(GetPositionIK, ik_service)
 
@@ -134,7 +134,7 @@ class Phase_1(Node):
 
         #setting point as a goal:
         goal = FollowJointTrajectory.Goal()
-        goal.trajectory.joint_names = arm_group
+        goal.trajectory.joint_names = joints
 
 
         point = JointTrajectoryPoint()
@@ -164,6 +164,7 @@ class Phase_1(Node):
 
         #if successful: 
         self.get_logger().info(f"reached {waypoint} !")
+        return True
 
 
     #taken from previous lab
@@ -196,55 +197,69 @@ class Phase_1(Node):
 
     #modelled off old hw5? 
     def control_loop(self):
-        sequence = [
-            ("scooper_appraoch", None),
-            ("scooper_", None),
-        ]
 
-        #make sure teh gripper is open enough: 
+        #make sure teh gripper is to start: 
         self.gripper(0.0)
 
-        for waypoint, _ in sequence:
-            if not self.move_arm(waypoint):
+        initial_sequence = [
+            "scooper_approach",
+            "scooper_grasp"
+        ]
+
+
+        for waypoint in initial_sequence:
+            if not self.move(waypoint):
                 return
 
-        #closing the scoop: 
+        #closing to grasp the scoop: 
         if not self.gripper(0.5):
             return
 
-        remaining_sequence = [
-            "scooper_approach" 
-            "scooper_grasp" 
-            "scooper_lift" 
-            "bucket_appraoch" 
-            "pick_bucket" 
-            "center_screws" 
+        middle_sequence = [
+            "scooper_approach", 
+            "scooper_grasp" ,
+            "scooper_lift" ,
+            "bucket_appraoch", 
+            "pick_bucket" ,
+            "center_screws", 
             "drop_bucket" 
-            "leave_bucket" 
+            
+        ]
+
+        for waypoint in middle_sequence:
+            if not self.move(waypoint):
+                return
+
+        closing_sequence = [
+            "leave_bucket",
             "home"
         ]
 
-        for waypoint in remaining_sequence:
-            if not self.move_arm(waypoint):
+        #open to leave the scoop: 
+        if not self.gripper(0.5):
+            return
+
+        for waypoint in middle_sequence:
+            if not self.move(waypoint):
                 return
 
         self.get_logger().info("Phase 1 Complete!")
             
 
 
-    def main(args=None):
-        rclpy.init(args=args)
+def main(args=None):
+    rclpy.init(args=args)
 
-        node = Phase_1()
+    node = Phase_1()
 
-        try:
-            node.run_sequence()
-        except KeyboardInterrupt:
-            pass
-        finally:
-            node.destroy_node()
-            rclpy.shutdown()
+    try:
+        node.control_loop()
+    except KeyboardInterrupt:
+        pass
+    finally:
+        node.destroy_node()
+        rclpy.shutdown()
 
 
-    if __name__ == "__main__":
-        main()
+if __name__ == "__main__":
+    main()
