@@ -136,12 +136,12 @@
     </include>
     <include>
         <name>Bucket</name>
-        <pose>-0.3 -0.3 0 1.57 0 0</pose>
+        <pose>-0.3 -0.5 0 1.57 0 1.57</pose>
         <uri>model://rbe595_bucket</uri>
     </include>
     <include>
         <name>Scooper</name>
-        <pose>0.2 0.2 0.5 1.57 0 1.57</pose>
+        <pose>0.3 -0.5 0 1.57 0 1.57</pose>
         <uri>model://rbe595_scooper</uri>
     </include>
   </world>

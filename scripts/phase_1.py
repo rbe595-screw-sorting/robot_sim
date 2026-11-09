@@ -31,9 +31,14 @@ ik_service = "/compute_ik"
 waypoints = {
     "home" : (0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0),
 
-    "scooper_approach" : (0.2, 0.3, 0.5, 0.0, 0.0, 0.0, 1.0), 
+    #scooper located at 0.2, -0.5, 0, 1.57, 0, 1.57
+    #approach at 0.2, -0.5, 0.2, 0, 0, 0 
+
+    "scooper_approach" : (0.2, -0.5, 0.2, 0, 0, 0, 1.0), 
     "scooper_grasp" : (0.2, 0.25, 0.5, 0.0, 0.0, 0.0, 1.0),
     "scooper_lift" : (0.2, 0.5, 0.5, 0.0, 0.0, 0.0, 1.0),
+
+    #bucket located at -0.3, -0.5, 0, 1.57, 0, 1.57
 
     "bucket_approach" : (-0.3, -0.4, 0.0, 0.0, 0.0, 0.0, 1.0),
     "pick_bucket" : (-0.2, -0.3, 0.0, 0.0, 0.0, 0.0, 1.0),
