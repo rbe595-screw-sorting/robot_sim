@@ -127,8 +127,13 @@
     </include>
     <include>
         <name>Screw</name>
-        <pose>0.05 0.05 0.3 -1.5708 0 -1.5708</pose>
+        <pose>-0.3 0.5 0.3 -1.5708 0 -1.5708</pose>
         <uri>model://rbe595_screw</uri>
+    </include>
+        <include>
+        <name>Bucket</name>
+        <pose>0.3 -0.5 0 1.57 0 1.57</pose>
+        <uri>model://rbe595_bucket</uri>
     </include>
   </world>
 </sdf>

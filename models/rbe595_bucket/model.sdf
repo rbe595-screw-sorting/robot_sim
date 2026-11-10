@@ -1,0 +1,43 @@
+<sdf version='1.11'>
+  <model name='rbe595_bucket'>
+    <static>true</static>
+    <link name='bucket_link'>
+      <inertial>
+        <pose>-1.3877799999999999e-17 0.015481 0 0 0 0</pose>
+        <mass>0.00042913599999999999</mass>
+        <inertia>
+          <ixx>1.3491600000000001e-06</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>3.7445400000000002e-06</iyy>
+          <iyz>0</iyz>
+          <izz>2.6036299999999999e-06</izz>
+        </inertia>
+      </inertial>
+      <collision name='bucket_link_collision'>
+        <pose>-0.1143 0 0.076200000000000004 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rbe595_bucket/meshes/Part_1.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='bucket_link_visual'>
+        <pose>-0.1143 0 0.076200000000000004 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rbe595_bucket/meshes/Part_1.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.1 0.3 0.9 1</ambient>
+          <diffuse>0.1 0.3 0.9 1</diffuse>
+          <specular>0.2 0.2 0.2 1</specular>
+          <emissive>0 0 0 1</emissive>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>
