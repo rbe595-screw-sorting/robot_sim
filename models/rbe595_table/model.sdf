@@ -27,6 +27,14 @@
           <ambient>0.990196228 1 1 1</ambient>
         </material>
       </visual>
+    <collision name="root_collision">
+      <geometry>
+        <mesh>
+          <scale>2 2 2</scale>
+          <uri>model://rbe595_table/meshes/Part_1.stl</uri>
+        </mesh>
+      </geometry>
+    </collision>  
     </link>
   </model>
 </sdf>
