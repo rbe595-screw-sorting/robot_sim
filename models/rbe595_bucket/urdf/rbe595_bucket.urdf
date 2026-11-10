@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<robot name="rbe595_bucket">
+
+    <link name="bucket_link">
+
+        <inertial>
+            <mass value="0.000429136"/>
+            <origin xyz="-1.38778e-17 0.015481 0" rpy="0 0 0"/>
+            <inertia
+                ixx="1.34916e-06"
+                ixy="0"
+                ixz="0"
+                iyy="3.74454e-06"
+                iyz="0"
+                izz="2.60363e-06"/>
+        </inertial>
+
+        <visual>
+            <origin xyz="-0.1143 0 0.0762" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="../meshes/Part_1.stl" scale="1 1 1"/>
+            </geometry>
+            <material name="bucket_material">
+                <color rgba="0.792157 0.819608 0.933333 1"/>
+            </material>
+        </visual>
+
+        <collision>
+            <origin xyz="-0.1143 0 0.0762" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="../meshes/Part_1.stl" scale="1 1 1"/>
+            </geometry>
+        </collision>
+
+    </link>
+
+</robot>
