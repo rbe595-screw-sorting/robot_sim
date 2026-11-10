@@ -28,8 +28,12 @@ def generate_launch_description():
 
     # set gz sim resource path
     gz_sim_resource = SetEnvironmentVariable(
-        name = 'GZ_SIM_RESOURCE_PATH',
-        value=f"{models_path}:{worlds_path}:{pkg_path}"
+        name='GZ_SIM_RESOURCE_PATH',
+        value=[
+            models_path,
+            ':',
+            os.environ.get('GZ_SIM_RESOURCE_PATH', '')
+        ]
     )
 
     # arguments for gz sim

@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<sdf version="1.11">
+  <model name="rbe595_screw">
+
+    <link name="root">
+      <inertial>
+        <pose>0.0138049 0 0 0 0 0</pose>
+        <mass>0.003</mass>
+        <inertia>
+          <ixx>9.656e-9</ixx>
+          <ixy>2.486e-14</ixy>
+          <ixz>4.048e-13</ixz>
+          <iyy>2.334e-7</iyy>
+          <iyz>0</iyz>
+          <izz>2.334e-7</izz>
+        </inertia>
+      </inertial>
+
+      <!-- Visual geometry -->
+      <visual name="root_visual">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rbe595_screw/meshes/Part_1.stl</uri>
+          </mesh>
+        </geometry>
+
+        <!-- Alloy steel -->
+        <material>
+          <ambient>0.55 0.57 0.60 1</ambient>
+          <diffuse>0.75 0.78 0.82 1</diffuse>
+          <specular>0.9 0.9 0.95 1</specular>
+        </material>
+      </visual>
+      
+
+      <!-- Collision geometry -->
+      <collision name="root_collision">
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rbe595_screw/meshes/Part_1.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+
+    </link>
+  </model>
+</sdf>

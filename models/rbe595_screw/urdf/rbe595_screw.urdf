@@ -1,0 +1,40 @@
+<robot name="rbe595_screw">
+    <link name="root">
+        <inertial>
+            <mass value="0.003" />
+            <origin xyz="-1.11519e-17 0.0578898 1.8646e-17" rpy="0 -0 0" />
+            <inertia ixx="9.656e-9" ixy="2.486e-14" ixz="4.048e-13" iyy="2.334e-7" iyz="0" izz="2.334e-7" />
+        </inertial>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://rbe595_screw/meshes/Part_1.stl"
+                    scale="1 1 1"/>
+            </geometry>
+        </collision>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 -0 0" />
+            <geometry>
+                <mesh filename="package://rbe595_screw/meshes/Part_1.stl" scale="1 1 1" />
+            </geometry>
+            <material name="alloy_steel">
+                <color rgba="0.75 0.78 0.82 1.0"/>
+            </material>
+        </visual>
+    </link>
+    <gazebo reference="">
+        <visual>
+            <material>
+                <pbr>
+                    <metal>
+                        <albedo_map>materials/textures/alloy_steel.png</albedo_map>
+                        <metalness>1.0</metalness>
+                        <roughness>0.25</roughness>
+                    </metal>
+                </pbr>
+            </material>
+        </visual>
+        <mu1>1.0</mu1>
+        <mu2>1.0</mu2>
+    </gazebo>
+</robot>
