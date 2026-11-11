@@ -68,14 +68,37 @@ class ArmMover:
             self.log.error('MoveIt services not available: is the MoveIt launch running?')
         return ok
 
-    def move_to(self, pose):
-        if self.motion == 'cartesian':
+    def move_to(self, pose, motion=None, cartesian_fallback=None):
+
+        selected_motion = motion or self.motion
+
+        fallback = (
+            self.cartesian_fallback
+            if cartesian_fallback is None
+            else cartesian_fallback
+        )
+
+        if selected_motion == 'cartesian':
+
             if self.move_cartesian(pose):
                 return True
-            if not self.cartesian_fallback:
+
+            if not fallback:
                 return False
-            self.log.warn('Straight line not possible; falling back to RRTConnect')
-        return self.move_rrtconnect(pose)
+
+            self.log.warn(
+                'Straight line not possible; falling back to RRTConnect'
+            )
+
+            return self.move_rrtconnect(pose)
+
+        elif selected_motion == 'rrtconnect':
+
+            return self.move_rrtconnect(pose)
+
+        else:
+            self.log.error(f'Unknown motion type: {selected_motion}')
+            return False
 
     def move_cartesian(self, pose):
         if not self.wait_until_ready(timeout=10.0):
