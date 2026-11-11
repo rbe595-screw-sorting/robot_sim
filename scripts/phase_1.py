@@ -40,8 +40,8 @@ waypoints = {
 
     #bucket located at 0.3 -0.5 0 1.57 0 1.57
 
-    "bucket_approach" : (0.3, -0.4, 0.5,  0.7071, 0.7071, 0.0, 0.0),
-    "pick_bucket" : (0.3, -0.4, 0.1,  0.7071, 0.7071, 0.0, 0.0),
+    "bucket_approach" : (0.3, -0.4, 0.3, 0.5, 0.5, 0.5, 0.5),
+    "pick_bucket" : (0.3, -0.4, 0.0, 0.5, 0.5, 0.5, 0.5),
     "center_screws" : (0.3, -0.4, 0.5,  0.7071, 0.7071, 0.0, 0.0),
 
     #rotation test here! 
@@ -222,8 +222,6 @@ class Phase_1(Node):
             return
 
         middle_sequence = [
-            "scooper_approach", 
-            "scooper_grasp" ,
             "scooper_lift" ,
             "bucket_approach", 
             "pick_bucket" ,
