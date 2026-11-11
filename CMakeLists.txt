@@ -14,7 +14,14 @@ find_package(ament_cmake REQUIRED)
 
 
 install(
-  DIRECTORY launch worlds models
+  DIRECTORY     
+    launch
+    worlds
+    models
+    robots
+    arms
+    grippers
+    config
   DESTINATION share/${PROJECT_NAME}
 )
 

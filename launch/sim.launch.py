@@ -30,6 +30,8 @@ def generate_launch_description():
     gz_sim_resource = SetEnvironmentVariable(
         name='GZ_SIM_RESOURCE_PATH',
         value=[
+            pkg_path,
+            ':',
             models_path,
             ':',
             os.environ.get('GZ_SIM_RESOURCE_PATH', '')
@@ -37,14 +39,9 @@ def generate_launch_description():
     )
 
     # arguments for gz sim
-    arguments = LaunchDescription([
+    arguments = [
         DeclareLaunchArgument('world', default_value='empty', description=worlds),
-
-        DeclareLaunchArgument('robot_x', default_value = '0.0'),
-        DeclareLaunchArgument('robot_y', default_value = '0.0'),
-        DeclareLaunchArgument('robot_z', default_value = '0.0')
-
-    ])
+    ]
 
     # actually run gazebo
     ros_gz_sim = get_package_share_directory('ros_gz_sim')
@@ -89,6 +86,7 @@ def generate_launch_description():
             'spawn_x': LaunchConfiguration('robot_x'),
             'spawn_y': LaunchConfiguration('robot_y'),
             'spawn_z': LaunchConfiguration('robot_z'),
+            'vision' : 'true'
         }.items()
     )
 
@@ -100,11 +98,11 @@ def generate_launch_description():
     # launch each item defined above by returning the variable
     return LaunchDescription([
         gz_sim_resource,
-        arguments,
+        *arguments,
 
         DeclareLaunchArgument('robot_x', default_value='0.0'),
         DeclareLaunchArgument('robot_y', default_value='0.0'),
-        DeclareLaunchArgument('robot_z', default_value='0.3'),
+        DeclareLaunchArgument('robot_z', default_value='0.0'),
 
         DeclareLaunchArgument('launch_rviz', default_value='false', description='Launch RViz'),
 

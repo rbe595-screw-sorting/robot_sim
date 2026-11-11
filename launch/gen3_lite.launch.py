@@ -299,7 +299,7 @@ def generate_launch_description():
             "vision",
             description="Use arm mounted realsense",
             choices=["true", "false"],
-            default_value="false",
+            default_value="true",
         )
     )
     # General arguments
@@ -313,7 +313,7 @@ def generate_launch_description():
     declared_arguments.append(
         DeclareLaunchArgument(
             "description_package",
-            default_value="kortex_description",
+            default_value="robot_sim",
             description="Description package with robot URDF/XACRO files. Usually the argument \
         is not set, it enables use of a custom description.",
         )
