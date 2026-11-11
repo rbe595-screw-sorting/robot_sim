@@ -4,10 +4,6 @@
 /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/launch/phase_1.launch.py
 /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/launch/sim.launch.py
 /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/worlds/rbe595_phase1.sdf
-/home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/models/camera1/launch/camera1.launch
-/home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/models/camera1/model.config
-/home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/models/camera1/model.sdf
-/home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/models/camera1/urdf/camera1.urdf
 /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/models/rbe595_box/launch/rbe595_box.launch
 /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/models/rbe595_box/meshes/Part_1.stl
 /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/models/rbe595_box/model.config
