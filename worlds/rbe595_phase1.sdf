@@ -131,14 +131,6 @@
         <uri>model://rbe595_table</uri>
     </include>
     <include>
-        <name>Bucket</name>
-        <pose>0.3 -0.5 0 1.57 0 1.57</pose>
-        <uri>model://rbe595_bucket</uri>
-    </include>
-    <include>
-        <name>Scooper</name>
-        <pose>0.3 0.45 0 1.57 0 -1.57</pose>
-        <uri>model://rbe595_scooper</uri>
         <name>Screw</name>
         <pose>-0.0 0.5 0.3 -1.5708 0 -1.5708</pose>
         <uri>model://rbe595_screw</uri>

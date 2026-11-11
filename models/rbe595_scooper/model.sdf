@@ -1,0 +1,70 @@
+<sdf version='1.11'>
+  <model name='rbe595_scooper'>
+    <link name='root'>
+      <inertial>
+        <pose>0.0328069 0.022332100000000001 0.014775399999999999 0 0 0</pose>
+        <mass>5.0460900000000003e-05</mass>
+        <inertia>
+          <ixx>2.3316100000000001e-08</ixx>
+          <ixy>-5.7985699999999998e-09</ixy>
+          <ixz>0</ixz>
+          <iyy>6.4119499999999994e-08</iyy>
+          <iyz>0</iyz>
+          <izz>5.5618299999999998e-08</izz>
+        </inertia>
+      </inertial>
+      <visual name='root_visual'>
+        <pose>0.035346900000000001 0.0079115499999999998 0.014775399999999999 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rbe595_scooper/meshes/Part_3.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.995097518 1 1 1</diffuse>
+          <ambient>0.995097518 1 1 1</ambient>
+        </material>
+      </visual>
+      <visual name='root_visual_1'>
+        <pose>0.035346900000000001 0.0079115499999999998 0.014775399999999999 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rbe595_scooper/meshes/Part_4.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0 0 0 1</diffuse>
+          <ambient>0 0 0 1</ambient>
+        </material>
+      </visual>
+      <visual name='root_visual_2'>
+        <pose>0.035346900000000001 0.0079115499999999998 0.014775399999999999 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rbe595_scooper/meshes/Part_2.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.995097518 1 1 1</diffuse>
+          <ambient>0.995097518 1 1 1</ambient>
+        </material>
+      </visual>
+      <visual name='root_visual_3'>
+        <pose>0.035346900000000001 0.0079115499999999998 0.014775399999999999 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rbe595_scooper/meshes/Part_1.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.995097518 1 1 1</diffuse>
+          <ambient>0.995097518 1 1 1</ambient>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>
