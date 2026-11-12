@@ -4,6 +4,13 @@
 /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/launch/phase_1.launch.py
 /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/launch/sim.launch.py
 /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/worlds/rbe595_phase1.sdf
+/home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/models/bingrid/launch/bingrid.launch
+/home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/models/bingrid/materials/textures/largetag.png
+/home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/models/bingrid/materials/textures/tag36_11_00000.png
+/home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/models/bingrid/meshes/Part_1.stl
+/home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/models/bingrid/model.config
+/home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/models/bingrid/model.sdf
+/home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/models/bingrid/urdf/bingrid.urdf
 /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/models/rbe595_box/launch/rbe595_box.launch
 /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/models/rbe595_box/meshes/Part_1.stl
 /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/models/rbe595_box/model.config

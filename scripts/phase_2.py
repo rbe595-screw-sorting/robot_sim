@@ -13,9 +13,7 @@ from helpers.robot_motion import ArmMover, wait_for
 import time
 
 
-# ============================================================
 # ROBOT CONFIGURATION
-# ============================================================
 
 arm_group = "arm"
 base_frame = "base_link"
@@ -24,20 +22,16 @@ ee_link = "end_effector_link"
 gripper_action = "/gen3_lite_2f_gripper_controller/gripper_cmd"
 
 
-# ============================================================
 # WAYPOINTS
 # Format: x, y, z, qx, qy, qz, qw
 # Position in meters, orientation in quaternion.
-# ============================================================
 
 waypoints = {
-    "workspace_home" : (0.0, 0.4, 0.3, 1.0, 0.0, 0.0, 0.0)
+    "workspace_home" : (-0.4, 0.0, 0.3, 1.0, 0.0, 0.0, 0.0)
 }
 
 
-# ============================================================
 # MOTION PLANNING CONFIGURATION
-# ============================================================
 
 # Each waypoint can use either:
 #   "cartesian"  - Straight-line end-effector movement
@@ -50,9 +44,7 @@ waypoint_motion = {
 }
 
 
-# ============================================================
-# PHASE 1 NODE
-# ============================================================
+# PHASE 2 NODE
 
 class Phase_2(Node):
 
@@ -369,9 +361,9 @@ class Phase_2(Node):
         )
 
         # Publish annotated image for debugging purposes
-        # while True:
-        #     self.image_pub.publish(ros_image)
-        #     time.sleep(0.05)
+        while True:
+            self.image_pub.publish(ros_image)
+            time.sleep(0.05)
 
         # Close gripper
         if not self.gripper(0.5):

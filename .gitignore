@@ -3,6 +3,7 @@
 # install/
 # log/
 # models/GazeboWorld1/src/
+# terminalCommands.txt
 
 #cache?
 __pycache__/
