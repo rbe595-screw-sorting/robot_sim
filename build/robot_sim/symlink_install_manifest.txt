@@ -1,3 +1,4 @@
+/home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/launch/bringup_robot.launch.py
 /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/launch/gen3_lite.launch.py
 /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/launch/kortex_sim_control.launch.py
 /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/launch/move_group_sim.launch.py
@@ -6,6 +7,7 @@
 /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/worlds/rbe595_phase1.sdf
 /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/models/bingrid/launch/bingrid.launch
 /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/models/bingrid/materials/textures/largetag.png
+/home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/models/bingrid/materials/textures/largetag_rgb.png
 /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/models/bingrid/materials/textures/tag36_11_00000.png
 /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/models/bingrid/meshes/Part_1.stl
 /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/models/bingrid/model.config
@@ -39,9 +41,11 @@
 /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/robots/gen3_robotiq_2f_85.xacro
 /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/robots/kinova.urdf.xacro
 /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/robots/kortex_robot.xacro
+/home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/arms/gen3_lite/6dof/config/hand_eye_result.txt
 /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/arms/gen3_lite/6dof/config/joint_limits.yaml
 /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/arms/gen3_lite/6dof/config/ros2_controllers.yaml
 /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/arms/gen3_lite/6dof/config/twist_limits.yaml
+/home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/arms/gen3_lite/6dof/config/views.yaml
 /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/arms/gen3_lite/6dof/meshes/arm_link.STL
 /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/arms/gen3_lite/6dof/meshes/base_link.STL
 /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/arms/gen3_lite/6dof/meshes/forearm_link.STL

@@ -5,6 +5,7 @@ from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription, SetEnvironmentVariable, TimerAction
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration
+from launch_ros.actions import Node
 
 
 def generate_launch_description():
@@ -14,6 +15,19 @@ def generate_launch_description():
     # secondary file paths for locating resources
     models_path = os.path.join(pkg_path, 'models')
     worlds_path = os.path.join(pkg_path, 'worlds')
+
+    camera_bridge = Node(
+        package='ros_gz_bridge',
+        executable='parameter_bridge',
+        arguments=[
+            '/wrist_mounted_camera/image@sensor_msgs/msg/Image@gz.msgs.Image'
+        ],
+        remappings=[
+            ('/wrist_mounted_camera/image', '/camera/camera/color/image_raw')
+        ],
+        output='screen',
+        parameters=[{'use_sim_time': True}]
+    )
 
     def get_available_worlds():
         try:
@@ -104,10 +118,12 @@ def generate_launch_description():
         DeclareLaunchArgument('robot_y', default_value='0.0'),
         DeclareLaunchArgument('robot_z', default_value='0.0'),
 
-        DeclareLaunchArgument('launch_rviz', default_value='false', description='Launch RViz'),
+        DeclareLaunchArgument('launch_rviz', default_value='false'),
 
         gzserver_cmd,
         gzclient_cmd,
 
         deployed_kinova_launch,
+
+        camera_bridge,
     ])

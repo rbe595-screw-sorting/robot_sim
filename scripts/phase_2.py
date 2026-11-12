@@ -20,6 +20,8 @@ base_frame = "base_link"
 ee_link = "end_effector_link"
 
 gripper_action = "/gen3_lite_2f_gripper_controller/gripper_cmd"
+camera_topic = "/camera/camera/color/image_raw"
+# /wrist_mounted_camera/image
 
 
 # WAYPOINTS
@@ -82,7 +84,7 @@ class Phase_2(Node):
         self.wrist_image = None  # Latest OpenCV image; None until one arrives.
         self.wrist_image_subscriber = self.create_subscription(
             Image,
-            '/wrist_mounted_camera/image',
+            camera_topic,
             self.wrist_image_callback,
             qos_profile_sensor_data,
         )
