@@ -1,1 +1,0 @@
-/home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/build/robot_sim/ament_cmake_core/robot_simConfig-version.cmake

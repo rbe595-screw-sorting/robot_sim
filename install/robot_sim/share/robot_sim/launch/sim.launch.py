@@ -1,1 +1,0 @@
-/home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/launch/sim.launch.py
