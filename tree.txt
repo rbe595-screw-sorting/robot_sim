@@ -1,0 +1,13 @@
+interfaces/src
+├── build
+│   └── common_interfaces_merlab
+├── common_interfaces_merlab
+│   └── srv
+├── install
+│   └── common_interfaces_merlab
+└── log
+    ├── build_2026-11-15_15-38-43
+    ├── latest -> latest_build
+    └── latest_build -> build_2026-11-15_15-38-43
+
+11 directories

@@ -1,0 +1,8 @@
+/**:
+  ros__parameters:
+    camera_topic: "/camera/camera/color/image_raw"
+    screw_location_topic: "/perception/screw_location"
+    
+    
+    debug: True
+    debug_screw_box_topic: '/debug/annotated_screw_image'

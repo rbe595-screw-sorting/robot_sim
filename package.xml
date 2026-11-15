@@ -16,6 +16,7 @@
   <test_depend>ament_lint_common</test_depend>
 
   <exec_depend>common_interfaces_merlab</exec_depend>
+  <exec_depend>screw_sorting_interfaces</exec_depend>
 
   <export>
     <build_type>ament_cmake</build_type>
