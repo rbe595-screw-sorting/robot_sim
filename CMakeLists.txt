@@ -7,10 +7,11 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
+find_package(ament_cmake_python REQUIRED)
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
-
+ament_python_install_package(helpers)
 
 
 install(
@@ -22,14 +23,55 @@ install(
     arms
     grippers
     config
+    helpers
   DESTINATION share/${PROJECT_NAME}
 )
 
-# install(PROGRAMS
-#  nodes go here...
-#   DESTINATION lib/${PROJECT_NAME}
-# )
+# Manipulation
+install(
+  PROGRAMS helpers/arm_services_node.py
+  DESTINATION lib/${PROJECT_NAME}
+  RENAME arm_services_node
+)
 
+install(
+  PROGRAMS nodes/manipulation/gripper_executor.py
+  DESTINATION lib/${PROJECT_NAME}
+  RENAME gripper_executor
+)
+
+# Perception
+install(
+  PROGRAMS nodes/perception/screw_detection.py
+  DESTINATION lib/${PROJECT_NAME}
+  RENAME screw_detection
+)
+
+install(
+  PROGRAMS nodes/perception/aruco_detection.py
+  DESTINATION lib/${PROJECT_NAME}
+  RENAME aruco_detection
+)
+
+install(
+  PROGRAMS nodes/perception/localization.py
+  DESTINATION lib/${PROJECT_NAME}
+  RENAME localization
+)
+
+# State machine
+install(
+  PROGRAMS nodes/state_machine/phase_2.py
+  DESTINATION lib/${PROJECT_NAME}
+  RENAME phase_2
+)
+
+# Utilities
+install(
+  PROGRAMS nodes/utilities/visualization.py
+  DESTINATION lib/${PROJECT_NAME}
+  RENAME visualization
+)
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   # the following line skips the linter which checks for copyrights

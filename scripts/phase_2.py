@@ -363,9 +363,9 @@ class Phase_2(Node):
         )
 
         # Publish annotated image for debugging purposes
-        while True:
-            self.image_pub.publish(ros_image)
-            time.sleep(0.05)
+        # while True:
+        #     self.image_pub.publish(ros_image)
+        #     time.sleep(0.05)
 
         # Close gripper
         if not self.gripper(0.5):
