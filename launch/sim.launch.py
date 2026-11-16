@@ -20,10 +20,12 @@ def generate_launch_description():
         package='ros_gz_bridge',
         executable='parameter_bridge',
         arguments=[
-            '/wrist_mounted_camera/image@sensor_msgs/msg/Image@gz.msgs.Image'
+            '/wrist_mounted_camera/image@sensor_msgs/msg/Image@gz.msgs.Image',
+            '/wrist_mounted_camera/camera_info@sensor_msgs/msg/CameraInfo@gz.msgs.CameraInfo'
         ],
         remappings=[
-            ('/wrist_mounted_camera/image', '/camera/camera/color/image_raw')
+            ('/wrist_mounted_camera/image', '/camera/camera/color/image_raw'),
+            ('/wrist_mounted_camera/camera_info', '/camera/camera/color/camera_info')
         ],
         output='screen',
         parameters=[{'use_sim_time': True}]

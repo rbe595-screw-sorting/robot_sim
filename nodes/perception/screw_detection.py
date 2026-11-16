@@ -25,7 +25,7 @@ class ScrewDetection(Node):
         self.declare_parameter('camera_topic', '/camera/camera/color/image_raw')
         self.declare_parameter('screw_location_topic', '/perception/screw_location')
 
-        self.declare_parameter('debug', True)
+        self.declare_parameter('debug', False)
         self.debug = self.get_parameter('debug').value
         if self.debug:
             self.declare_parameter('debug_screw_box_topic', '/debug/annotated_screw_image')

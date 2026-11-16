@@ -28,7 +28,8 @@ gripper_action = "/gen3_lite_2f_gripper_controller/gripper_cmd"
 # Position in meters, orientation in quaternion.
 
 waypoints = {
-    "workspace_home" : (-0.4, 0.0, 0.3, 1.0, 0.0, 0.0, 0.0)
+    "workspace_home" : (-0.4, 0.0, 0.3, 1.0, 0.0, 0.0, 0.0),
+    "bin_location_guess" : (-0.2, -0.3, 0.3, 1.0, 0.0, 0.0, 0.0)
 }
 
 
@@ -41,6 +42,7 @@ waypoints = {
 waypoint_motion = {
 
     "workspace_home": "rrtconnect",
+    "bin_location_guess": "rrtconnect"
 
 }
 
@@ -202,6 +204,7 @@ class Phase_2(Node):
 
         initial_sequence = [
             "workspace_home",
+            "bin_location_guess"
         ]
 
         for waypoint in initial_sequence:
