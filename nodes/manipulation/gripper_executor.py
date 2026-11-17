@@ -32,7 +32,7 @@ class GripperExecutor(Node):
         self.declare_parameter('base_frame', 'base_link')
         self.declare_parameter('pregrasp_distance', 0.20)
         self.declare_parameter('lift_height', 0.20)
-        self.declare_parameter('tcp_offset', 0.162)
+        self.declare_parameter('tcp_offset', 0.157)
         self.declare_parameter('min_z', 0.0)
         self.declare_parameter('gripper_command_topic', '/gen3_lite_2f_gripper_controller/gripper_cmd')
         self.declare_parameter('gripper_open_position', 0.0)

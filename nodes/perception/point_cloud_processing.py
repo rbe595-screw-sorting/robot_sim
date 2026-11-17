@@ -449,33 +449,61 @@ class PointCloudGrasping(Node):
         longitudinal = eigenvectors[:, np.argmax(eigenvalues)]
         longitudinal /= np.linalg.norm(longitudinal)
 
-        # Restrict contact candidates to center of screw
+        # Deterministic eigenvector sign
+        if longitudinal[0] < 0 or (
+            abs(longitudinal[0]) < 1e-9 and longitudinal[1] < 0
+        ):
+            longitudinal = -longitudinal
+
+        # Transverse axis: perpendicular to screw length
+        transverse = np.array([
+            -longitudinal[1],
+            longitudinal[0]
+        ])
+
+        # Project points onto both axes
         longitudinal_proj = centered @ longitudinal
+        transverse_proj = centered @ transverse
 
         length = np.ptp(longitudinal_proj)
+        width = np.ptp(transverse_proj)
 
-        if length < 1e-6:
+        if length < 1e-6 or width < 1e-6:
             return None
 
+        # Restrict contacts to center of screw length
         center_limit = length * center_band / 2.0
 
         mask = np.abs(longitudinal_proj) < center_limit
+
         candidates = np.where(mask)[0]
 
         if len(candidates) < 2:
             return None
 
-        # Find opposing ends along the principal axis
-        projections = longitudinal_proj[candidates]
+        # Find opposing sides across the screw width
+        projections = transverse_proj[candidates]
 
         low_idx = candidates[np.argmin(projections)]
         high_idx = candidates[np.argmax(projections)]
 
-        p0 = points[low_idx]
-        p1 = points[high_idx]
+        # Symmetric grasp points centered on object centroid
+        half_width = width / 2.0
+
+        p0 = centroid.copy()
+        p1 = centroid.copy()
+
+        p0[:2] -= transverse * half_width
+        p1[:2] += transverse * half_width
+
+        # Keep grasp points at the centroid's height
+        p0[2] = centroid[2]
+        p1[2] = centroid[2]
 
         self.get_logger().info(
-            f'Principal axis: {longitudinal}'
+            f'Principal axis: {longitudinal}, '
+            f'Transverse axis: {transverse}, '
+            f'Length: {length:.4f}, Width: {width:.4f}'
         )
 
         return p0, p1
@@ -510,11 +538,16 @@ class PointCloudGrasping(Node):
         y_axis[2] = 0.0
         y_axis /= np.linalg.norm(y_axis)
 
+        # Deterministic orientation
+        if y_axis[0] < 0 or (
+            abs(y_axis[0]) < 1e-9 and y_axis[1] < 0
+        ):
+            y_axis = -y_axis
+
         # Complete right-handed orthogonal basis
         x_axis = np.cross(y_axis, z_axis)
         x_axis /= np.linalg.norm(x_axis)
 
-        # Recalculate Y for orthogonality
         y_axis = np.cross(z_axis, x_axis)
 
         R = np.column_stack([
