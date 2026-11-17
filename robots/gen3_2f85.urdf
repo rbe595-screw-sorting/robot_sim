@@ -131,13 +131,6 @@
       <state_interface name="velocity"/>
       <state_interface name="effort"/>
     </joint>
-    <joint name="gen3_robotiq_85_right_knuckle_joint">
-      <param name="mimic">gen3_robotiq_85_left_knuckle_joint</param>
-      <param name="multiplier">-1</param>
-
-      <state_interface name="position"/>
-      <state_interface name="velocity"/>
-    </joint>
   </ros2_control>
   <joint name="gen3_base_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0 0 0"/>

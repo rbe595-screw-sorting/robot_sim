@@ -21,11 +21,13 @@ def generate_launch_description():
         executable='parameter_bridge',
         arguments=[
             '/wrist_mounted_camera/image@sensor_msgs/msg/Image@gz.msgs.Image',
-            '/wrist_mounted_camera/camera_info@sensor_msgs/msg/CameraInfo@gz.msgs.CameraInfo'
+            '/wrist_mounted_camera/camera_info@sensor_msgs/msg/CameraInfo@gz.msgs.CameraInfo',
+            '/wrist_mounted_camera/points@sensor_msgs/msg/PointCloud2@gz.msgs.PointCloudPacked'
         ],
         remappings=[
             ('/wrist_mounted_camera/image', '/camera/camera/color/image_raw'),
-            ('/wrist_mounted_camera/camera_info', '/camera/camera/color/camera_info')
+            ('/wrist_mounted_camera/camera_info', '/camera/camera/color/camera_info'),
+            ('/wrist_mounted_camera/points', '/camera/camera/depth/color/points')
         ],
         output='screen',
         parameters=[{'use_sim_time': True}]
@@ -39,7 +41,7 @@ def generate_launch_description():
             return "Gz Sim Worlds: " + ", ".join(world_list)
         except Exception as e:
             return f"ERROR: {e}"
-        
+
     worlds = get_available_worlds()
 
     # set gz sim resource path
@@ -81,7 +83,7 @@ def generate_launch_description():
         ]
     )
 
-    #launch the robot: 
+    #launch the robot:
     kinova_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(pkg_path, 'launch', 'kortex_sim_control.launch.py')
@@ -111,6 +113,31 @@ def generate_launch_description():
         actions = [kinova_launch]
     )
 
+    # Gripper followers: gz-physics DART has no mimic support, so the three
+    # follower joints are driven by a controller fed by a relay node.
+    finger_followers_spawner = Node(
+        package='controller_manager',
+        executable='spawner',
+        arguments=[
+            'finger_followers_controller',
+            '--controller-manager', '/controller_manager',
+            '--controller-manager-timeout', '60',
+        ],
+        output='screen',
+        parameters=[{'use_sim_time': True}],
+    )
+
+    finger_relay = Node(
+        package='robot_sim',
+        executable='finger_relay',
+        output='screen',
+    )
+
+    deployed_finger_followers = TimerAction(
+        period = 20.0,
+        actions = [finger_followers_spawner, finger_relay]
+    )
+
     # launch each item defined above by returning the variable
     return LaunchDescription([
         gz_sim_resource,
@@ -126,6 +153,7 @@ def generate_launch_description():
         gzclient_cmd,
 
         deployed_kinova_launch,
+        deployed_finger_followers,
 
         camera_bridge,
     ])

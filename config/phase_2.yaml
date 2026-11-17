@@ -8,8 +8,6 @@
     bucket_location_topic: "perception/bucket_location"
     scoop_location_topic: "perception/scoop_location"
     bin_location_topic: "perception/bin_location"
-
-    
     
     debug: True
     debug_screw_box_topic: '/debug/annotated_screw_image'

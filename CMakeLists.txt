@@ -12,7 +12,11 @@ find_package(ament_cmake_python REQUIRED)
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 ament_python_install_package(helpers)
-
+install(
+  FILES
+    ${CMAKE_CURRENT_SOURCE_DIR}/pcl_python_merlab.cpython-312-x86_64-linux-gnu.so
+  DESTINATION lib/${PROJECT_NAME}
+)
 
 install(
   DIRECTORY     
@@ -26,6 +30,13 @@ install(
     helpers
   DESTINATION share/${PROJECT_NAME}
 )
+
+install(
+  PROGRAMS helpers/finger_relay.py
+  DESTINATION lib/${PROJECT_NAME}
+  RENAME finger_relay
+)
+
 
 # Manipulation
 install(
@@ -46,6 +57,13 @@ install(
   DESTINATION lib/${PROJECT_NAME}
   RENAME screw_detection
 )
+
+install(
+  PROGRAMS nodes/perception/point_cloud_processing.py
+  DESTINATION lib/${PROJECT_NAME}
+  RENAME point_cloud_processing
+)
+
 
 install(
   PROGRAMS nodes/perception/aruco_detection.py
