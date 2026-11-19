@@ -59,6 +59,12 @@ install(
 )
 
 install(
+  PROGRAMS nodes/perception/static_transforms.py
+  DESTINATION lib/${PROJECT_NAME}
+  RENAME static_transforms
+)
+
+install(
   PROGRAMS nodes/perception/point_cloud_processing.py
   DESTINATION lib/${PROJECT_NAME}
   RENAME point_cloud_processing

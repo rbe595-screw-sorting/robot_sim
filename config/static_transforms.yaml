@@ -1,0 +1,57 @@
+static_transforms:
+
+  bucket:
+    parent: bucket_tag
+    child: bucket
+    translation: [0.0, 0.0, 0.0] #need to fill it in
+    rotation: [0.0, 0.0, 0.0]
+
+  scoop:
+    parent: scoop_tag
+    child: scoop
+    translation: [0.0, 0.0, 0.0] #need to fill it in
+    rotation: [0.0, 0.0, 0.0]    
+
+  bin:
+    parent: bin_tag
+    child: bin
+    translation: [0.0, 0.0, 0.0] #need to fill it in
+    rotation: [0.0, 0.0, 0.0]
+
+grids:
+  bin_containers:
+    parent: bin
+
+    rows: 4
+    columns: 5
+
+    spacing:
+      x: 0.042
+      y: 0.042
+
+    origin:
+      x: 0.0
+      y: 0.0
+      z: 0.0
+
+    rotation: [0.0, 0.0, 0.0]
+
+    frame_prefix: container  
+
+  # bucket_center:
+  #   parent: bucket
+  #   child: bucket_center
+  #   translation: [0.0, 0.0, 0.05]
+  #   rotation: [0.0, 0.0, 0.0]
+
+  # bucket_opening:
+  #   parent: bucket
+  #   child: bucket_opening
+  #   translation: [0.0, 0.0, 0.15]
+  #   rotation: [0.0, 0.0, 0.0]
+
+  # scoop:
+  #   parent: scoop_tag
+  #   child: scoop
+  #   translation: [0.0, 0.0, 0.0]
+  #   rotation: [0.0, 0.0, 0.0]
