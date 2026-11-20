@@ -105,9 +105,13 @@ class Phase_2(Node):
         self.get_logger().info(
             "Phase 2 control initialized!"
         )
+        self.create_timer(0.1, self.control_loop)
 
     def start_localization(self, target_ids):
+        if self.state != "IDLE":
+            return
 
+        self.state = "LOCALIZING"
         if not self.localization_client.wait_for_server(timeout_sec=5.0):
             self.get_logger().error("Localization action server unavailable")
             return
@@ -248,30 +252,36 @@ class Phase_2(Node):
         self.localization_in_progress = False
 
     # ARM MOVEMENT
-    def move(self, waypoint):
+    def move(self, target):
 
-        self.get_logger().info(
-            f"Moving to {waypoint}"
-        )
+        # Case 1: Named waypoint from dictionary
+        if isinstance(target, str):
 
-        if waypoint not in waypoints:
+            if target not in waypoints:
+                self.get_logger().error(
+                    f"Waypoint '{target}' does not exist!"
+                )
+                return False
 
-            self.get_logger().error(
-                f"Waypoint {waypoint} does not exist!"
-            )
+            pose = waypoints[target]
+            motion = waypoint_motion.get(target, "cartesian")
+            label = target
 
-            return False
+        # Case 2: Direct pose (position + quaternion)
+        else:
 
-        pose = waypoints[waypoint]
+            if len(target) != 7:
+                self.get_logger().error(
+                    "Pose must contain 7 values: (x, y, z, qw, qx, qy, qz)"
+                )
+                return False
 
-        motion = waypoint_motion.get(
-            waypoint,
-            "cartesian"
-        )
+            pose = tuple(target)
+            motion = "rrtconnect"
+            label = "custom pose"
 
-        self.get_logger().info(
-            f"Using {motion} motion planning"
-        )
+        self.get_logger().info(f"Moving to {label}: {pose}")
+        self.get_logger().info(f"Using {motion} motion planning")
 
         success = self.arm_mover.move_to(
             pose,
@@ -280,18 +290,12 @@ class Phase_2(Node):
         )
 
         if not success:
-
-            self.get_logger().error(
-                f"Failed to reach {waypoint}"
-            )
-
+            self.get_logger().error(f"Failed to reach {label}")
             return False
 
-        self.get_logger().info(
-            f"Reached {waypoint}!"
-        )
-
+        self.get_logger().info(f"Reached {label}!")
         return True
+
 
 
     # GRIPPER CONTROL
@@ -376,11 +380,39 @@ class Phase_2(Node):
         # # Close gripper
         # if not self.gripper(0.5):
         #     return
-        self.start_localization(['bin'])
+
+        if self.state == "IDLE":
+            self.start_localization(['bin'])
+
         if self.state == "READY":
-            for name, tf in self.object_transforms.items():
-                p = tf.transform.translation
-                self.get_logger().info(f"{name}: x={p.x:.3f}, y={p.y:.3f}, z={p.z:.3f}")
+
+            # for name, tf in self.object_transforms.items():
+            #     p = tf.transform.translation
+            #     self.get_logger().info(
+            #         f"{name}: x={p.x:.3f}, y={p.y:.3f}, z={p.z:.3f}"
+            #     )
+
+            tf = self.object_transforms['bin'].transform
+            p = tf.translation
+            # q = tf.rotation
+
+            waypoint = (
+                p.x,
+                p.y,
+                p.z + 0.15,  # Approach 15 cm above bin
+                1.0,
+                0.0,
+                0.0,
+                0.0
+            )
+
+            self.state = "MOVING"
+
+            # if not self.move(waypoint):
+            #     self.state = "ERROR"
+            #     return
+
+            self.state = "COMPLETE"
 
 
 # MAIN
@@ -408,21 +440,16 @@ def main(args=None):
     spin_thread.start()
 
     try:
-
-        node.control_loop()
+        while rclpy.ok():
+            time.sleep(0.1)
 
     except KeyboardInterrupt:
-
         pass
 
     finally:
-
         executor.shutdown()
-
         spin_thread.join(timeout=2.0)
-
         node.destroy_node()
-
         rclpy.shutdown()
 
 

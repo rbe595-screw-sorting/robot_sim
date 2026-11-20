@@ -9,7 +9,7 @@ class Visualization(Node):
     def __init__(self):
         super().__init__('visualization')
 
-        self.get_logger().info('NODE_NAME initialized!')
+        self.get_logger().info('Visualization initialized!')
 
         # TODO: Initialize publishers, subscribers, services, etc.
 

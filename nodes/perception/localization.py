@@ -335,76 +335,45 @@ class LocalizationNode(Node):
     def get_locations_callback(self, request, response):
 
         # Determine which objects to retrieve.
-
         if request.get_all:
-
             object_ids = list(self.object_frames.keys())
-
         else:
-
             object_ids = list(request.object_ids)
 
         response.success = True
 
-        # --------------------------------------------------
         # Retrieve rigid-body transforms
-        # --------------------------------------------------
-
         for object_id in object_ids:
 
             if object_id not in self.object_frames:
-
-                response.unavailable_ids.append(object_id)
                 response.success = False
-
                 continue
 
             frame = self.object_frames[object_id]
-
             transform = self.get_world_transform(frame)
 
             if transform is None:
-
-                response.unavailable_ids.append(object_id)
                 response.success = False
-
                 continue
 
             response.object_ids.append(object_id)
-
             response.object_transforms.append(transform)
 
-            # --------------------------------------------------
-            # Retrieve associated feature transforms
-            # --------------------------------------------------
-
-            features = self.feature_frames.get(
-                object_id, []
-            )
+            # Retrieve optional associated feature transforms
+            features = self.feature_frames.get(object_id, [])
 
             for feature_frame in features:
 
-                feature_transform = self.get_world_transform(
-                    feature_frame
-                )
+                feature_transform = self.get_world_transform(feature_frame)
 
                 if feature_transform is None:
-
-                    response.unavailable_ids.append(
-                        feature_frame
+                    self.get_logger().warn(
+                        f"Feature transform unavailable: {feature_frame}"
                     )
-
-                    response.success = False
-
                     continue
 
-                response.feature_frame_ids.append(
-                    feature_frame
-                )
-
-                response.feature_transforms.append(
-                    feature_transform
-                )
+                response.feature_frame_ids.append(feature_frame)
+                response.feature_transforms.append(feature_transform)
 
         return response
 

@@ -90,31 +90,45 @@ class StaticTransforms(Node):
 
         prefix = grid_config['frame_prefix']
 
+        # Grid orientation
         q = quaternion_from_euler(*rotation)
+
+        # Rotation matrix
+        from tf_transformations import quaternion_matrix
+        R = quaternion_matrix(q)[:3, :3]
 
         for row in range(rows):
 
             for col in range(columns):
 
+                # Position in the grid's local coordinate system
+                local_offset = [
+                    col * spacing_x,
+                    row * spacing_y,
+                    0.0
+                ]
+
+                # Rotate offset into the parent frame
+                rotated_offset = R @ local_offset
+
                 transform = TransformStamped()
 
                 transform.header.stamp = self.get_clock().now().to_msg()
-
                 transform.header.frame_id = parent
 
-                transform.child_frame_id = (
-                    f'{prefix}_{row}_{col}'
-                )
+                transform.child_frame_id = f'{prefix}_{row}_{col}'
 
                 transform.transform.translation.x = (
-                    origin['x'] + col * spacing_x
+                    origin['x'] + rotated_offset[0]
                 )
 
                 transform.transform.translation.y = (
-                    origin['y'] + row * spacing_y
+                    origin['y'] + rotated_offset[1]
                 )
 
-                transform.transform.translation.z = origin['z']
+                transform.transform.translation.z = (
+                    origin['z'] + rotated_offset[2]
+                )
 
                 transform.transform.rotation.x = q[0]
                 transform.transform.rotation.y = q[1]
