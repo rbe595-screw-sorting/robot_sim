@@ -277,11 +277,11 @@ class ArucoDetection(Node):
                         latest_transform.header.stamp.nanosec * 1e-9
                     )
 
-                    self.get_logger().info(
-                        f"Image time: {image_time:.3f}, "
-                        f"Latest TF time: {tf_time:.3f}, "
-                        f"Difference: {image_time - tf_time:.3f}"
-                    )
+                    # self.get_logger().info(
+                    #     f"Image time: {image_time:.3f}, "
+                    #     f"Latest TF time: {tf_time:.3f}, "
+                    #     f"Difference: {image_time - tf_time:.3f}"
+                    # )
                     transform = self.tf_buffer.lookup_transform(
                         self.world_frame,
                         image_msg.header.frame_id,
@@ -296,9 +296,9 @@ class ArucoDetection(Node):
                     self.broadcast_object_tf(object_type.lower(), world_pose)
 
                 except TransformException as ex:
-                    self.get_logger().warning(
-                        f"Could not transform AprilTag {marker_id}: {ex}"
-                    )
+                    # self.get_logger().warning(
+                    #     f"Could not transform AprilTag {marker_id}: {ex}"
+                    # )
                     continue
 
                 self.last_locations[object_type] = world_pose

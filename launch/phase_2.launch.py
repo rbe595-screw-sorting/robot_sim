@@ -44,6 +44,13 @@ def generate_launch_description():
             output='screen',
             parameters=[config_file]
         ),
+        Node(
+            package='robot_sim',
+            executable='static_transforms',
+            name='static_transforms',
+            output='screen',
+            parameters=[config_file]
+        ),
 
         # Robot motion
         Node(

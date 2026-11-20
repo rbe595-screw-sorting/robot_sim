@@ -13,6 +13,10 @@ import numpy as np
 from helpers.robot_motion import ArmMover, wait_for
 import time
 
+from rclpy.action import ActionClient
+
+from screw_sorting_interfaces.action import Relocalize
+from screw_sorting_interfaces.srv import GetLocations
 
 # ROBOT CONFIGURATION
 
@@ -80,10 +84,168 @@ class Phase_2(Node):
             gripper_action
         )
 
+        # Localization action client
+        self.localization_client = ActionClient(
+            self,
+            Relocalize,
+            '/localization/relocalize'
+        )
+
+        # Localization service client
+        self.get_locations_client = self.create_client(
+            GetLocations,
+            '/localization/get_locations'
+        )
+        self.state = "IDLE"
+        self.localization_in_progress = False
+        self.localization_goal_handle = None
+        self.object_transforms = {}
+        self.feature_transforms = {}
 
         self.get_logger().info(
-            "Phase 1 control initialized!"
+            "Phase 2 control initialized!"
         )
+
+    def start_localization(self, target_ids):
+
+        if not self.localization_client.wait_for_server(timeout_sec=5.0):
+            self.get_logger().error("Localization action server unavailable")
+            return
+        self.localization_in_progress = True
+        goal = Relocalize.Goal()
+        goal.mode = Relocalize.Goal.SELECTIVE
+        goal.target_ids = target_ids
+
+        self.get_logger().info(
+            f"Starting localization for: {target_ids}"
+        )
+
+        future = self.localization_client.send_goal_async(
+            goal,
+            feedback_callback=self.localization_feedback_callback
+        )
+
+        future.add_done_callback(
+            self.localization_goal_response_callback
+        ) 
+    def localization_feedback_callback(self, feedback_msg):
+
+        feedback = feedback_msg.feedback
+
+        self.get_logger().info(
+            f"Localizing {feedback.current_target}: "
+            f"{feedback.targets_completed} completed, "
+            f"{feedback.targets_remaining} remaining"
+        )
+
+    def localization_goal_response_callback(self, future):
+
+        self.localization_goal_handle = future.result()
+
+        if not self.localization_goal_handle.accepted:
+            self.get_logger().error("Localization goal rejected")
+            return
+
+        self.get_logger().info("Localization goal accepted")
+
+        result_future = self.localization_goal_handle.get_result_async()
+
+        result_future.add_done_callback(
+            self.localization_result_callback
+        )
+
+
+    def localization_result_callback(self, future):
+
+        try:
+            action_result = future.result()
+            result = action_result.result
+
+        except Exception as e:
+            self.get_logger().error(
+                f"Localization action failed: {e}"
+            )
+            self.state = "ERROR"
+            self.localization_in_progress = False
+            return
+
+        self.get_logger().info(result.message)
+
+        if not result.success:
+            self.get_logger().error(
+                f"Localization failed: {result.failed_ids}"
+            )
+            self.state = "ERROR"
+            self.localization_in_progress = False
+            return
+
+        self.get_logger().info(
+            f"Localized objects: {result.localized_ids}"
+        )
+
+        self.request_object_locations(result.localized_ids)
+        
+
+    def request_object_locations(self, object_ids):
+
+        if not self.get_locations_client.wait_for_service(timeout_sec=5.0):
+            self.get_logger().error("GetLocations service unavailable")
+            return
+
+        request = GetLocations.Request()
+
+        request.object_ids = object_ids
+        request.get_all = False
+
+        future = self.get_locations_client.call_async(request)
+
+        future.add_done_callback(
+            self.object_locations_callback
+        )
+
+    def object_locations_callback(self, future):
+
+        try:
+            response = future.result()
+
+        except Exception as e:
+            self.get_logger().error(
+                f"Failed to retrieve object locations: {e}"
+            )
+            return
+
+        if not response.success:
+            self.get_logger().error(
+                "Failed to retrieve localized transforms"
+            )
+            return
+
+        # Store object transforms
+        self.object_transforms = {
+            object_id: transform
+            for object_id, transform in zip(
+                response.object_ids,
+                response.object_transforms
+            )
+        }
+
+        # Store feature transforms
+        self.feature_transforms = {
+            frame_id: transform
+            for frame_id, transform in zip(
+                response.frame_ids,
+                response.feature_transforms
+            )
+        }
+
+        self.get_logger().info(
+            f"Retrieved {len(self.object_transforms)} object transforms "
+            f"and {len(self.feature_transforms)} feature transforms"
+        )
+
+        # Localization is complete; advance the state machine
+        self.state = "READY"
+        self.localization_in_progress = False
 
     # ARM MOVEMENT
     def move(self, waypoint):
@@ -198,22 +360,27 @@ class Phase_2(Node):
     # HIGH LEVEL CONTROL SEQUENCE
     def control_loop(self):
 
-        # Initialize gripper
-        if not self.gripper(0.0):
-            return
+        # # Initialize gripper
+        # if not self.gripper(0.0):
+        #     return
 
-        initial_sequence = [
-            "workspace_home",
-            # "bin_location_guess"
-        ]
+        # initial_sequence = [
+        #     "workspace_home",
+        #     # "bin_location_guess"
+        # ]
 
-        for waypoint in initial_sequence:
-            if not self.move(waypoint):
-                return
+        # for waypoint in initial_sequence:
+        #     if not self.move(waypoint):
+        #         return
 
-        # Close gripper
-        if not self.gripper(0.5):
-            return
+        # # Close gripper
+        # if not self.gripper(0.5):
+        #     return
+        self.start_localization(['bin'])
+        if self.state == "READY":
+            for name, tf in self.object_transforms.items():
+                p = tf.transform.translation
+                self.get_logger().info(f"{name}: x={p.x:.3f}, y={p.y:.3f}, z={p.z:.3f}")
 
 
 # MAIN

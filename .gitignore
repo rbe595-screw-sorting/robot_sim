@@ -5,6 +5,7 @@ log/
 models/GazeboWorld1/src/
 terminalCommands.txt
 captures/
+
 #cache?
 __pycache__/
 *.__pyc
