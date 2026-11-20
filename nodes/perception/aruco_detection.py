@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-#!/usr/bin/env python3
 
 import rclpy
 import cv2
@@ -18,6 +17,10 @@ from tf2_ros import TransformException
 from tf2_geometry_msgs import do_transform_pose_stamped
 
 from scipy.spatial.transform import Rotation
+import time
+
+from geometry_msgs.msg import TransformStamped
+from tf2_ros import TransformBroadcaster
 
 
 
@@ -30,6 +33,8 @@ class ArucoDetection(Node):
         super().__init__('aruco_detection')
 
         self.last_locations = {"Bin":None, "Bucket":None, "Scoop":None}
+        self.last_processed_stamp = None
+        self.tf_broadcaster = TransformBroadcaster(self)
 
         self.tag_params = {
             0: (0.05, "Bin"),
@@ -120,8 +125,35 @@ class ArucoDetection(Node):
 
         
         self.get_logger().info('ArucoDetection node initialized!')
+    def broadcast_object_tf(self, frame_name, pose_stamped):
+
+        transform = TransformStamped()
+
+        transform.header = pose_stamped.header
+        transform.child_frame_id = frame_name
+
+        transform.transform.translation.x = pose_stamped.pose.position.x
+        transform.transform.translation.y = pose_stamped.pose.position.y
+        transform.transform.translation.z = pose_stamped.pose.position.z
+
+        transform.transform.rotation = pose_stamped.pose.orientation
+
+        self.tf_broadcaster.sendTransform(transform)
 
     def wrist_image_callback(self, msg):
+
+        # now = self.get_clock().now()
+
+        # image_time = rclpy.time.Time.from_msg(
+        #     msg.header.stamp
+        # )
+
+        # latency = (now - image_time).nanoseconds / 1e9
+
+        # self.get_logger().info(
+        #     f'Camera latency: {latency:.3f}s'
+        # )
+
         self.wrist_image_msg = msg
         self.wrist_image = self.bridge.imgmsg_to_cv2(
             msg,
@@ -149,6 +181,7 @@ class ArucoDetection(Node):
         self.destroy_subscription(self.camera_info_sub)
 
     def control_loop(self):
+
         if self.camera_matrix is None or self.distortion_coefficients is None:
             self.get_logger().warn(
                 "Waiting for camera calibration...",
@@ -161,11 +194,26 @@ class ArucoDetection(Node):
         if image is None or image_msg is None:
             return
 
+        stamp = (
+            image_msg.header.stamp.sec,
+            image_msg.header.stamp.nanosec
+        )
+
+        if stamp == self.last_processed_stamp:
+            return
+
+        self.last_processed_stamp = stamp
+
+        start = time.perf_counter()
+
+        # AprilTag detection
         corners, ids, rejected = cv2.aruco.detectMarkers(
             image,
             self.aruco_dict,
             parameters=self.detector_params
         )
+
+        detection_time = time.perf_counter() - start
 
         if ids is not None:
 
@@ -213,17 +261,39 @@ class ArucoDetection(Node):
                 pose.pose.orientation.w = float(quaternion[3])
 
                 try:
+                    latest_transform = self.tf_buffer.lookup_transform(
+                        self.world_frame,
+                        image_msg.header.frame_id,
+                        rclpy.time.Time()
+                    )
+
+                    image_time = (
+                        image_msg.header.stamp.sec +
+                        image_msg.header.stamp.nanosec * 1e-9
+                    )
+
+                    tf_time = (
+                        latest_transform.header.stamp.sec +
+                        latest_transform.header.stamp.nanosec * 1e-9
+                    )
+
+                    self.get_logger().info(
+                        f"Image time: {image_time:.3f}, "
+                        f"Latest TF time: {tf_time:.3f}, "
+                        f"Difference: {image_time - tf_time:.3f}"
+                    )
                     transform = self.tf_buffer.lookup_transform(
                         self.world_frame,
                         image_msg.header.frame_id,
                         rclpy.time.Time.from_msg(image_msg.header.stamp),
-                        timeout=rclpy.duration.Duration(seconds=0.1)
+                        timeout=rclpy.duration.Duration(seconds=0.0)
                     )
 
                     world_pose = do_transform_pose_stamped(
                         pose,
                         transform
                     )
+                    self.broadcast_object_tf(object_type.lower(), world_pose)
 
                 except TransformException as ex:
                     self.get_logger().warning(

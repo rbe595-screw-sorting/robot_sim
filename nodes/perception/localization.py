@@ -17,6 +17,12 @@ from geometry_msgs.msg import PoseStamped
 from screw_sorting_interfaces.action import Relocalize
 from screw_sorting_interfaces.srv import GetLocations
 
+import time
+
+import threading
+from common_interfaces_merlab.srv import SendPose
+from rclpy.callback_groups import ReentrantCallbackGroup
+
 
 class LocalizationNode(Node):
 
@@ -25,6 +31,16 @@ class LocalizationNode(Node):
         super().__init__('localization_node')
 
         self.callback_group = ReentrantCallbackGroup()
+
+        self.base_frame = 'base_link'
+
+        self.arm_client_group = ReentrantCallbackGroup()
+
+        self.arm_pose_client = self.create_client(
+            SendPose,
+            '/send_pose',
+            callback_group=self.arm_client_group
+        )
 
         # --------------------------------------------------
         # Configuration
@@ -77,7 +93,7 @@ class LocalizationNode(Node):
         self.tf_listener = TransformListener(
             self.tf_buffer,
             self,
-            spin_thread=True
+            spin_thread=False
         )
 
         # --------------------------------------------------
@@ -108,7 +124,20 @@ class LocalizationNode(Node):
         self.get_logger().info(
             'Localization node initialized.'
         )
+    async def ros_sleep(self, duration_sec):
 
+        future = rclpy.task.Future()
+
+        timer = self.create_timer(
+            duration_sec,
+            lambda: future.set_result(True)
+        )
+
+        try:
+            await future
+        finally:
+            timer.cancel()
+            self.destroy_timer(timer)
     # ======================================================
     # ACTION SERVER
     # ======================================================
@@ -216,9 +245,9 @@ class LocalizationNode(Node):
             )
 
             # Move robot to observation pose.
-            movement_success = await self.move_to_observation_pose(
-                pose
-            )
+            # movement_success = self.move_to_observation_pose(pose)
+            movement_success = await self.move_to_observation_pose(pose)
+            # movement_success = True
 
             if not movement_success:
 
@@ -229,8 +258,8 @@ class LocalizationNode(Node):
                 continue
 
             # Give the camera/detector time to acquire observations.
-            await asyncio.sleep(1.0)
-
+            # time.sleep(1.0)
+            await self.ros_sleep(1.0)
             # Determine which requested objects are now available.
             for object_id in targets:
 
@@ -436,31 +465,61 @@ class LocalizationNode(Node):
             List[PoseStamped]
         """
 
-        observation_poses = []
+        observation_poses = [(-0.2, -0.3, 0.3, 1.0, 0.0, 0.0, 0.0)]
+        poses = []
+
+        for x, y, z, qx, qy, qz, qw in observation_poses:
+
+            pose = PoseStamped()
+            pose.header.frame_id = self.base_frame
+            pose.header.stamp = self.get_clock().now().to_msg()
+
+            pose.pose.position.x = x
+            pose.pose.position.y = y
+            pose.pose.position.z = z
+
+            pose.pose.orientation.x = qx
+            pose.pose.orientation.y = qy
+            pose.pose.orientation.z = qz
+            pose.pose.orientation.w = qw
+
+            poses.append(pose)
+
+
+
 
         # TODO: Implement scan planning.
 
-        return observation_poses
+        return poses
+
 
     async def move_to_observation_pose(self, pose: PoseStamped):
 
-        """
-        TODO: Connect to your existing robot movement interface.
+        if pose.header.frame_id != self.base_frame:
+            return False
 
-        This method should:
-            1. Send a movement request.
-            2. Wait for execution.
-            3. Return True if movement succeeds.
-            4. Return False if movement fails.
+        if not self.arm_pose_client.wait_for_service(timeout_sec=5.0):
+            return False
 
-        """
+        request = SendPose.Request()
+        request.pose = pose.pose
 
-        # TODO: Implement movement action client.
+        self.get_logger().info('Calling /send_pose...')
 
-        raise NotImplementedError(
-            'Movement interface not implemented.'
-        )
+        try:
+            future = self.arm_pose_client.call_async(request)
 
+            response = await future
+
+            if response.success:
+                self.get_logger().info('Observation pose reached.')
+                return True
+
+            return False
+
+        except Exception as e:
+            self.get_logger().error(f'/send_pose failed: {e}')
+            return False
 
 def main(args=None):
 
