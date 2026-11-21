@@ -14,224 +14,260 @@ import numpy as np
 from helpers.robot_motion import ArmMover, wait_for
 import time
 from screw_sorting_interfaces.msg import Screw
+from visualization_msgs.msg import Marker
+
 
 
 class ScrewDetection(Node):
     def __init__(self):
-        super().__init__('localization')
+        super().__init__('screw_detection')
+        self.last_screw = None
 
-        self.get_logger().info('NODE_NAME initialized!')
+        self.declare_parameter('camera_topic', '/camera/camera/color/image_raw')
+        self.declare_parameter('screw_location_topic', '/perception/screw_location')
 
-        # TODO: Initialize publishers, subscribers, services, etc.
-    # def __init__(self):
-    #     super().__init__('screw_detection')
-    #     self.last_screw = None
+        self.declare_parameter('debug', True)
+        self.debug = self.get_parameter('debug').value
+        if self.debug:
+            self.declare_parameter('debug_screw_box_topic', '/debug/annotated_screw_image')
+            self.annotated_screw_image = self.get_parameter('debug_screw_box_topic').value
 
-    #     self.declare_parameter('camera_topic', '/camera/camera/color/image_raw')
-    #     self.declare_parameter('screw_location_topic', '/perception/screw_location')
+            self.image_pub = self.create_publisher(
+            Image,
+            self.annotated_screw_image,
+            10
+        )
 
-    #     self.declare_parameter('debug', False)
-    #     self.debug = self.get_parameter('debug').value
-    #     if self.debug:
-    #         self.declare_parameter('debug_screw_box_topic', '/debug/annotated_screw_image')
-    #         self.annotated_screw_image = self.get_parameter('debug_screw_box_topic').value
+        self.camera_topic = self.get_parameter('camera_topic').value
+        self.screw_location_topic = self.get_parameter('screw_location_topic').value
 
-    #         self.image_pub = self.create_publisher(
-    #         Image,
-    #         self.annotated_screw_image,
-    #         10
-    #     )
+        self.bridge = CvBridge()
+        self.wrist_image = None  # Latest OpenCV image; None until one arrives.
+        self.wrist_image_subscriber = self.create_subscription(
+            Image,
+            self.camera_topic,
+            self.wrist_image_callback,
+            qos_profile_sensor_data,
+        )
 
-    #     self.camera_topic = self.get_parameter('camera_topic').value
-    #     self.screw_location_topic = self.get_parameter('screw_location_topic').value
+        self.screw_pub = self.create_publisher(
+            Screw,
+            self.screw_location_topic,
+            10
+        )
 
-    #     self.bridge = CvBridge()
-    #     self.wrist_image = None  # Latest OpenCV image; None until one arrives.
-    #     self.wrist_image_subscriber = self.create_subscription(
-    #         Image,
-    #         self.camera_topic,
-    #         self.wrist_image_callback,
-    #         qos_profile_sensor_data,
-    #     )
+        self.control_timer = self.create_timer(
+            0.1,  # 10 Hz
+            self.control_loop
+        )
 
-    #     self.screw_pub = self.create_publisher(
-    #         Screw,
-    #         self.screw_location_topic,
-    #         10
-    #     )
-
-    #     self.control_timer = self.create_timer(
-    #         0.1,  # 10 Hz
-    #         self.control_loop
-    #     )
-
-
-    #     self.get_logger().info('ScrewDetection initialized!')
+        self.marker_pub = self.create_publisher(
+            Marker,
+            '/perception/screw_marker',
+            10
+        )
+        self.get_logger().info('ScrewDetection initialized!')
 
 
 
-    # def wrist_image_callback(self, msg):
-    #         """Convert the ROS image to an OpenCV image (BGR NumPy array)."""
-    #         self.wrist_image = self.bridge.imgmsg_to_cv2(msg, desired_encoding='bgr8')
+    def wrist_image_callback(self, msg):
+            """Convert the ROS image to an OpenCV image (BGR NumPy array)."""
+            self.wrist_image = self.bridge.imgmsg_to_cv2(msg, desired_encoding='bgr8')
+
+
+    def publish_marker(self, screw_msg):
+
+        marker = Marker()
+
+        marker.header.frame_id = 'camera_color_optical_frame'
+        marker.header.stamp = self.get_clock().now().to_msg()
+
+        marker.ns = 'screws'
+        marker.id = 0
+
+        marker.type = Marker.CUBE
+        marker.action = Marker.ADD
+
+        marker.pose.position.x = screw_msg.centroid_position.x
+        marker.pose.position.y = screw_msg.centroid_position.y
+        marker.pose.position.z = screw_msg.centroid_position.z
+
+        marker.pose.orientation.w = 1.0
+
+        marker.scale.x = screw_msg.length
+        marker.scale.y = screw_msg.width
+        marker.scale.z = 0.005
+
+        marker.color.r = 0.0
+        marker.color.g = 1.0
+        marker.color.b = 0.0
+        marker.color.a = 0.8
+
+        marker.lifetime.sec = 0
+
+        self.marker_pub.publish(marker)
+    def detect_edges(
+        self,
+        image,
+        lower_threshold=20,
+        upper_threshold=50,
+        blur_kernel=(3, 3)
+    ):
+        """
+        Apply Gaussian blur and Canny edge detection.
+
+        Args:
+            image: Input BGR or grayscale image.
+            lower_threshold: Canny lower threshold.
+            upper_threshold: Canny upper threshold.
+            blur_kernel: Gaussian blur kernel size.
+
+        Returns:
+            edges: Binary edge image (uint8).
+        """
+
+        # Convert to grayscale if necessary
+        if len(image.shape) == 3:
+            gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+        else:
+            gray = image.copy()
+
+        # Reduce noise
+        blur = cv2.GaussianBlur(gray, blur_kernel, 0)
+
+        # Canny edge detection
+        edges = cv2.Canny(
+            blur,
+            lower_threshold,
+            upper_threshold
+        )
+
+        return edges
     
-    # def detect_edges(
-    #     self,
-    #     image,
-    #     lower_threshold=50,
-    #     upper_threshold=150,
-    #     blur_kernel=(5, 5)
-    # ):
-    #     """
-    #     Apply Gaussian blur and Canny edge detection.
+    def find_oriented_bounding_boxes(
+        self,
+        edges,
+        min_area=100,
+        max_area=None
+    ):
+        """
+        Extract contours and calculate oriented bounding boxes.
 
-    #     Args:
-    #         image: Input BGR or grayscale image.
-    #         lower_threshold: Canny lower threshold.
-    #         upper_threshold: Canny upper threshold.
-    #         blur_kernel: Gaussian blur kernel size.
+        Args:
+            edges: Binary edge image from detect_edges().
+            min_area: Minimum contour area to retain.
+            max_area: Maximum contour area (None disables limit).
 
-    #     Returns:
-    #         edges: Binary edge image (uint8).
-    #     """
+        Returns:
+            List of dictionaries containing:
+                center: (cx, cy)
+                size: (width, height)
+                angle: Rotation in degrees
+                corners: Four bounding box corner coordinates
+                contour: Original contour
+        """
 
-    #     # Convert to grayscale if necessary
-    #     if len(image.shape) == 3:
-    #         gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-    #     else:
-    #         gray = image.copy()
+        contours, hierarchy = cv2.findContours(
+            edges,
+            cv2.RETR_EXTERNAL,
+            cv2.CHAIN_APPROX_SIMPLE
+        )
 
-    #     # Reduce noise
-    #     blur = cv2.GaussianBlur(gray, blur_kernel, 0)
+        bounding_boxes = []
 
-    #     # Canny edge detection
-    #     edges = cv2.Canny(
-    #         blur,
-    #         lower_threshold,
-    #         upper_threshold
-    #     )
+        for contour in contours:
 
-    #     return edges
-    
-    # def find_oriented_bounding_boxes(
-    #     self,
-    #     edges,
-    #     min_area=100,
-    #     max_area=None
-    # ):
-    #     """
-    #     Extract contours and calculate oriented bounding boxes.
+            # Filter by contour area
+            area = cv2.contourArea(contour)
 
-    #     Args:
-    #         edges: Binary edge image from detect_edges().
-    #         min_area: Minimum contour area to retain.
-    #         max_area: Maximum contour area (None disables limit).
+            if area < min_area:
+                continue
 
-    #     Returns:
-    #         List of dictionaries containing:
-    #             center: (cx, cy)
-    #             size: (width, height)
-    #             angle: Rotation in degrees
-    #             corners: Four bounding box corner coordinates
-    #             contour: Original contour
-    #     """
+            if max_area is not None and area > max_area:
+                continue
 
-    #     contours, hierarchy = cv2.findContours(
-    #         edges,
-    #         cv2.RETR_EXTERNAL,
-    #         cv2.CHAIN_APPROX_SIMPLE
-    #     )
+            # Calculate minimum-area rotated rectangle
+            rect = cv2.minAreaRect(contour)
 
-    #     bounding_boxes = []
+            (cx, cy), (width, height), angle = rect
 
-    #     for contour in contours:
+            # Convert rectangle to four corner coordinates
+            corners = cv2.boxPoints(rect)
+            corners = np.intp(corners)
 
-    #         # Filter by contour area
-    #         area = cv2.contourArea(contour)
+            bounding_boxes.append({
+                "center": (cx, cy),
+                "size": (width, height),
+                "angle": angle,
+                "corners": corners,
+                "contour": contour
+            })
+        return bounding_boxes 
 
-    #         if area < min_area:
-    #             continue
+    def control_loop(self):
+        image = self.wrist_image
 
-    #         if max_area is not None and area > max_area:
-    #             continue
+        # Wait until the first camera frame arrives
+        if image is None:
+            return
 
-    #         # Calculate minimum-area rotated rectangle
-    #         rect = cv2.minAreaRect(contour)
+        edges = self.detect_edges(image)
+        boxes = self.find_oriented_bounding_boxes(edges)
 
-    #         (cx, cy), (width, height), angle = rect
+        if boxes:
+            box = boxes[0]
 
-    #         # Convert rectangle to four corner coordinates
-    #         corners = cv2.boxPoints(rect)
-    #         corners = np.intp(corners)
+            screw_msg = Screw()
+            screw_msg.screw_type = "unknown"
 
-    #         bounding_boxes.append({
-    #             "center": (cx, cy),
-    #             "size": (width, height),
-    #             "angle": angle,
-    #             "corners": corners,
-    #             "contour": contour
-    #         })
-    #     return bounding_boxes 
+            screw_msg.centroid_position.x = float(box["center"][0])
+            screw_msg.centroid_position.y = float(box["center"][1])
+            screw_msg.centroid_position.z = 0.0
 
-    # def control_loop(self):
-    #     image = self.wrist_image
+            screw_msg.length = float(max(box["size"]))
+            screw_msg.width = float(min(box["size"]))
+            # screw_msg.angle = float(np.deg2rad(box["angle"]))    
+            w, h = box["size"]
+            ang = box["angle"] + (90.0 if h > w else 0.0)
+            screw_msg.angle = float(np.deg2rad(ang))        
 
-    #     # Wait until the first camera frame arrives
-    #     if image is None:
-    #         return
+            self.last_screw = screw_msg
 
-    #     edges = self.detect_edges(image)
-    #     boxes = self.find_oriented_bounding_boxes(edges)
+        # Publish the most recently detected screw
+        if self.last_screw is not None:
+            self.screw_pub.publish(self.last_screw)
+            self.publish_marker(self.last_screw)
 
-    #     if boxes:
-    #         box = boxes[0]
+        if self.debug:
+            output = image.copy()
 
-    #         screw_msg = Screw()
-    #         screw_msg.screw_type = "unknown"
+            for box in boxes:
+                corners = box["corners"]
 
-    #         screw_msg.centroid_position.x = float(box["center"][0])
-    #         screw_msg.centroid_position.y = float(box["center"][1])
-    #         screw_msg.centroid_position.z = 0.0
+                cv2.drawContours(
+                    output,
+                    [corners],
+                    -1,
+                    (0, 255, 0),
+                    2
+                )
 
-    #         screw_msg.length = float(max(box["size"]))
-    #         screw_msg.width = float(min(box["size"]))
-    #         screw_msg.angle = float(np.deg2rad(box["angle"]))            
+                cx, cy = map(int, box["center"])
 
-    #         self.last_screw = screw_msg
+                cv2.circle(
+                    output,
+                    (cx, cy),
+                    4,
+                    (0, 0, 255),
+                    -1
+                )
 
-    #     # Publish the most recently detected screw
-    #     if self.last_screw is not None:
-    #         self.screw_pub.publish(self.last_screw)
+            ros_image = self.bridge.cv2_to_imgmsg(
+                output,
+                encoding="bgr8"
+            )
 
-    #     if self.debug:
-    #         output = image.copy()
-
-    #         for box in boxes:
-    #             corners = box["corners"]
-
-    #             cv2.drawContours(
-    #                 output,
-    #                 [corners],
-    #                 -1,
-    #                 (0, 255, 0),
-    #                 2
-    #             )
-
-    #             cx, cy = map(int, box["center"])
-
-    #             cv2.circle(
-    #                 output,
-    #                 (cx, cy),
-    #                 4,
-    #                 (0, 0, 255),
-    #                 -1
-    #             )
-
-    #         ros_image = self.bridge.cv2_to_imgmsg(
-    #             output,
-    #             encoding="bgr8"
-    #         )
-
-    #         self.image_pub.publish(ros_image)
+            self.image_pub.publish(ros_image)
 
 def main(args=None):
     rclpy.init(args=args)

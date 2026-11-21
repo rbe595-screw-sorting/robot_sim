@@ -59,6 +59,12 @@ install(
 )
 
 install(
+  PROGRAMS nodes/perception/cloud_manager.py
+  DESTINATION lib/${PROJECT_NAME}
+  RENAME cloud_manager
+)
+
+install(
   PROGRAMS nodes/perception/static_transforms.py
   DESTINATION lib/${PROJECT_NAME}
   RENAME static_transforms

@@ -37,13 +37,13 @@ class ArucoDetection(Node):
         self.tf_broadcaster = TransformBroadcaster(self)
 
         self.tag_params = {
-            0: (0.05, "Bin"),
+            4: (0.063, "Bin"),
             1: (0.05, "Bucket"),
             2: (0.05, "Scoop"),
         }
 
         self.aruco_dict = cv2.aruco.getPredefinedDictionary(
-            cv2.aruco.DICT_APRILTAG_36h11
+            cv2.aruco.DICT_APRILTAG_16h5
         )
 
         self.declare_parameter('camera_topic', '/camera/camera/color/image_raw')
@@ -211,6 +211,9 @@ class ArucoDetection(Node):
             image,
             self.aruco_dict,
             parameters=self.detector_params
+        )
+        self.get_logger().info(
+            f"Detected IDs: {ids.flatten().tolist() if ids is not None else 'None'}"
         )
 
         detection_time = time.perf_counter() - start

@@ -1,2 +1,2 @@
-# 20 samples, consistency mean 7.2 mm, max 15.0 mm
-ros2 run tf2_ros static_transform_publisher --x 0.06205 --y -0.00140 --z 0.03862 --qx 0.691449 --qy -0.025494 --qz 0.721930 --qw 0.008045 --frame-id end_effector_link --child-frame-id camera_link
+# 13 samples, consistency mean 7.5 mm, max 13.9 mm
+ros2 run tf2_ros static_transform_publisher --x -0.06050 --y 0.01006 --z 0.03585 --qx -0.002237 --qy -0.721221 --qz 0.019734 --qw 0.692421 --frame-id end_effector_link --child-frame-id camera_link
