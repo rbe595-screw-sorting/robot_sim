@@ -79,8 +79,8 @@ class LocalizationNode(Node):
             'bin_drop_location'
         ] + [
             f'container_{row}_{col}'
-            for row in range(3)
-            for col in range(4)
+            for row in range(4)
+            for col in range(5)
         ]
 
 

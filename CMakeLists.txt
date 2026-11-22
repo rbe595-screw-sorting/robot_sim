@@ -53,9 +53,9 @@ install(
 
 # Perception
 install(
-  PROGRAMS nodes/perception/screw_detection.py
+  PROGRAMS nodes/perception/detection.py
   DESTINATION lib/${PROJECT_NAME}
-  RENAME screw_detection
+  RENAME detection
 )
 
 install(

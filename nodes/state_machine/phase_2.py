@@ -34,7 +34,8 @@ gripper_action = "/gen3_lite_2f_gripper_controller/gripper_cmd"
 
 waypoints = {
     "phase2_home" : (0.3, 0.06, 0.4, 1.0, 0.0, 0.0, 0.0),
-    "phase2_floor" : (0.3, 0.0, 0.15, 1.0, 0.0, 0.0, 0.0),
+    "phase2_floor" : (0.3, 0.06, 0.1142, 1.0, 0.0, 0.0, 0.0),
+    "screwattempt" : (0.19, 0.038, 0.1142, 1.0, 0.0, 0.0, 0.0)
     # "bin_location_guess" : (-0.2, -0.3, 0.3, 1.0, 0.0, 0.0, 0.0)
 }
 
@@ -49,6 +50,7 @@ waypoint_motion = {
 
     "phase2_home": "rrtconnect",
     "phase2_floor": "rrtconnect",
+    "screwattempt" : "rrtconnect"
     # "bin_location_guess": "rrtconnect"
 
 }
@@ -371,64 +373,71 @@ class Phase_2(Node):
         7. Go to step 2 and repeat until bucket is empty
         """
 
-        #1
-        if self.state == "UNLOCALIZED":
-            self.start_localization(['bin'])
+        # #1
+        # if self.state == "UNLOCALIZED":
+        #     self.start_localization(['bin'])
 
-        elif self.state == "PHASE1":
-            #TODO implement phase 1
-            if not self.move("phase2_home"):
-                self.state = "ERROR"
-                return
-            self.state = "PHASE2"
+        # elif self.state == "PHASE1":
+        #     #TODO implement phase 1
+        #     if not self.move("phase2_home"):
+        #         self.state = "ERROR"
+        #         return
+        #     self.state = "PHASE2"
 
-        elif self.state == "PHASE2":
-            #TODO grab workspace scan, classify and segment
-            scan = [0, 0, 0]
-            if len(scan) == 0:
-                self.state = "PHASE1"
+        # elif self.state == "PHASE2":
+        #     #TODO grab workspace scan, classify and segment
+        #     scan = [0, 0, 0]
+        #     if len(scan) == 0:
+        #         self.state = "PHASE1"
 
-            #TODO plan grasp then execute it
+        #     #TODO plan grasp then execute it
 
-            #placeholder grasp motion
-            if not self.move("phase2_floor"):
-                self.state = "ERROR"
-                return
-            if not self.gripper(0.75):
-                self.state = "ERROR"
-                return
-            if not self.move("phase2_home"):
-                self.state = "ERROR"
-                return
+        #     #placeholder grasp motion
+        #     if not self.gripper(0.65):
+        #         self.state = "ERROR"
+        #         return
+        #     if not self.move("phase2_floor"):
+        #         self.state = "ERROR"
+        #         return
+        #     if not self.gripper(0.75):
+        #         self.state = "ERROR"
+        #         return
+        #     if not self.move("phase2_home"):
+        #         self.state = "ERROR"
+        #         return
             
-            #TODO deposit in bin
+        #     #Bin Deposit
+        #     # tf = self.object_transforms['bin'].transform
+        #     tf = self.feature_transforms['container_0_4'].transform
 
-            
-            tf = self.object_transforms['bin'].transform
-            tf = self.feature_transforms['container_0_0'].transform
-
-            p = tf.translation
-            # q = tf.rotation
-            waypoint = (
-                p.x,
-                p.y,
-                p.z + 0.17,
-                1.0,
-                0.0,
-                0.0,
-                0.0
-            )
-            if not self.move(waypoint):
-                self.state = "ERROR"
-                return
-            if not self.gripper(0.0):
-                return
-            if not self.move("phase2_home"):
-                self.state = "ERROR"
-                return
+        #     p = tf.translation
+        #     # q = tf.rotation
+        #     waypoint = (
+        #         p.x,
+        #         p.y,
+        #         p.z + 0.1675,
+        #         1.0,
+        #         0.0,
+        #         0.0,
+        #         0.0
+        #     )
+        #     if not self.move(waypoint):
+        #         self.state = "ERROR"
+        #         return
+        #     if not self.gripper(0.55):
+        #         return
+        #     if not self.move("phase2_home"):
+        #         self.state = "ERROR"
+        #         return
+        #     if not self.gripper(0.0):
+        #         return
 
 
-            self.state = "COMPLETE"
+        #     self.state = "COMPLETE"
+
+        # if not self.move("screwattempt"):
+        #     self.state = "ERROR"
+        #     return
 
 
 # MAIN

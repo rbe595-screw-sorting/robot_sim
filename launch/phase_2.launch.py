@@ -25,8 +25,8 @@ def generate_launch_description():
         # Perception
         Node(
             package='robot_sim',
-            executable='screw_detection',
-            name='screw_detection',
+            executable='detection',
+            name='detection',
             output='screen',
             parameters=[config_file]
         ),
