@@ -154,12 +154,32 @@ class ArmMover:
         return self._check(self._send(self.move_client, goal))
 
     def _send(self, client, goal):
+        self.log.info('Sending MoveIt goal...')
+
         handle = wait_for(client.send_goal_async(goal), timeout=10.0)
-        if handle is None or not handle.accepted:
-            self.log.error('MoveIt rejected the goal')
+
+        if handle is None:
+            self.log.error('Timed out waiting for goal acceptance.')
             return None
+
+        if not handle.accepted:
+            self.log.error('MoveIt explicitly rejected the goal.')
+            return None
+
+        self.log.info('MoveIt accepted the goal. Waiting for execution result...')
+
         response = wait_for(handle.get_result_async(), timeout=120.0)
-        return None if response is None else response.result
+
+        if response is None:
+            self.log.error('Timed out waiting for execution result.')
+            return None
+
+        self.log.info(
+            f'MoveIt returned execution result: '
+            f'{response.result.error_code.val}'
+        )
+
+        return response.result
 
     def _check(self, result):
         code = None if result is None else result.error_code.val

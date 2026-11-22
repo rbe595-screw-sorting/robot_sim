@@ -12,6 +12,7 @@ from control_msgs.action import GripperCommand
 import numpy as np
 from helpers.robot_motion import ArmMover, wait_for
 import time
+from rclpy.callback_groups import ReentrantCallbackGroup
 
 from rclpy.action import ActionClient
 
@@ -32,7 +33,8 @@ gripper_action = "/gen3_lite_2f_gripper_controller/gripper_cmd"
 # Position in meters, orientation in quaternion.
 
 waypoints = {
-    "workspace_home" : (-0.4, 0.0, 0.3, 1.0, 0.0, 0.0, 0.0),
+    "phase2_home" : (0.3, 0.06, 0.4, 1.0, 0.0, 0.0, 0.0),
+    "phase2_floor" : (0.3, 0.0, 0.15, 1.0, 0.0, 0.0, 0.0),
     # "bin_location_guess" : (-0.2, -0.3, 0.3, 1.0, 0.0, 0.0, 0.0)
 }
 
@@ -45,7 +47,8 @@ waypoints = {
 
 waypoint_motion = {
 
-    "workspace_home": "rrtconnect",
+    "phase2_home": "rrtconnect",
+    "phase2_floor": "rrtconnect",
     # "bin_location_guess": "rrtconnect"
 
 }
@@ -62,26 +65,31 @@ class Phase_2(Node):
             rclpy.parameter.Parameter(
                 'use_sim_time',
                 rclpy.Parameter.Type.BOOL,
-                True
+                False
             )
         ])
+
+        self.motion_client_group = ReentrantCallbackGroup()
+
 
         # MoveIt motion planning
         self.arm_mover = ArmMover(
             self,
-            group=arm_group,
-            ee_link=ee_link,
-            base_frame=base_frame,
-            speed=0.1,
+            group="arm",
+            ee_link="end_effector_link",
+            base_frame="base_link",
+            speed=0.2,
             motion="cartesian",
-            cartesian_fallback=False
+            cartesian_fallback=False,
+            callback_group=self.motion_client_group
         )
 
         # Gripper action client
         self.gripper_client = ActionClient(
             self,
             GripperCommand,
-            gripper_action
+            '/gen3_lite_2f_gripper_controller/gripper_cmd',
+            callback_group=self.motion_client_group
         )
 
         # Localization action client
@@ -96,7 +104,8 @@ class Phase_2(Node):
             GetLocations,
             '/localization/get_locations'
         )
-        self.state = "IDLE"
+
+        self.state = "UNLOCALIZED"
         self.localization_in_progress = False
         self.localization_goal_handle = None
         self.object_transforms = {}
@@ -107,8 +116,9 @@ class Phase_2(Node):
         )
         self.create_timer(0.1, self.control_loop)
 
+    #Localization
     def start_localization(self, target_ids):
-        if self.state != "IDLE":
+        if self.state != "UNLOCALIZED":
             return
 
         self.state = "LOCALIZING"
@@ -141,7 +151,6 @@ class Phase_2(Node):
             f"{feedback.targets_completed} completed, "
             f"{feedback.targets_remaining} remaining"
         )
-
     def localization_goal_response_callback(self, future):
 
         self.localization_goal_handle = future.result()
@@ -157,8 +166,6 @@ class Phase_2(Node):
         result_future.add_done_callback(
             self.localization_result_callback
         )
-
-
     def localization_result_callback(self, future):
 
         try:
@@ -188,8 +195,6 @@ class Phase_2(Node):
         )
 
         self.request_object_locations(result.localized_ids)
-        
-
     def request_object_locations(self, object_ids):
 
         if not self.get_locations_client.wait_for_service(timeout_sec=5.0):
@@ -206,7 +211,6 @@ class Phase_2(Node):
         future.add_done_callback(
             self.object_locations_callback
         )
-
     def object_locations_callback(self, future):
 
         try:
@@ -248,10 +252,9 @@ class Phase_2(Node):
         )
 
         # Localization is complete; advance the state machine
-        self.state = "READY"
+        self.state = "PHASE1"
         self.localization_in_progress = False
-
-    # ARM MOVEMENT
+    # Movement
     def move(self, target):
 
         # Case 1: Named waypoint from dictionary
@@ -295,10 +298,6 @@ class Phase_2(Node):
 
         self.get_logger().info(f"Reached {label}!")
         return True
-
-
-
-    # GRIPPER CONTROL
     def gripper(self, position):
 
         if not self.gripper_client.wait_for_server(
@@ -360,63 +359,81 @@ class Phase_2(Node):
 
         return True
 
-
-    # HIGH LEVEL CONTROL SEQUENCE
+    # Control loop
     def control_loop(self):
+        """
+        1. Localize all objects
+        2. Phase 1 (To be developed still)
+        3. Identify screws on the table and choose target
+        4. Plan and execute grasp
+        5. Deposit screw into appropriate bin
+        6. Go to step 3 and repeat until table is empty
+        7. Go to step 2 and repeat until bucket is empty
+        """
 
-        # # Initialize gripper
-        # if not self.gripper(0.0):
-        #     return
-
-        # initial_sequence = [
-        #     "workspace_home",
-        #     # "bin_location_guess"
-        # ]
-
-        # for waypoint in initial_sequence:
-        #     if not self.move(waypoint):
-        #         return
-
-        # # Close gripper
-        # if not self.gripper(0.5):
-        #     return
-
-        if self.state == "IDLE":
+        #1
+        if self.state == "UNLOCALIZED":
             self.start_localization(['bin'])
 
-        if self.state == "READY":
+        elif self.state == "PHASE1":
+            #TODO implement phase 1
+            if not self.move("phase2_home"):
+                self.state = "ERROR"
+                return
+            self.state = "PHASE2"
 
-            # for name, tf in self.object_transforms.items():
-            #     p = tf.transform.translation
-            #     self.get_logger().info(
-            #         f"{name}: x={p.x:.3f}, y={p.y:.3f}, z={p.z:.3f}"
-            #     )
+        elif self.state == "PHASE2":
+            #TODO grab workspace scan, classify and segment
+            scan = [0, 0, 0]
+            if len(scan) == 0:
+                self.state = "PHASE1"
 
+            #TODO plan grasp then execute it
+
+            #placeholder grasp motion
+            if not self.move("phase2_floor"):
+                self.state = "ERROR"
+                return
+            if not self.gripper(0.75):
+                self.state = "ERROR"
+                return
+            if not self.move("phase2_home"):
+                self.state = "ERROR"
+                return
+            
+            #TODO deposit in bin
+
+            
             tf = self.object_transforms['bin'].transform
+            tf = self.feature_transforms['container_0_0'].transform
+
             p = tf.translation
             # q = tf.rotation
-
             waypoint = (
                 p.x,
                 p.y,
-                p.z + 0.15,  # Approach 15 cm above bin
+                p.z + 0.17,
                 1.0,
                 0.0,
                 0.0,
                 0.0
             )
+            if not self.move(waypoint):
+                self.state = "ERROR"
+                return
+            if not self.gripper(0.0):
+                return
+            if not self.move("phase2_home"):
+                self.state = "ERROR"
+                return
 
-            self.state = "MOVING"
-
-            # if not self.move(waypoint):
-            #     self.state = "ERROR"
-            #     return
 
             self.state = "COMPLETE"
 
 
 # MAIN
 def main(args=None):
+
 
     rclpy.init(args=args)
 

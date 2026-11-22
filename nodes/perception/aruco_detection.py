@@ -38,8 +38,8 @@ class ArucoDetection(Node):
 
         self.tag_params = {
             4: (0.063, "Bin"),
-            1: (0.05, "Bucket"),
-            2: (0.05, "Scoop"),
+            16: (0.045, "Bucket"),
+            20: (0.038, "Scoop"),
         }
 
         self.aruco_dict = cv2.aruco.getPredefinedDictionary(
@@ -212,9 +212,9 @@ class ArucoDetection(Node):
             self.aruco_dict,
             parameters=self.detector_params
         )
-        self.get_logger().info(
-            f"Detected IDs: {ids.flatten().tolist() if ids is not None else 'None'}"
-        )
+        # self.get_logger().info(
+        #     f"Detected IDs: {ids.flatten().tolist() if ids is not None else 'None'}"
+        # )
 
         detection_time = time.perf_counter() - start
 
@@ -291,12 +291,17 @@ class ArucoDetection(Node):
                         rclpy.time.Time.from_msg(image_msg.header.stamp),
                         timeout=rclpy.duration.Duration(seconds=0.0)
                     )
-
                     world_pose = do_transform_pose_stamped(
                         pose,
                         transform
                     )
+
                     self.broadcast_object_tf(object_type.lower(), world_pose)
+
+                    # Publish only when the tag is currently detected
+                    self.location_publishers[object_type].publish(world_pose)
+
+                    self.last_locations[object_type] = world_pose
 
                 except TransformException as ex:
                     # self.get_logger().warning(
@@ -306,9 +311,9 @@ class ArucoDetection(Node):
 
                 self.last_locations[object_type] = world_pose
 
-        for object_type, pose in self.last_locations.items():
-            if pose is not None:
-                self.location_publishers[object_type].publish(pose)
+        # for object_type, pose in self.last_locations.items():
+        #     if pose is not None:
+        #         self.location_publishers[object_type].publish(pose)
 
 
 def main(args=None):

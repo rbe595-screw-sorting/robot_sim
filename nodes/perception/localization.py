@@ -78,7 +78,7 @@ class LocalizationNode(Node):
         self.feature_frames['bin'] = [
             'bin_drop_location'
         ] + [
-            f'bin_container_{row}_{col}'
+            f'container_{row}_{col}'
             for row in range(3)
             for col in range(4)
         ]
@@ -239,15 +239,17 @@ class LocalizationNode(Node):
 
                 return result
 
+            # Stop if all requested objects have been localized.
+            if len(localized) == len(targets):
+                break
+
             self.get_logger().info(
                 f'Moving to observation pose {i + 1}/'
                 f'{len(observation_poses)}'
             )
 
             # Move robot to observation pose.
-            # movement_success = self.move_to_observation_pose(pose)
             movement_success = await self.move_to_observation_pose(pose)
-            # movement_success = True
 
             if not movement_success:
 
@@ -257,10 +259,10 @@ class LocalizationNode(Node):
 
                 continue
 
-            # Give the camera/detector time to acquire observations.
-            # time.sleep(1.0)
+            # Allow camera/detector time to acquire observations.
             await self.ros_sleep(1.0)
-            # Determine which requested objects are now available.
+
+            # Determine which requested objects are now visible.
             for object_id in targets:
 
                 if object_id in localized:
@@ -272,14 +274,15 @@ class LocalizationNode(Node):
 
                     localized.add(object_id)
 
-            # --------------------------------------------------
-            # Publish action feedback
-            # --------------------------------------------------
+                    self.get_logger().info(
+                        f'Localized object: {object_id}'
+                    )
 
+            # Publish action feedback.
             feedback = Relocalize.Feedback()
 
             feedback.current_target = (
-                targets[-1] if len(targets) > 0 else ''
+                targets[-1] if targets else ''
             )
 
             feedback.targets_completed = len(localized)
@@ -290,9 +293,14 @@ class LocalizationNode(Node):
 
             goal_handle.publish_feedback(feedback)
 
-            # Stop scanning early if everything was found.
-
+            # Stop scanning if everything was found.
             if len(localized) == len(targets):
+
+                self.get_logger().info(
+                    'All requested objects localized. '
+                    'Stopping observation scan.'
+                )
+
                 break
 
         # --------------------------------------------------
@@ -372,7 +380,7 @@ class LocalizationNode(Node):
                     )
                     continue
 
-                response.feature_frame_ids.append(feature_frame)
+                response.frame_ids.append(feature_frame)
                 response.feature_transforms.append(feature_transform)
 
         return response
@@ -381,21 +389,28 @@ class LocalizationNode(Node):
     # TF2 UTILITIES
     # ======================================================
 
-    def transform_available(self, frame):
-
+    def transform_available(self, frame, max_age=0.5):
         try:
 
-            return self.tf_buffer.can_transform(
+            transform = self.tf_buffer.lookup_transform(
                 self.world_frame,
                 frame,
-                Time(),
-                timeout=Duration(seconds=0.1)
+                Time()
             )
+
+            transform_time = Time.from_msg(
+                transform.header.stamp
+            )
+
+            current_time = self.get_clock().now()
+
+            age = (current_time - transform_time).nanoseconds / 1e9
+
+            return 0.0 <= age <= max_age
 
         except TransformException:
 
             return False
-
     def get_world_transform(self, frame):
 
         try:
@@ -434,7 +449,8 @@ class LocalizationNode(Node):
             List[PoseStamped]
         """
 
-        observation_poses = [(-0.2, -0.3, 0.3, 1.0, 0.0, 0.0, 0.0)]
+        observation_poses = [(0.29, 0.15, 0.4, 1.0, 0.0, 0.0, 0.0),
+                             (0.29, -0.15, 0.4, 1.0, 0.0, 0.0, 0.0)]
         poses = []
 
         for x, y, z, qx, qy, qz, qw in observation_poses:
@@ -454,10 +470,6 @@ class LocalizationNode(Node):
 
             poses.append(pose)
 
-
-
-
-        # TODO: Implement scan planning.
 
         return poses
 
