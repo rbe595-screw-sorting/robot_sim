@@ -1,17 +1,28 @@
 #!/usr/bin/env python3
 """
-Open-loop screw grasp executor.
+Staged top-down screw grasp executor.
 
-Pipeline:
-  1. Collect N screw detections (pixel centroid + long-axis angle) from the
-     screw detection node while the arm sits at its observation pose.
-  2. Back-project the centroid (and a second point along the screw axis) onto
-     the table plane z = screw_plane_z in the base frame using camera_info + TF.
-  3. Build a straight-down tool orientation whose finger-closing direction is
-     perpendicular to the screw's principal axis.
-  4. Pre-grasp (above) -> descend -> close gripper -> lift.
+Idle until /start_grasp (StartGrasp: screw_id) is called. Then:
+
+  1. Seed: look up TF frame `screw_<id>` (published by the detector) -> x, y, yaw.
+  2. Open the gripper to its approach width.
+  3. For each height in `stage_heights` (fingertip z, base frame):
+         move above the current estimate at that height (tool pointing straight down,
+         fingers closing perpendicular to the screw axis), wait for the arm to settle,
+         then re-estimate the screw from the detector's raw per-frame observations.
+     (Stage 0 is taken in place by default: the arm is already at the high view pose.)
+  4. Re-align at the last stage height, descend straight to `grasp_z`, close, lift.
+
+The detector does the perception work (pixel -> world, axis direction). This node
+only consumes world-frame poses:
+  TF  screw_<id>              (tracked, stable IDs)   -> used once to pick the screw
+  /screw_observations         (raw, per frame)        -> used for each re-estimate; the
+                                                         screw nearest the last estimate
+                                                         is followed (IDs can change as the
+                                                         camera moves, position does not)
 """
 import math
+import re
 import time
 from collections import deque
 from threading import Lock, Thread
@@ -19,17 +30,21 @@ from threading import Lock, Thread
 import numpy as np
 import rclpy
 from rclpy.action import ActionClient
-from rclpy.executors import SingleThreadedExecutor
+from rclpy.executors import MultiThreadedExecutor
 from rclpy.node import Node
-from rclpy.qos import qos_profile_sensor_data
 from rclpy.time import Time
 
+from geometry_msgs.msg import PoseArray
+from std_msgs.msg import String
 from tf2_ros import Buffer, TransformException, TransformListener
 
 from common_interfaces_merlab.srv import SendPose
 from control_msgs.action import GripperCommand
-from sensor_msgs.msg import CameraInfo
-from screw_sorting_interfaces.msg import Screw
+from screw_sorting_interfaces.srv import StartGrasp
+
+
+def wrap_pi(a):
+    return (a + math.pi) % (2.0 * math.pi) - math.pi
 
 
 class GripperExecutor(Node):
@@ -37,110 +52,96 @@ class GripperExecutor(Node):
     def __init__(self):
         super().__init__('gripper_executor')
 
-        # ---------------- Parameters ----------------
-        self.declare_parameter('screw_topic', '/perception/screw_location')
-        self.declare_parameter('camera_info_topic', '/camera/camera/color/camera_info')
-        self.declare_parameter('camera_frame', 'camera_color_optical_frame')
-        self.declare_parameter('base_frame', 'base_link')
+        # ---------------- Parameters (all readable live with `ros2 param set`) ----------------
+        # perception interface
 
-        # Height (base frame) of the plane the screw centroid lies on.
-        self.declare_parameter('screw_plane_z', 0.0)
-        # Height (base frame) of the fingertips at the grasp.
-        self.declare_parameter('grasp_z', 0.0)
-        self.declare_parameter('pregrasp_distance', 0.15)
-        self.declare_parameter('lift_height', 0.20)
-        # Distance from tool0 (what /send_pose commands) to the fingertips.
-        # self.declare_parameter('tcp_offset', 0.157)
-        self.declare_parameter('tcp_offset', 0.107)
-        # Abort if the fingertips would go below this z.
-        self.declare_parameter('min_z', -0.005)
+        self.declare_parameter('observations_topic', '/screw_observations')
+        self.declare_parameter('base_frame', 'base_link')          # must match detector world_frame
+        self.declare_parameter('screw_frame_prefix', 'screw')
+        self.declare_parameter('seed_max_age', 2.0)                # s, max age of the screw_<id> TF
 
-        # Which tool axis the fingers close along: 'x' or 'y'. Verify on hardware.
-        self.declare_parameter('finger_close_axis', 'y')
-        # Extra yaw (deg) added to the closing direction for calibration.
+        # staged approach: fingertip z (base frame, m) at which each estimate is taken
+        self.declare_parameter('stage_heights', [0.35, 0.15, 0.08])
+        self.declare_parameter('skip_first_stage_move', True)      # arm is already at the high view pose
+        self.declare_parameter('settle_time', 2.0)                 # s to wait after each move
+        self.declare_parameter('num_samples', 10)
+        self.declare_parameter('max_position_spread', 0.005)       # m, std dev of samples
+        self.declare_parameter('stage_timeout', 10.0)              # s per estimate
+        self.declare_parameter('reacquire_radius', 0.04)           # m, only follow screws this close to last estimate
+
+        # grasp
+        self.declare_parameter('grasp_z', 0.0)                     # fingertip z at grasp (base frame)
+        self.declare_parameter('lift_height', 0.20)                # m above grasp_z after closing
+        self.declare_parameter('tcp_offset', 0.1139)                # tool0 -> fingertips (m)
+        self.declare_parameter('min_z', -0.005)                    # abort if fingertips would go below
+        self.declare_parameter('finger_close_axis', 'y')           # tool axis fingers close along: x | y
         self.declare_parameter('yaw_offset_deg', 0.0)
 
-        # Detection averaging.
-        self.declare_parameter('num_samples', 10)
-        self.declare_parameter('max_position_spread', 0.01)  # m, std dev
-        self.declare_parameter('detection_timeout', 30.0)    # s
-
-        self.declare_parameter(
-            'gripper_command_topic', '/gen3_lite_2f_gripper_controller/gripper_cmd')
-        self.declare_parameter('gripper_open_position', 0.0)
+        # gripper
+        self.declare_parameter('gripper_command_topic', '/gen3_lite_2f_gripper_controller/gripper_cmd')
+        self.declare_parameter('gripper_approach_position', 0.65)  # width used while approaching (tune!)
         self.declare_parameter('gripper_closed_position', 0.80)
+        self.declare_parameter('gripper_max_effort', 100.0)
+        self.declare_parameter('pose_timeout', 180.0)
 
-        # ---------------- Clients ----------------
+
+        # xy correction added to every commanded fingertip position (m, positive = move that way).
+        # grasp_offset_*: fixed in the BASE frame.  tool_offset_*: fixed in the TOOL frame (rotates with the gripper).
+        self.declare_parameter('grasp_offset_x', 0.0)
+        self.declare_parameter('grasp_offset_y', 0.0)
+        self.declare_parameter('tool_offset_x', 0.007)
+        self.declare_parameter('tool_offset_y', 0.002)
+
+        self.p = lambda name: self.get_parameter(name).value
+
+        # ---------------- Interfaces ----------------
         self.pose_client = self.create_client(SendPose, 'send_pose')
-        self.gripper_client = ActionClient(
-            self, GripperCommand,
-            self.get_parameter('gripper_command_topic').value)
+        self.gripper_client = ActionClient(self, GripperCommand, self.p('gripper_command_topic'))
 
-        # ---------------- TF / camera ----------------
         self.tf_buffer = Buffer()
         self.tf_listener = TransformListener(self.tf_buffer, self)
-        self.intrinsics = None  # (fx, fy, cx, cy)
 
-        self.create_subscription(
-            CameraInfo,
-            self.get_parameter('camera_info_topic').value,
-            self.camera_info_callback,
-            qos_profile_sensor_data,
-        )
+        self.create_subscription(PoseArray, self.p('observations_topic'),
+                                 self.observations_callback, 10)
+        self.create_service(StartGrasp, 'start_grasp', self.start_grasp_callback)
+        self.status_pub = self.create_publisher(String, 'grasp_status', 10)
 
-        # ---------------- Screw samples ----------------
-        self.accepting = False
-        self.samples = deque(maxlen=int(self.get_parameter('num_samples').value))
+        # ---------------- State ----------------
+        self.busy = False
+        self.busy_lock = Lock()
+        self.collecting = False
+        self.samples = deque(maxlen=int(self.p('num_samples')))
         self.samples_lock = Lock()
+        self.gate_center = (0.0, 0.0)
+        self.t_min_ns = 0
+        self.last_tool_yaw = None
 
-        self.create_subscription(
-            Screw,
-            self.get_parameter('screw_topic').value,
-            self.screw_callback,
-            10,
-        )
+        self.set_status('idle')
+        self.get_logger().info("Ready. Call /start_grasp with a screw_id to begin.")
 
     # =====================================================
     # Utilities
     # =====================================================
+    def set_status(self, text):
+        self.status_pub.publish(String(data=text))
 
-    def wait_for_services(self, timeout=30.0):
-        self.get_logger().info('Waiting for send_pose...')
-        if not self.pose_client.wait_for_service(timeout_sec=timeout):
-            self.get_logger().error('Service send_pose is unavailable.')
-            return False
-        return True
-
-    def wait_for_future(self, future, timeout, service_name):
-        """Wait on a future while a background executor spins the node."""
+    def wait_for_future(self, future, timeout, name):
         deadline = time.monotonic() + timeout
         while rclpy.ok() and not future.done():
             if time.monotonic() >= deadline:
-                self.get_logger().error(f'Timed out waiting for {service_name}.')
+                self.get_logger().error(f'Timed out waiting for {name}.')
                 return None
             time.sleep(0.01)
-
         if not future.done():
             return None
         try:
             return future.result()
         except Exception as exc:
-            self.get_logger().error(f'Call to {service_name} failed: {exc}')
+            self.get_logger().error(f'Call to {name} failed: {exc}')
             return None
 
     @staticmethod
-    def quat_to_matrix(x, y, z, w):
-        n = math.sqrt(x * x + y * y + z * z + w * w)
-        x, y, z, w = x / n, y / n, z / n, w / n
-        return np.array([
-            [1 - 2 * (y * y + z * z), 2 * (x * y - z * w), 2 * (x * z + y * w)],
-            [2 * (x * y + z * w), 1 - 2 * (x * x + z * z), 2 * (y * z - x * w)],
-            [2 * (x * z - y * w), 2 * (y * z + x * w), 1 - 2 * (x * x + y * y)],
-        ])
-
-    @staticmethod
     def matrix_to_quat(R):
-        """Rotation matrix -> quaternion [x, y, z, w]."""
         tr = np.trace(R)
         if tr > 0.0:
             s = math.sqrt(tr + 1.0) * 2.0
@@ -169,203 +170,181 @@ class GripperExecutor(Node):
         q = np.array([x, y, z, w])
         return q / np.linalg.norm(q)
 
+    @staticmethod
+    def quat_to_yaw(q):
+        return math.atan2(2.0 * (q.w * q.z + q.x * q.y), 1.0 - 2.0 * (q.y * q.y + q.z * q.z))
+
     # =====================================================
     # Perception input
     # =====================================================
+    def available_screw_ids(self):
+        """IDs whose screw_<id> TF is currently being published (fresh)."""
+        prefix = f"{self.p('screw_frame_prefix')}_"
+        names = re.findall(r'Frame (\S+) exists', self.tf_buffer.all_frames_as_string())
+        ids = []
+        for n in names:
+            if n.startswith(prefix) and n[len(prefix):].isdigit():
+                try:
+                    tf = self.tf_buffer.lookup_transform(self.p('base_frame'), n, Time())
+                except TransformException:
+                    continue
+                age = (self.get_clock().now() - Time.from_msg(tf.header.stamp)).nanoseconds * 1e-9
+                if age <= float(self.p('seed_max_age')):
+                    ids.append(int(n[len(prefix):]))
+        return sorted(ids)
 
-    def camera_info_callback(self, msg):
-        if self.intrinsics is None:
-            k = msg.k
-            self.intrinsics = (k[0], k[4], k[2], k[5])
-            self.get_logger().info(
-                f'Camera intrinsics received: fx={k[0]:.1f} fy={k[4]:.1f} '
-                f'cx={k[2]:.1f} cy={k[5]:.1f}')
-
-    def pixel_to_plane(self, u, v, R, t, plane_z):
-        """Intersect the camera ray through pixel (u, v) with z = plane_z (base frame)."""
-        fx, fy, cx, cy = self.intrinsics
-        ray_cam = np.array([(u - cx) / fx, (v - cy) / fy, 1.0])
-        ray_base = R @ ray_cam
-
-        if abs(ray_base[2]) < 1e-6:
-            return None
-        s = (plane_z - t[2]) / ray_base[2]
-        if s <= 0.0:
-            return None
-        return t + s * ray_base
-
-    def screw_callback(self, msg):
-        """Convert a pixel-space detection into a base-frame (x, y, axis_yaw) sample."""
-        if not self.accepting or self.intrinsics is None:
-            return
-
-        base_frame = self.get_parameter('base_frame').value
-        camera_frame = self.get_parameter('camera_frame').value
-        plane_z = float(self.get_parameter('screw_plane_z').value)
-
+    def lookup_seed(self, screw_id):
+        """(x, y, yaw) of screw_<id> from TF, or (None, reason)."""
+        child = f"{self.p('screw_frame_prefix')}_{screw_id}"
+        base = self.p('base_frame')
+        hint = f" Currently tracked IDs: {self.available_screw_ids()}"
         try:
-            tf = self.tf_buffer.lookup_transform(base_frame, camera_frame, Time())
-        except TransformException as exc:
-            self.get_logger().warning(
-                f'TF {base_frame} <- {camera_frame} unavailable: {exc}',
-                throttle_duration_sec=5.0)
+            tf = self.tf_buffer.lookup_transform(base, child, Time())
+        except TransformException:
+            return None, f"No TF '{child}' in '{base}'.{hint}"
+        age = (self.get_clock().now() - Time.from_msg(tf.header.stamp)).nanoseconds * 1e-9
+        if age > float(self.p('seed_max_age')):
+            return None, f"TF '{child}' is stale ({age:.1f} s old), screw no longer tracked.{hint}"
+        t, q = tf.transform.translation, tf.transform.rotation
+        return (t.x, t.y, self.quat_to_yaw(q)), None
+
+    def observations_callback(self, msg):
+        """Collect the observation nearest the gate centre (while an estimate is running)."""
+        if not self.collecting:
             return
-
-        q = tf.transform.rotation
-        tr = tf.transform.translation
-        R = self.quat_to_matrix(q.x, q.y, q.z, q.w)
-        t = np.array([tr.x, tr.y, tr.z])
-
-        u = msg.centroid_position.x
-        v = msg.centroid_position.y
-        angle = msg.angle  # long-axis direction in the image, radians
-
-        # Project the centroid and a second point along the screw axis so the
-        # axis direction accounts for perspective / camera tilt.
-        step = max(20.0, float(msg.length))
-        p0 = self.pixel_to_plane(u, v, R, t, plane_z)
-        p1 = self.pixel_to_plane(
-            u + step * math.cos(angle), v + step * math.sin(angle), R, t, plane_z)
-
-        if p0 is None or p1 is None:
-            self.get_logger().warning(
-                'Pixel ray does not hit the screw plane; ignoring sample.',
-                throttle_duration_sec=5.0)
+        if msg.header.frame_id != self.p('base_frame'):
+            self.get_logger().error(
+                f"/screw_observations frame '{msg.header.frame_id}' != base_frame "
+                f"'{self.p('base_frame')}'", throttle_duration_sec=5.0)
             return
+        if msg.header.stamp.sec * 10**9 + msg.header.stamp.nanosec < self.t_min_ns:
+            return   # captured before the arm settled
 
-        axis = p1[:2] - p0[:2]
-        if np.linalg.norm(axis) < 1e-6:
+        cx, cy = self.gate_center
+        best, best_d = None, float(self.p('reacquire_radius'))
+        for pose in msg.poses:
+            d = math.hypot(pose.position.x - cx, pose.position.y - cy)
+            if d < best_d:
+                best, best_d = pose, d
+        if best is None:
             return
-        axis_yaw = math.atan2(axis[1], axis[0])
-
         with self.samples_lock:
-            self.samples.append((p0[0], p0[1], axis_yaw))
+            self.samples.append((best.position.x, best.position.y,
+                                 self.quat_to_yaw(best.orientation)))
 
-    def wait_for_screw_estimate(self):
-        """
-        Wait for a full window of consistent samples.
-        Returns (x, y, axis_yaw) in the base frame, or None on timeout.
-        """
-        n = int(self.get_parameter('num_samples').value)
-        max_spread = float(self.get_parameter('max_position_spread').value)
-        timeout = float(self.get_parameter('detection_timeout').value)
+    def estimate_screw(self, center_xy):
+        """Settle, then average N raw observations near center_xy. Returns (x, y, yaw) or None."""
+        n = int(self.p('num_samples'))
+        max_spread = float(self.p('max_position_spread'))
+        timeout = float(self.p('stage_timeout'))
+
+        time.sleep(float(self.p('settle_time')))
 
         with self.samples_lock:
             self.samples = deque(maxlen=n)
-
-        self.get_logger().info('Waiting for screw detections...')
-        self.accepting = True
+        self.gate_center = center_xy
+        self.t_min_ns = self.get_clock().now().nanoseconds
+        self.collecting = True
         deadline = time.monotonic() + timeout
 
         try:
             while rclpy.ok() and time.monotonic() < deadline:
                 with self.samples_lock:
                     samples = list(self.samples)
-
                 if len(samples) == n:
                     arr = np.array(samples)
                     spread = float(np.max(np.std(arr[:, :2], axis=0)))
-
                     if spread <= max_spread:
                         x, y = np.median(arr[:, :2], axis=0)
-                        # Axis is a line (period pi): average the doubled angle.
-                        yaw = 0.5 * math.atan2(
-                            np.mean(np.sin(2.0 * arr[:, 2])),
-                            np.mean(np.cos(2.0 * arr[:, 2])))
+                        # axis is a line (period pi): average the doubled angle
+                        yaw = 0.5 * math.atan2(np.mean(np.sin(2.0 * arr[:, 2])),
+                                               np.mean(np.cos(2.0 * arr[:, 2])))
                         self.get_logger().info(
-                            f'Screw estimate: x={x:.3f} y={y:.3f} '
-                            f'axis_yaw={math.degrees(yaw):.1f} deg '
+                            f'  estimate: x={x:.3f} y={y:.3f} axis={math.degrees(yaw):.1f} deg '
                             f'(spread {spread * 1000:.1f} mm)')
                         return float(x), float(y), float(yaw)
-
                 time.sleep(0.05)
-
-            if self.intrinsics is None:
-                self.get_logger().error('No camera_info received.')
+            self.get_logger().error(
+                f'No stable estimate within {timeout:.0f} s (screw lost, outside '
+                f'reacquire_radius, or spread > {max_spread * 1000:.0f} mm).')
             return None
         finally:
-            self.accepting = False
+            self.collecting = False
 
     # =====================================================
     # Motion
     # =====================================================
-
-    def move_to_pose(self, x, y, z, qx, qy, qz, qw):
-        """Move tool0 via /send_pose (meters, base frame, quaternion xyzw)."""
-        if not self.pose_client.service_is_ready():
-            self.get_logger().error('/send_pose service is unavailable.')
+    def wait_for_services(self, timeout=30.0):
+        if not self.pose_client.wait_for_service(timeout_sec=timeout):
+            self.get_logger().error('Service send_pose is unavailable.')
             return False
+        return True
 
+    def move_to_pose(self, x, y, z, q):
         request = SendPose.Request()
-        request.pose.position.x = float(x)
-        request.pose.position.y = float(y)
-        request.pose.position.z = float(z)
-        request.pose.orientation.x = float(qx)
-        request.pose.orientation.y = float(qy)
-        request.pose.orientation.z = float(qz)
-        request.pose.orientation.w = float(qw)
+        request.pose.position.x, request.pose.position.y, request.pose.position.z = \
+            float(x), float(y), float(z)
+        request.pose.orientation.x, request.pose.orientation.y = float(q[0]), float(q[1])
+        request.pose.orientation.z, request.pose.orientation.w = float(q[2]), float(q[3])
 
-        self.get_logger().info(f'Moving to ({x:.3f}, {y:.3f}, {z:.3f})')
-
+        self.get_logger().info(f'Moving tool0 to ({x:.3f}, {y:.3f}, {z:.3f})')
         future = self.pose_client.call_async(request)
-        response = self.wait_for_future(future, timeout=180.0, service_name='/send_pose')
-
+        response = self.wait_for_future(future, float(self.p('pose_timeout')), '/send_pose')
         if response is None or not response.success:
             self.get_logger().error('Pose motion failed.')
             return False
-
-        self.get_logger().info('Pose motion completed.')
         return True
 
-    def set_gripper(self, close):
-        """Control the Kinova Gen3 Lite integrated gripper."""
-        close_val = float(self.get_parameter('gripper_closed_position').value)
-        open_val = float(self.get_parameter('gripper_open_position').value)
-        position = close_val if close else open_val
+    def apply_offsets(self, x, y):
+        """Add the base-frame and tool-frame xy corrections to an estimated screw position."""
+        a = self.last_tool_yaw if self.last_tool_yaw is not None else 0.0
+        tx, ty = float(self.p('tool_offset_x')), float(self.p('tool_offset_y'))
+        # tool x axis = (cos a, sin a); tool y axis = (sin a, -cos a) for a straight-down tool
+        return (x + float(self.p('grasp_offset_x')) + tx * math.cos(a) + ty * math.sin(a),
+                y + float(self.p('grasp_offset_y')) + tx * math.sin(a) - ty * math.cos(a))
 
-        self.get_logger().info(f'{"Closing" if close else "Opening"} gripper.')
+    def move_tcp(self, x, y, tcp_z, q):
+        """Move so the FINGERTIPS are at (x, y, tcp_z). tool0 sits tcp_offset above them."""
+        if tcp_z < float(self.p('min_z')):
+            self.get_logger().error(f'Fingertip z={tcp_z:.3f} below min_z; refusing to move.')
+            return False
+        cx, cy = self.apply_offsets(x, y)
+        return self.move_to_pose(cx, cy, tcp_z + float(self.p('tcp_offset')), q)
 
+    def set_gripper(self, position):
+        self.get_logger().info(f'Gripper -> {position:.2f}')
         if not self.gripper_client.wait_for_server(timeout_sec=10.0):
-            self.get_logger().error('Gen3 Lite gripper action server unavailable.')
+            self.get_logger().error('Gripper action server unavailable.')
             return False
 
         goal = GripperCommand.Goal()
-        goal.command.position = position
-        goal.command.max_effort = 100.0
+        goal.command.position = float(position)
+        goal.command.max_effort = float(self.p('gripper_max_effort'))
 
         goal_handle = self.wait_for_future(
-            self.gripper_client.send_goal_async(goal),
-            timeout=10.0, service_name='Gen3 Lite gripper')
-
+            self.gripper_client.send_goal_async(goal), 10.0, 'gripper goal')
         if goal_handle is None or not goal_handle.accepted:
             self.get_logger().error('Gripper command rejected.')
             return False
-
-        result = self.wait_for_future(
-            goal_handle.get_result_async(),
-            timeout=15.0, service_name='Gen3 Lite gripper movement')
-
+        result = self.wait_for_future(goal_handle.get_result_async(), 15.0, 'gripper movement')
         if result is None:
             self.get_logger().error('Gripper movement timed out.')
             return False
-
-        self.get_logger().info('Gripper movement completed.')
         return True
 
     # =====================================================
     # Grasp geometry
     # =====================================================
-
     def top_down_orientation(self, axis_yaw):
         """
-        Quaternion [x, y, z, w] for a straight-down tool (tool z = -Z_base)
-        whose finger-closing direction is perpendicular to the screw axis.
+        Quaternion [x, y, z, w]: tool z straight down, finger closing direction
+        perpendicular to the screw axis. Of the two equivalent (180 deg apart) solutions,
+        picks the one closest to the previous commanded tool yaw to avoid wrist flips.
         """
-        offset = math.radians(float(self.get_parameter('yaw_offset_deg').value))
-        close_axis = str(self.get_parameter('finger_close_axis').value).lower()
+        offset = math.radians(float(self.p('yaw_offset_deg')))
+        close_axis = str(self.p('finger_close_axis')).lower()
         if close_axis not in ('x', 'y'):
             raise ValueError("finger_close_axis must be 'x' or 'y'")
-
         z_t = np.array([0.0, 0.0, -1.0])
 
         def build(close_yaw):
@@ -378,122 +357,132 @@ class GripperExecutor(Node):
                 y_t = np.cross(z_t, x_t)
             return x_t, y_t
 
-        close_yaw = axis_yaw + math.pi / 2.0 + offset
-        x_t, y_t = build(close_yaw)
+        base = axis_yaw + math.pi / 2.0 + offset
+        cands = [build(base), build(base + math.pi)]
+        tool_yaw = lambda c: math.atan2(c[0][1], c[0][0])
 
-        # The gripper is symmetric: pick the equivalent solution that keeps
-        # the tool x axis pointing away from the robot (less wrist rotation).
-        if x_t[0] < 0.0:
-            x_t, y_t = build(close_yaw + math.pi)
-
-        R = np.column_stack((x_t, y_t, z_t))
-        return self.matrix_to_quat(R)
-
-    # =====================================================
-    # Grasp execution
-    # =====================================================
-
-    def execute_grasp(self, x, y, axis_yaw):
-        """Pre-grasp, vertical descent, close, lift."""
-        pre_dist = float(self.get_parameter('pregrasp_distance').value)
-        lift = float(self.get_parameter('lift_height').value)
-        tcp = float(self.get_parameter('tcp_offset').value)
-        grasp_z = float(self.get_parameter('grasp_z').value)
-        min_z = float(self.get_parameter('min_z').value)
-
-        if pre_dist < 0.0:
-            self.get_logger().error('pregrasp_distance cannot be negative.')
-            return False
-
-        if grasp_z < min_z:
-            self.get_logger().error(
-                f'grasp_z={grasp_z:.3f} is below min_z={min_z:.3f}; aborting.')
-            return False
-
-        q = self.top_down_orientation(axis_yaw)
-
-        # Tool points straight down, so tool0 sits tcp_offset above the fingertips.
-        grasp_tool0 = np.array([x, y, grasp_z + tcp])
-        pregrasp_tool0 = grasp_tool0 + np.array([0.0, 0.0, pre_dist])
-        lifted_tool0 = grasp_tool0 + np.array([0.0, 0.0, lift])
-
-        self.get_logger().info(
-            f'Screw at ({x:.3f}, {y:.3f}), axis {math.degrees(axis_yaw):.1f} deg; '
-            f'tool quat={np.round(q, 3)}')
-        self.get_logger().info(f'Pre-grasp tool0: {np.round(pregrasp_tool0, 3)}')
-        self.get_logger().info(f'Grasp tool0:     {np.round(grasp_tool0, 3)}')
-        self.get_logger().info(f'Lift tool0:      {np.round(lifted_tool0, 3)}')
-
-        def go(p):
-            return self.move_to_pose(p[0], p[1], p[2], q[0], q[1], q[2], q[3])
-
-        # 1. Pre-grasp (above the screw, already aligned).
-        if not go(pregrasp_tool0):
-            return False
-
-        # 2. Straight down.
-        if not go(grasp_tool0):
-            self.get_logger().error('Final approach motion failed.')
-            return False
-
-        # 3. Close.
-        if not self.set_gripper(close=True):
-            return False
-
-        # 4. Lift.
-        if not go(lifted_tool0):
-            self.get_logger().error('Lift motion failed.')
-            return False
-
-        return True
-
-    # =====================================================
-    # Main sequence
-    # =====================================================
-
-    def run(self):
-        if not self.wait_for_services(timeout=30.0):
-            return
-
-        # 1. Open gripper.
-        if not self.set_gripper(close=False):
-            return
-
-        # 2. Estimate the screw pose (arm stays at its observation pose).
-        estimate = self.wait_for_screw_estimate()
-        if estimate is None:
-            self.get_logger().warning('No stable screw estimate. Exiting.')
-            return
-        x, y, axis_yaw = estimate
-
-        # 3. Execute the open-loop grasp.
-        if self.execute_grasp(x, y, axis_yaw):
-            self.get_logger().info('Grasp and lift completed successfully.')
+        if self.last_tool_yaw is None:
+            pick = cands[0] if cands[0][0][0] >= 0.0 else cands[1]   # x axis away from robot
         else:
-            self.get_logger().error('Grasp sequence aborted.')
+            pick = min(cands, key=lambda c: abs(wrap_pi(tool_yaw(c) - self.last_tool_yaw)))
+        self.last_tool_yaw = tool_yaw(pick)
+
+        return self.matrix_to_quat(np.column_stack((pick[0], pick[1], z_t)))
+
+    # =====================================================
+    # Service + sequence
+    # =====================================================
+    def validate_params(self):
+        heights = list(self.p('stage_heights'))
+        if len(heights) == 0:
+            return 'stage_heights is empty'
+        min_z = float(self.p('min_z'))
+        if min(heights) < min_z:
+            return f'a stage height is below min_z={min_z}'
+        if float(self.p('grasp_z')) < min_z:
+            return f"grasp_z={self.p('grasp_z')} is below min_z={min_z}"
+        if not all(a >= b for a, b in zip(heights, heights[1:])):
+            return 'stage_heights must be non-increasing (high -> low)'
+        if float(self.p('lift_height')) < 0.0:
+            return 'lift_height cannot be negative'
+        return None
+
+    def start_grasp_callback(self, request, response):
+        with self.busy_lock:
+            if self.busy:
+                response.accepted, response.message = False, 'Busy: a grasp is already running.'
+                return response
+
+            error = self.validate_params()
+            seed, reason = (None, error) if error else self.lookup_seed(request.screw_id)
+            if seed is None:
+                response.accepted, response.message = False, reason
+                self.get_logger().warning(f'Start rejected: {reason}')
+                return response
+
+            self.busy = True
+
+        Thread(target=self.run_sequence, args=(int(request.screw_id), seed), daemon=True).start()
+        response.accepted = True
+        response.message = (f'Started grasp of screw {request.screw_id} at '
+                            f'({seed[0]:.3f}, {seed[1]:.3f}).')
+        self.get_logger().info(response.message)
+        return response
+
+    def run_sequence(self, screw_id, seed):
+        ok = False
+        try:
+            ok = self.sequence(screw_id, seed)
+        except Exception as exc:
+            self.get_logger().error(f'Unexpected error: {exc}')
+        finally:
+            self.collecting = False
+            self.set_status('done' if ok else 'failed')
+            self.get_logger().info('Grasp sequence ' + ('completed.' if ok else 'ABORTED.'))
+            with self.busy_lock:
+                self.busy = False
+
+    def sequence(self, screw_id, seed):
+        x, y, yaw = seed
+        heights = [float(h) for h in self.p('stage_heights')]
+        grasp_z = float(self.p('grasp_z'))
+        lift_z = grasp_z + float(self.p('lift_height'))
+        self.last_tool_yaw = None
+
+        if not self.wait_for_services():
+            return False
+
+        self.set_status('opening gripper')
+        if not self.set_gripper(float(self.p('gripper_approach_position'))):
+            return False
+
+        # ---- staged approach with re-estimation ----
+        for i, h in enumerate(heights):
+            self.set_status(f'stage {i + 1}/{len(heights)}')
+            self.get_logger().info(f'Stage {i + 1}/{len(heights)} (fingertip z = {h:.3f})')
+
+            if not (i == 0 and bool(self.p('skip_first_stage_move'))):
+                q = self.top_down_orientation(yaw)
+                if not self.move_tcp(x, y, h, q):
+                    return False
+
+            est = self.estimate_screw((x, y))
+            if est is None:
+                return False
+            x, y, yaw = est
+
+        # ---- final alignment, descent, grasp, lift ----
+        q = self.top_down_orientation(yaw)
+
+        self.set_status('aligning')
+        if not self.move_tcp(x, y, heights[-1], q):       # rotate/centre at the last stage height
+            return False
+
+        self.set_status('descending')
+        if not self.move_tcp(x, y, grasp_z, q):           # straight down
+            return False
+
+        self.set_status('closing')
+        if not self.set_gripper(float(self.p('gripper_closed_position'))):
+            return False
+
+        self.set_status('lifting')
+        return self.move_tcp(x, y, lift_z, q)
 
 
 def main(args=None):
     rclpy.init(args=args)
     node = GripperExecutor()
-
-    executor = SingleThreadedExecutor()
+    executor = MultiThreadedExecutor(num_threads=4)
     executor.add_node(node)
-    spin_thread = Thread(target=executor.spin, daemon=True)
-    spin_thread.start()
-
     try:
-        node.run()
+        executor.spin()
     except KeyboardInterrupt:
-        node.get_logger().info('Interrupted by user.')
-    except Exception as exc:
-        node.get_logger().error(f'Unexpected error during grasp execution: {exc}')
-    finally:
-        executor.shutdown()
-        spin_thread.join(timeout=2.0)
-        node.destroy_node()
-        if rclpy.ok():
-            rclpy.shutdown()
+        pass
+    executor.shutdown()
+    node.destroy_node()
+    if rclpy.ok():
+        rclpy.shutdown()
 
 
 if __name__ == '__main__':

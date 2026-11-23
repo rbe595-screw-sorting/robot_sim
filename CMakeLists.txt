@@ -58,11 +58,11 @@ install(
   RENAME detection
 )
 
-install(
-  PROGRAMS nodes/perception/cloud_manager.py
-  DESTINATION lib/${PROJECT_NAME}
-  RENAME cloud_manager
-)
+# install(
+#   PROGRAMS nodes/perception/cloud_manager.py
+#   DESTINATION lib/${PROJECT_NAME}
+#   RENAME cloud_manager
+# )
 
 install(
   PROGRAMS nodes/perception/static_transforms.py
@@ -70,11 +70,11 @@ install(
   RENAME static_transforms
 )
 
-install(
-  PROGRAMS nodes/perception/point_cloud_processing.py
-  DESTINATION lib/${PROJECT_NAME}
-  RENAME point_cloud_processing
-)
+# install(
+#   PROGRAMS nodes/perception/point_cloud_processing.py
+#   DESTINATION lib/${PROJECT_NAME}
+#   RENAME point_cloud_processing
+# )
 
 
 install(

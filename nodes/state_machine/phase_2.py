@@ -35,7 +35,7 @@ gripper_action = "/gen3_lite_2f_gripper_controller/gripper_cmd"
 waypoints = {
     "phase2_home" : (0.3, 0.06, 0.4, 1.0, 0.0, 0.0, 0.0),
     "phase2_floor" : (0.3, 0.06, 0.1142, 1.0, 0.0, 0.0, 0.0),
-    "screwattempt" : (0.19, 0.038, 0.1142, 1.0, 0.0, 0.0, 0.0)
+    "screwattempt" : (0.201, -0.110, 0.1147, 1.0, 0.0, 0.0, 0.0)
     # "bin_location_guess" : (-0.2, -0.3, 0.3, 1.0, 0.0, 0.0, 0.0)
 }
 
@@ -373,7 +373,7 @@ class Phase_2(Node):
         7. Go to step 2 and repeat until bucket is empty
         """
 
-        # #1
+        #1
         # if self.state == "UNLOCALIZED":
         #     self.start_localization(['bin'])
 
@@ -435,9 +435,19 @@ class Phase_2(Node):
 
         #     self.state = "COMPLETE"
 
-        # if not self.move("screwattempt"):
+
+        if not self.gripper(0.65):
+            self.state = "ERROR"
+            return
+        if not self.move("screwattempt"):
+            self.state = "ERROR"
+            return
+        # if not self.move("phase2_floor"):
         #     self.state = "ERROR"
         #     return
+        if not self.gripper(0.75):
+            self.state = "ERROR"
+            return
 
 
 # MAIN
