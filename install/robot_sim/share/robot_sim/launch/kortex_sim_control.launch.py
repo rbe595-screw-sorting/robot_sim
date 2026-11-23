@@ -1,0 +1,1 @@
+/home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/launch/kortex_sim_control.launch.py

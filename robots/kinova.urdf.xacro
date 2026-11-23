@@ -82,6 +82,7 @@
       </plugin>
     </gazebo>
     <gazebo reference="camera_color_frame">
+
       <sensor name="camera_color_frame" type="rgbd_camera">
         <gz_frame_id>color_optical_frame</gz_frame_id>
         <always_on>true</always_on>

@@ -4,6 +4,7 @@
 
     <link name="root">
       <gravity>true</gravity>
+
       <inertial>
         <pose>0.0138049 0 0 0 0 0</pose>
         <mass>0.003</mass>
@@ -52,6 +53,7 @@
           </ode>
         </friction>
       </surface>
+
       </collision>
 
     </link>

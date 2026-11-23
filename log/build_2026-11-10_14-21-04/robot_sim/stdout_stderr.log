@@ -1,0 +1,37 @@
+-- Install configuration: ""
+-- Execute custom install script
+-- Up-to-date symlink: /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/launch/gen3_lite.launch.py
+-- Up-to-date symlink: /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/launch/kortex_sim_control.launch.py
+-- Up-to-date symlink: /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/launch/phase_1.launch.py
+-- Up-to-date symlink: /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/launch/sim.launch.py
+-- Up-to-date symlink: /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/worlds/rbe595_phase1.sdf
+-- Up-to-date symlink: /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/models/rbe595_box/launch/rbe595_box.launch
+-- Up-to-date symlink: /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/models/rbe595_box/meshes/Part_1.stl
+-- Up-to-date symlink: /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/models/rbe595_box/model.config
+-- Up-to-date symlink: /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/models/rbe595_box/model.sdf
+-- Up-to-date symlink: /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/models/rbe595_box/urdf/rbe595_box.urdf
+-- Symlinking: /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/models/rbe595_screw/launch/rbe595_screw.launch
+-- Symlinking: /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/models/rbe595_screw/meshes/Part_1.stl
+-- Symlinking: /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/models/rbe595_screw/model.config
+-- Symlinking: /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/models/rbe595_screw/model.sdf
+-- Symlinking: /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/models/rbe595_screw/urdf/rbe595_screw.urdf
+-- Up-to-date symlink: /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/models/rbe595_table/launch/rbe595_table.launch
+-- Up-to-date symlink: /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/models/rbe595_table/meshes/Part_1.stl
+-- Up-to-date symlink: /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/models/rbe595_table/model.config
+-- Up-to-date symlink: /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/models/rbe595_table/model.sdf
+-- Up-to-date symlink: /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/models/rbe595_table/urdf/rbe595_table.urdf
+-- Up-to-date symlink: /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/ament_index/resource_index/package_run_dependencies/robot_sim
+-- Up-to-date symlink: /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/ament_index/resource_index/parent_prefix_path/robot_sim
+-- Up-to-date symlink: /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/environment/ament_prefix_path.sh
+-- Up-to-date symlink: /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/environment/ament_prefix_path.dsv
+-- Up-to-date symlink: /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/environment/path.sh
+-- Up-to-date symlink: /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/environment/path.dsv
+-- Up-to-date symlink: /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/local_setup.bash
+-- Up-to-date symlink: /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/local_setup.sh
+-- Up-to-date symlink: /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/local_setup.zsh
+-- Up-to-date symlink: /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/local_setup.dsv
+-- Symlinking: /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/package.dsv
+-- Up-to-date symlink: /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/ament_index/resource_index/packages/robot_sim
+-- Up-to-date symlink: /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/cmake/robot_simConfig.cmake
+-- Up-to-date symlink: /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/cmake/robot_simConfig-version.cmake
+-- Up-to-date symlink: /home/lankford/Documents/VisionBasedRoboticManipulation/ScrewSorting/robot_sim/install/robot_sim/share/robot_sim/package.xml
