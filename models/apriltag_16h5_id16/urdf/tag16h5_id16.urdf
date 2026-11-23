@@ -1,33 +1,41 @@
 <?xml version="1.0"?>
 <robot name="apriltag_16h5_id16">
 
-  <link name="tag_link">
+    <link name="root">
 
-    <inertial>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <mass value="0.01"/>
-      <inertia
-        ixx="8.3417e-6"
-        ixy="0"
-        ixz="0"
-        iyy="8.3417e-6"
-        iyz="0"
-        izz="1.6667e-5"/>
-    </inertial>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.01"/>
+            <inertia
+                ixx="0.00001"
+                ixy="0"
+                ixz="0"
+                iyy="0.00001"
+                iyz="0"
+                izz="0.00001"/>
+        </inertial>
 
-    <visual>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <mesh filename="../meshes/tag16h5_id16.dae"/>
-      </geometry>
-    </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.10 0.10 0.001"/>
+            </geometry>
+        </collision>
 
-    <collision>
-      <origin xyz="0 0 -0.0005" rpy="0 0 0"/>
-      <geometry>
-        <box size="0.1 0.1 0.001"/>
-      </geometry>
-    </collision>
+        <visual>
+            <origin xyz="0 0 0.0006" rpy="0 0 0"/>
+            <geometry>
+                <mesh
+                    filename="package://robot_sim/models/apriltag_16h5_id16/meshes/tag16h5_id16.dae"
+                    scale="0.10 0.10 1"/>
+            </geometry>
+        </visual>
 
-  </link>
+    </link>
+
+    <gazebo reference="root">
+        <mu1>1.0</mu1>
+        <mu2>1.0</mu2>
+    </gazebo>
+
 </robot>

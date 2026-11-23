@@ -67,13 +67,13 @@ waypoints = {
     "home": (0.4, 0.0, 0.3, 1.0, 0.0, 0.0, 0.0),
 
     #scooper located at 0.3 0.5 0 1.57 0 -1.57
-    #bucket located at 0.1 -0.1 0 1.57 0 1.57
-    #bucket at located at: 0.1 -0.1 0 0 0 0
+    #bucket located at 0.2 -0.3 0 1.57 0 1.57
+    #bucket at located at 0.05 -0.2 0 0 0 0
     #screw sorting located at -0.3, 0, 1.57, 0, 1.57
 
     "scooper_approach": (0.2, 0.0, 0.3, 1.0, 0.0, 0.0, 0.0), 
     
-    "bucket_approach" : (0.1, -0.1, 0.5, 1.0, 0, 0, 0),
+    "bucket_approach" : (0.05, -0.2, 0.3, 1.0, 0, 0, 0),
 
     "sorting_screw" : (0.3, -0.4, 0.5,  0.7071, 0.7071, 0.0, 0.0),
 
@@ -127,7 +127,9 @@ class Phase_1(Node):
         self.apriltag_detector = AprilTagDetector()
         self.apriltags_detected = []
         self.apriltag_centroid = None
+        self.bucket_tag_centroid = None
 
+        self.apriltag_scanning = True
         self.scooper_identified = False
         self.bucket_identified = False
 
@@ -164,19 +166,28 @@ class Phase_1(Node):
         """Convert the ROS image to an OpenCV image (BGR NumPy array)."""      
         self.wrist_image = self.bridge.imgmsg_to_cv2(msg, desired_encoding='bgr8')
         self.wrist_image_header = msg.header
-        # cv2.imwrite("/tmp/apriltag_test.png", self.wrist_image)
+        cv2.imwrite("/tmp/live_bucket.png", self.wrist_image)
         self.apriltags_detected, output = self.apriltag_detector.detect(self.wrist_image)
+        detected_ids = [tag["id"] for tag in self.apriltags_detected]
+        # self.get_logger().info(f"Detected IDs: {detected_ids}")
 
         for tag in self.apriltags_detected: 
-            if not self.scooper_identified: 
-                self.get_logger().info(f"detected tag: {tag}")
+            tag_id = tag["id"]
+            centroid = tag["centroid"]
 
-            if tag["id"] == self.scooper_tag_id:
-                self.apriltag_centroid = tag["centroid"]
-                if not self.scooper_identified: 
-                    # self.get_logger().info(f"detected center: {self.apriltag_centroid}")
+            if tag_id == self.scooper_tag_id:
+                self.apriltag_centroid = centroid   
+
+                if not self.scooper_identified:
+                    self.get_logger().info(f"scooper AT detected at {centroid}!")
                     self.scooper_identified = True
-                break
+
+            if tag_id == self.bucket_tag_id:
+                self.bucket_tag_centroid = centroid
+
+            if not self.bucket_identified:
+                self.get_logger().info(f"bucket AT detected at {centroid}!")
+                self.bucket_identified = True
             
             # self.get_logger().info(f"scooper AT detected at {self.apriltag_centroid}")
 
@@ -367,51 +378,6 @@ class Phase_1(Node):
         self.get_logger().info(f"reached waypoint: {waypoint}!")
         return True
 
-        # joint_positions = self.ik(waypoint)
-
-        # #no movement
-        # if joint_positions is None:
-        #     return False
-
-        # #timeout 
-        # if not self.arm_client.wait_for_server(timeout_sec=5.0):
-        #     self.get_logger().error("arm trajectory is unavailable :(")
-        #     return False
-
-        # #setting point as a goal:
-        # goal = FollowJointTrajectory.Goal()
-        # goal.trajectory.joint_names = joints
-
-
-        # point = JointTrajectoryPoint()
-        # point.positions = joint_positions
-        # point.time_from_start.sec = 4
-
-        # goal.trajectory.points.append(point)
-
-        # future = self.arm_client.send_goal_async(goal)
-        # rclpy.spin_until_future_complete(self, future)
-
-        # goal_handle = future.result()
-
-
-        # #failed to use ik to go to new position
-        # if goal_handle is None or not goal_handle.accepted:
-        #     self.get_logger().error("failed to make it to the arm goal")
-        #     return False
-
-        # result_future = goal_handle.get_result_async()
-        # rclpy.spin_until_future_complete(self, result_future)
-        # result = result_future.result()
-
-        # if result is None or result.result.error_code != 0:
-        #     self.get_logger().error("Failed to complete arm movement.")
-        #     return False
-
-        # #if successful: 
-        # self.get_logger().info(f"reached {waypoint} !")
-        # return True
-
     #taken from previous lab
     def gripper(self, position):
         if not self.gripper_client.wait_for_server(timeout_sec=5.0):
@@ -513,7 +479,6 @@ class Phase_1(Node):
 
 
         return pose_x, pose_y, z, qx, qy, qz, qw
-
     
     def grasp_scooper(self, location):
         #take teh curr location & add an offset to grab the scooper! 
@@ -539,6 +504,60 @@ class Phase_1(Node):
 
         return x, y, grasping_z, qx, qy, qz, qw
 
+    def enter_bucket(self, location):
+        #take teh curr location & add an offset to get into the bucket! 
+        x, y, z, qx, qy, qz, qw = location
+
+        yaw = 1.57
+        
+        # translation_x = 0.15 * np.cos(yaw)
+        # translation_y = 0.2 * np.sin(yaw)
+
+        # temp:
+        translation_x = (0.1 * np.cos(yaw)) + (0.1 * np.sin(yaw))
+        translation_y = - (0.1 * np.sin(yaw)) + (0.1 * np.cos(yaw))
+        # rotation_x = 
+
+        entering_x = x + translation_x 
+        entering_y = y + translation_y 
+
+        # rotation_x = qx - rotation_x
+
+        return entering_x, entering_y, z, qx, qy, qz, qw
+
+    def scoop(self, location):
+
+        #current location: 
+        entering_x, entering_y, entering_z, qx, qy, qz, qw = location
+
+        #move downwards into the bucket: 
+        drop_location = 0.15
+
+        scoop_z = entering_z + drop_location
+
+        entering_pose = entering_x, entering_y, scoop_z, qx, qy, qz, qw
+
+        self.arm_mover.move_to(entering_pose, motion = "cartesian", cartesian_fallback=False)
+
+        #move translationally through the bucket: 
+        x_translational = 0.15
+
+        scoop_x = entering_x + x_translational
+
+        scoop_pose = scoop_x, entering_y, scoop_z, qx, qy, qz, qw
+
+        self.arm_mover.move_to(scoop_pose, motion = "cartesian", cartesian_fallback=False)
+
+        #move up 
+        move_up_pose = scoop_x, entering_y, entering_z, qx, qy, qz, qw
+
+        self.arm_mover.move_to(move_up_pose, motion = "cartesian", cartesian_fallback=False)
+        
+        #go to sorting location
+
+
+
+        # return , grasping_y, z, qx, qy, qz, qw
 
     #modelled off old hw5? 
     def control_loop(self):
@@ -546,20 +565,22 @@ class Phase_1(Node):
         #start position 
         self.gripper(0.0)
 
-        if not self.arm_mover.move_to(waypoints["home"]):
-            self.get_logger().error(f"could not home")
-            return
+        self.apriltag_scanning = True
+
+        # if not self.arm_mover.move_to(waypoints["home"]):
+        #     self.get_logger().error(f"could not home")
+        #     return
 
         self.get_logger().info("phase 1 homing complete!")
 
         # #go to estimate location of the scooper: 
         scooper_approach = waypoints["scooper_approach"]
 
-        if not self.arm_mover.move_to(scooper_approach, motion="rrtconnect"):
-            self.get_logger().error(f"could not naviate to scooper approach")
-            return
+        # if not self.arm_mover.move_to(scooper_approach, motion="rrtconnect"):
+        #     self.get_logger().error(f"could not naviate to scooper approach")
+        #     return
 
-        self.get_logger().info(f"made it to scooper, centering on AT!")
+        self.get_logger().info(f"made it to scooper")
 
         #5 s to find the AT
         timeout = time.time() + 5.0
@@ -571,22 +592,22 @@ class Phase_1(Node):
             
             time.sleep(0.1)
 
-        if self.apriltag_centroid is None: 
-            self.get_logger().warning("apriltag not detected here!")
-        #   #write something to do here if april tag not detected? 
-            #maybe do a little jiggle around like in hw 7 
-            return
+        # if self.apriltag_centroid is None: 
+        #     self.get_logger().warning("apriltag not detected here!")
+        #     #write something to do here if april tag not detected? 
+        #     #maybe do a little jiggle around like in hw 7 
+        #     return
 
         #CENTER 
         #convert april tag centroid to robot pose:
-        scooper_center_pose = self.convert_to_pose(self.apriltag_centroid, scooper_approach)
+        # scooper_center_pose = self.convert_to_pose(self.apriltag_centroid, scooper_approach)
         # self.get_logger().info(f"Scooper approach pose: {scooper_approach}")
 
-        if scooper_center_pose is None: 
-            self.get_logger().error(f"could not calculate scooper center pose")
-            return
+        # if scooper_center_pose is None: 
+        #     self.get_logger().error(f"could not calculate scooper center pose")
+        #     return
 
-        self.get_logger().info(f"Scooper center pose: {scooper_center_pose}")
+        # self.get_logger().info(f"Scooper center pose: {scooper_center_pose}")
 
         #move to centroid along x,y, keep z up to center along the scooper
         # if not self.arm_mover.move_to(scooper_center_pose, motion = "cartesian", cartesian_fallback=False):
@@ -598,37 +619,37 @@ class Phase_1(Node):
 
         #GRASP
         #scooper grasp pose: 
-        scooper_grasp_pose = self.grasp_scooper(scooper_center_pose)
+        # scooper_grasp_pose = self.grasp_scooper(scooper_center_pose)
         self.get_logger().info(f"Scooper grasp pose!")
 
-        if scooper_grasp_pose is None: 
-            self.get_logger().error(f"could not calculate scooper grasp pose")
-            return
+        # if scooper_grasp_pose is None: 
+        #     self.get_logger().error(f"could not calculate scooper grasp pose")
+        #     return
 
-        self.get_logger().info(f"Scooper grasp pose: {scooper_grasp_pose}")
+        # self.get_logger().info(f"Scooper grasp pose: {scooper_grasp_pose}")
 
         #move to centroid along x,y, keep z up to hover over the handle
-        if not self.arm_mover.move_to(scooper_grasp_pose, motion = "cartesian", cartesian_fallback=False):
-            self.get_logger().info(f"could not make it to scoop grasp location :/ ")
-            return 
+        # if not self.arm_mover.move_to(scooper_grasp_pose, motion = "cartesian", cartesian_fallback=False):
+        #     self.get_logger().info(f"could not make it to scoop grasp location :/ ")
+        #     return 
 
         self.get_logger().info(f"made it to scooper grasp pose!")
 
 
         #HOLD
         #scooper hold pose: 
-        scooper_hold_pose = self.hold_scooper(scooper_grasp_pose)
+        # scooper_hold_pose = self.hold_scooper(scooper_grasp_pose)
 
-        if scooper_hold_pose is None: 
-            self.get_logger().error(f"could not calculate scooper hold pose")
-            return
+        # if scooper_hold_pose is None: 
+        #     self.get_logger().error(f"could not calculate scooper hold pose")
+        #     return
 
-        self.get_logger().info(f"Scooper hold pose: {scooper_hold_pose}")
+        # self.get_logger().info(f"Scooper hold pose: {scooper_hold_pose}")
 
         #move to centroid along z  to grasp the handle
-        if not self.arm_mover.move_to(scooper_hold_pose, motion = "cartesian", cartesian_fallback=False):
-            self.get_logger().info(f"could not make it to scoop hold location :/ ")
-            return 
+        # if not self.arm_mover.move_to(scooper_hold_pose, motion = "cartesian", cartesian_fallback=False):
+        #     self.get_logger().info(f"could not make it to scoop hold location :/ ")
+        #     return 
 
         self.get_logger().info(f"made it to scoop hold pose!")
 
@@ -637,18 +658,66 @@ class Phase_1(Node):
         # self.gripper(1.0)
 
         #move back up 
-        if not self.arm_mover.move_to(scooper_grasp_pose, motion = "cartesian", cartesian_fallback=False):
-            self.get_logger().info(f"could not make it to scoop grasp location :/ ")
-            return 
+        # if not self.arm_mover.move_to(scooper_grasp_pose, motion = "cartesian", cartesian_fallback=False):
+        #     self.get_logger().info(f"could not make it to scoop grasp location :/ ")
+        #     return 
 
         self.get_logger().info(f"made it back to scoop hold pose!")
 
         #move to above the bucket
-        # if not self.arm_mover.move_to(waypoints["bucket_approach"]):
-        #     self.get_logger().error(f"could not make it to bucket approach")
-        #     return
+        if not self.arm_mover.move_to(waypoints["bucket_approach"]):
+            self.get_logger().error(f"could not make it to bucket approach")
+            return
         
-        # self.get_logger().info(f"made it to scoop grasp location")
+        self.get_logger().info(f"made it to bucket approach location")
+
+        #detecting tag: 
+        while time.time() < timeout: 
+            if self.apriltag_centroid is not None: 
+                break
+            
+            time.sleep(0.1)
+
+        if self.bucket_tag_centroid is None: 
+            self.get_logger().warning("apriltag not detected here!")
+        #   #write something to do here if april tag not detected? 
+            #maybe do a little jiggle around like in hw 7 
+            return
+
+        self.get_logger().info(f"found the bucket at {self.bucket_tag_centroid}!")
+
+        bucket_approach = waypoints["bucket_approach"]
+
+        #CENTER 
+        #convert april tag centroid to robot pose:
+        bucket_center_pose = self.convert_to_pose(self.bucket_tag_centroid, bucket_approach)
+        self.get_logger().info(f"bucket approach pose: {bucket_center_pose}")
+
+        if bucket_center_pose is None: 
+            self.get_logger().error(f"could not calculate bucket center pose")
+            return
+
+        # self.get_logger().info(f"Scooper center pose: {bucket_center_pose}")
+
+        bucket_center_pose = self.enter_bucket(bucket_center_pose)
+
+        #move along x,y, keep z up to center along the scooper
+        if not self.arm_mover.move_to(bucket_center_pose, motion = "cartesian", cartesian_fallback=False):
+            self.get_logger().info(f"could not make it to bucket enter location :/ ")
+            return 
+
+        self.get_logger().info(f"made it to bucket center pose!")
+
+        #call function to scoop the bucket: 
+
+        if not self.scoop(bucket_center_pose):
+            self.get_logger().info(f"not able to scoop!!")
+            return
+
+        self.get_logger().info(f"scooped the bucket!!")
+
+
+
 
 
 
