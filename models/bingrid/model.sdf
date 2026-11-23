@@ -1,0 +1,59 @@
+<sdf version="1.11">
+  <model name="bingrid">
+    <static>true</static>
+
+    <link name="root">
+
+      <!-- Original visual mesh -->
+      <visual name="root_visual">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://bingrid/meshes/Part_1.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.990196228 1 1 1</diffuse>
+          <ambient>0.990196228 1 1 1</ambient>
+        </material>
+      </visual>
+
+      <!-- Collision mesh -->
+      <collision name="root_collision">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://bingrid/meshes/Part_1.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+
+      <!-- AprilTag mounted to the body -->
+      <visual name="texture_test">
+        <pose>0.165 0.005 0.209 1.5708 0 0</pose>
+
+        <geometry>
+          <box>
+            <size>0.063 0.063 0.001</size>
+          </box>
+        </geometry>
+
+        <material>
+          <ambient>1 1 1 1</ambient>
+          <diffuse>1 1 1 1</diffuse>
+          <pbr>
+            <metal>
+              <albedo_map>model://bingrid/materials/textures/largetag.png</albedo_map>
+              <metalness>0</metalness>
+              <roughness>1</roughness>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+
+    </link>
+  </model>
+</sdf>
+    
