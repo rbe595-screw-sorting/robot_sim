@@ -3,6 +3,8 @@
   <model name="rbe595_screw">
 
     <link name="root">
+      <gravity>true</gravity>
+
       <inertial>
         <pose>0.0138049 0 0 0 0 0</pose>
         <mass>0.003</mass>
@@ -43,6 +45,15 @@
             <uri>model://rbe595_screw/meshes/Part_1.stl</uri>
           </mesh>
         </geometry>
+        <surface>
+        <friction>
+          <ode>
+            <mu>0.8</mu>
+            <mu2>0.8</mu2>
+          </ode>
+        </friction>
+      </surface>
+
       </collision>
 
     </link>

@@ -1,8 +1,10 @@
 # #files for kinova arm
-# build/
-# install/
-# log/
-# models/GazeboWorld1/src/
+build/
+install/
+log/
+models/GazeboWorld1/src/
+terminalCommands.txt
+captures/
 
 #cache?
 __pycache__/

@@ -1,0 +1,13 @@
+/**:
+  ros__parameters:
+    camera_topic: "/camera/camera/color/image_raw"
+    camera_intrinsics_topic: "/camera/camera/color/camera_info"
+
+    screw_location_topic: "/perception/screw_location"
+
+    bucket_location_topic: "perception/bucket_location"
+    scoop_location_topic: "perception/scoop_location"
+    bin_location_topic: "perception/bin_location"
+    
+    debug: True
+    debug_screw_box_topic: '/debug/annotated_screw_image'

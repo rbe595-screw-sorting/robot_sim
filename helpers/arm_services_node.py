@@ -12,7 +12,7 @@ from rclpy.executors import MultiThreadedExecutor
 from rclpy.node import Node
 from trajectory_msgs.msg import JointTrajectoryPoint
 
-from .robot_motion import ArmMover, wait_for
+from helpers.robot_motion import ArmMover, wait_for
 from common_interfaces_merlab.srv import SendJointTrajectory, SendJointTrajectoryPoint, SendPose, SendTwist
 
 JOINT_NAMES = [f'joint_{i}' for i in range(1, 7)]

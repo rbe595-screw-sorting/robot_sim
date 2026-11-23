@@ -31,7 +31,8 @@
                     <param name="trigger_joint_command_threshold">0.02</param>
                 </xacro:if>
                 <xacro:if value="${sim_gazebo}">
-                    <plugin>gz_ros2_control/GzSimSystem</plugin>
+                    <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+
                 </xacro:if>
                 <xacro:if value="${use_fake_hardware}">
                     <plugin>mock_components/GenericSystem</plugin>
@@ -55,8 +56,7 @@
                 </xacro:unless>
             </hardware>
 
-            <!-- Joint interfaces -->
-            <!-- With Gazebo or Hardware, they handle mimic joints, so we only need this command interface activated -->
+            <!-- Leader joint -->
             <joint name="${prefix}right_finger_bottom_joint">
                 <command_interface name="position" />
                 <state_interface name="position">
@@ -66,31 +66,36 @@
                     <param name="initial_value">0.0</param>
                 </state_interface>
             </joint>
-            <!-- When simulating we need to include the rest of the gripper joints -->
-            <xacro:if value="${use_fake_hardware or sim_isaac or sim_gazebo}">
-                <joint name="${prefix}right_finger_tip_joint">
-                    <param name="mimic">${prefix}right_finger_bottom_joint</param>
-                    <param name="multiplier">-1</param>
-                    <xacro:unless value="${sim_gazebo}">
-                        <state_interface name="position"/>
-                        <state_interface name="velocity"/>
-                    </xacro:unless>
-                </joint>
+
+            <!-- Gazebo only: gz-physics DART has no mimic support, so the followers
+                 are driven by finger_followers_controller instead. -->
+            <xacro:if value="${sim_gazebo}">
                 <joint name="${prefix}left_finger_bottom_joint">
-                    <param name="mimic">${prefix}right_finger_bottom_joint</param>
-                    <param name="multiplier">-1</param>
-                    <xacro:unless value="${sim_gazebo}">
-                        <state_interface name="position"/>
-                        <state_interface name="velocity"/>
-                    </xacro:unless>
+                    <command_interface name="position" />
+                    <state_interface name="position">
+                        <param name="initial_value">0.0</param>
+                    </state_interface>
+                    <state_interface name="velocity">
+                        <param name="initial_value">0.0</param>
+                    </state_interface>
+                </joint>
+                <joint name="${prefix}right_finger_tip_joint">
+                    <command_interface name="position" />
+                    <state_interface name="position">
+                        <param name="initial_value">-0.1</param>
+                    </state_interface>
+                    <state_interface name="velocity">
+                        <param name="initial_value">0.0</param>
+                    </state_interface>
                 </joint>
                 <joint name="${prefix}left_finger_tip_joint">
-                    <param name="mimic">${prefix}right_finger_bottom_joint</param>
-                    <param name="multiplier">-1</param>
-                    <xacro:unless value="${sim_gazebo}">
-                        <state_interface name="position"/>
-                        <state_interface name="velocity"/>
-                    </xacro:unless>
+                    <command_interface name="position" />
+                    <state_interface name="position">
+                        <param name="initial_value">-0.1</param>
+                    </state_interface>
+                    <state_interface name="velocity">
+                        <param name="initial_value">0.0</param>
+                    </state_interface>
                 </joint>
             </xacro:if>
         </ros2_control>

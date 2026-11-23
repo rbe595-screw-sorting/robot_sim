@@ -13,31 +13,27 @@ from helpers.robot_motion import ArmMover, wait_for
 import time
 
 
-# ============================================================
 # ROBOT CONFIGURATION
-# ============================================================
 
 arm_group = "arm"
 base_frame = "base_link"
 ee_link = "end_effector_link"
 
 gripper_action = "/gen3_lite_2f_gripper_controller/gripper_cmd"
+camera_topic = "/camera/camera/color/image_raw"
+# /wrist_mounted_camera/image
 
 
-# ============================================================
 # WAYPOINTS
 # Format: x, y, z, qx, qy, qz, qw
 # Position in meters, orientation in quaternion.
-# ============================================================
 
 waypoints = {
-    "workspace_home" : (0.0, 0.4, 0.3, 1.0, 0.0, 0.0, 0.0)
+    "workspace_home" : (-0.4, 0.0, 0.3, 1.0, 0.0, 0.0, 0.0)
 }
 
 
-# ============================================================
 # MOTION PLANNING CONFIGURATION
-# ============================================================
 
 # Each waypoint can use either:
 #   "cartesian"  - Straight-line end-effector movement
@@ -50,9 +46,7 @@ waypoint_motion = {
 }
 
 
-# ============================================================
-# PHASE 1 NODE
-# ============================================================
+# PHASE 2 NODE
 
 class Phase_2(Node):
 
@@ -90,7 +84,7 @@ class Phase_2(Node):
         self.wrist_image = None  # Latest OpenCV image; None until one arrives.
         self.wrist_image_subscriber = self.create_subscription(
             Image,
-            '/wrist_mounted_camera/image',
+            camera_topic,
             self.wrist_image_callback,
             qos_profile_sensor_data,
         )
