@@ -17,7 +17,7 @@ from rclpy.callback_groups import ReentrantCallbackGroup
 from rclpy.action import ActionClient
 
 from screw_sorting_interfaces.action import Relocalize
-from screw_sorting_interfaces.srv import GetLocations
+from screw_sorting_interfaces.srv import GetLocations, StartGrasp
 
 # ROBOT CONFIGURATION
 
@@ -105,6 +105,11 @@ class Phase_2(Node):
         self.get_locations_client = self.create_client(
             GetLocations,
             '/localization/get_locations'
+        )
+
+        self.start_grasp_client = self.create_client(
+            StartGrasp,
+            '/start_grasp'
         )
 
         self.state = "UNLOCALIZED"
@@ -257,6 +262,39 @@ class Phase_2(Node):
         self.state = "PHASE1"
         self.localization_in_progress = False
     # Movement
+    def grasp(self, screw_id):
+
+        if not self.start_grasp_client.wait_for_service(timeout_sec=5.0):
+            self.get_logger().error("StartGrasp service unavailable.")
+            return False
+
+        request = StartGrasp.Request()
+        request.screw_id = screw_id
+
+        self.get_logger().info(f"Requesting grasp of screw {screw_id}")
+
+        future = self.start_grasp_client.call_async(request)
+
+        response = wait_for(
+            future,
+            timeout=60.0
+        )
+
+        if response is None:
+            self.get_logger().error("Grasp service timed out.")
+            return False
+
+        if not response.success:
+            self.get_logger().error(
+                f"Grasp failed for screw {screw_id}: {response.message}"
+            )
+            return False
+
+        self.get_logger().info(
+            f"Successfully grasped screw {screw_id}"
+        )
+
+        return True
     def move(self, target):
 
         # Case 1: Named waypoint from dictionary
@@ -374,80 +412,85 @@ class Phase_2(Node):
         """
 
         #1
-        # if self.state == "UNLOCALIZED":
-        #     self.start_localization(['bin'])
+        if self.state == "UNLOCALIZED":
+            self.start_localization(['bin'])
 
-        # elif self.state == "PHASE1":
-        #     #TODO implement phase 1
-        #     if not self.move("phase2_home"):
-        #         self.state = "ERROR"
-        #         return
-        #     self.state = "PHASE2"
+        elif self.state == "PHASE1":
+            #TODO implement phase 1
+            if not self.move("phase2_home"):
+                self.state = "ERROR"
+                return
+            self.state = "PHASE2"
 
-        # elif self.state == "PHASE2":
-        #     #TODO grab workspace scan, classify and segment
-        #     scan = [0, 0, 0]
-        #     if len(scan) == 0:
-        #         self.state = "PHASE1"
+        elif self.state == "PHASE2":
+            #TODO grab workspace scan, classify and segment
+            scan = [0, 0, 0]
+            if len(scan) == 0:
+                self.state = "PHASE1"
 
-        #     #TODO plan grasp then execute it
+            #TODO plan grasp then execute it
 
-        #     #placeholder grasp motion
-        #     if not self.gripper(0.65):
-        #         self.state = "ERROR"
-        #         return
-        #     if not self.move("phase2_floor"):
-        #         self.state = "ERROR"
-        #         return
-        #     if not self.gripper(0.75):
-        #         self.state = "ERROR"
-        #         return
-        #     if not self.move("phase2_home"):
-        #         self.state = "ERROR"
-        #         return
+            #placeholder grasp motion
+            # if not self.gripper(0.65):
+            #     self.state = "ERROR"
+            #     return
+            # if not self.move("phase2_floor"):
+            #     self.state = "ERROR"
+            #     return
+            # if not self.gripper(0.75):
+            #     self.state = "ERROR"
+            #     return
+            # if not self.move("phase2_home"):
+            #     self.state = "ERROR"
+            #     return
             
-        #     #Bin Deposit
-        #     # tf = self.object_transforms['bin'].transform
-        #     tf = self.feature_transforms['container_0_4'].transform
+            if not self.grasp(0):
+                self.state = "ERROR"
+                return
 
-        #     p = tf.translation
-        #     # q = tf.rotation
-        #     waypoint = (
-        #         p.x,
-        #         p.y,
-        #         p.z + 0.1675,
-        #         1.0,
-        #         0.0,
-        #         0.0,
-        #         0.0
-        #     )
-        #     if not self.move(waypoint):
-        #         self.state = "ERROR"
-        #         return
-        #     if not self.gripper(0.55):
-        #         return
-        #     if not self.move("phase2_home"):
-        #         self.state = "ERROR"
-        #         return
-        #     if not self.gripper(0.0):
-        #         return
+            
+            #Bin Deposit
+            # tf = self.object_transforms['bin'].transform
+            tf = self.feature_transforms['container_0_4'].transform
+
+            p = tf.translation
+            # q = tf.rotation
+            waypoint = (
+                p.x,
+                p.y,
+                p.z + 0.1675,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+            )
+            if not self.move(waypoint):
+                self.state = "ERROR"
+                return
+            if not self.gripper(0.55):
+                return
+            if not self.move("phase2_home"):
+                self.state = "ERROR"
+                return
+            if not self.gripper(0.0):
+                return
 
 
-        #     self.state = "COMPLETE"
+            self.state = "COMPLETE"
 
 
-        if not self.gripper(0.65):
-            self.state = "ERROR"
-            return
-        if not self.move("screwattempt"):
-            self.state = "ERROR"
-            return
-        # if not self.move("phase2_floor"):
+        # if not self.gripper(0.65):
         #     self.state = "ERROR"
         #     return
-        if not self.gripper(0.75):
-            self.state = "ERROR"
-            return
+        # if not self.move("screwattempt"):
+        #     self.state = "ERROR"
+        #     return
+        # # if not self.move("phase2_floor"):
+        # #     self.state = "ERROR"
+        # #     return
+        # if not self.gripper(0.75):
+        #     self.state = "ERROR"
+        #     return
 
 
 # MAIN
