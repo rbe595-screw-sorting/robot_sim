@@ -12,11 +12,6 @@ find_package(ament_cmake_python REQUIRED)
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 ament_python_install_package(helpers)
-install(
-  FILES
-    ${CMAKE_CURRENT_SOURCE_DIR}/pcl_python_merlab.cpython-312-x86_64-linux-gnu.so
-  DESTINATION lib/${PROJECT_NAME}
-)
 
 install(
   DIRECTORY     
@@ -96,12 +91,6 @@ install(
   RENAME phase_2
 )
 
-# Utilities
-install(
-  PROGRAMS nodes/utilities/visualization.py
-  DESTINATION lib/${PROJECT_NAME}
-  RENAME visualization
-)
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   # the following line skips the linter which checks for copyrights
