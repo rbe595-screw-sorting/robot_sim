@@ -436,8 +436,6 @@ class LocalizationNode(Node):
     def generate_scan_poses(self, targets, mode):
 
         """
-        TODO: Implement observation pose generation.
-
         GLOBAL:
             Generate poses covering the entire workspace.
 
@@ -449,8 +447,8 @@ class LocalizationNode(Node):
             List[PoseStamped]
         """
 
-        observation_poses = [(0.29, 0.15, 0.4, 1.0, 0.0, 0.0, 0.0),
-                             (0.29, -0.15, 0.4, 1.0, 0.0, 0.0, 0.0)]
+        observation_poses = [(0.35, 0.2, 0.4, 1.0, 0.0, 0.0, 0.0),
+                             (0.35, -0.2, 0.4, 1.0, 0.0, 0.0, 0.0)]
         poses = []
 
         for x, y, z, qx, qy, qz, qw in observation_poses:

@@ -11,6 +11,7 @@ def generate_launch_description():
         'config',
         'phase_2.yaml'
     )
+    
     return LaunchDescription([
 
         # State machine

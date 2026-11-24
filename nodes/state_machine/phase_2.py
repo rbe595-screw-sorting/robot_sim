@@ -62,14 +62,7 @@ class Phase_2(Node):
 
     def __init__(self):
 
-        super().__init__("phase_2", 
-            parameter_overrides=[
-            rclpy.parameter.Parameter(
-                'use_sim_time',
-                rclpy.Parameter.Type.BOOL,
-                False
-            )
-        ])
+        super().__init__("phase_2")
 
         self.motion_client_group = ReentrantCallbackGroup()
 

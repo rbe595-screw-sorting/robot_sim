@@ -1,4 +1,0 @@
-int32 screw_id
----
-bool accepted
-string message

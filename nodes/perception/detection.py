@@ -374,9 +374,9 @@ class Detection(Node):
                     cands.append(cand)
  
         self.debug_mask.publish(self.br.cv2_to_imgmsg(combined, encoding='mono8'))
-        if self.reject_counts:
-            self.get_logger().info(f"rejected blobs by filter: {self.reject_counts}",
-                                   throttle_duration_sec=2.0)
+        # if self.reject_counts:
+        #     self.get_logger().info(f"rejected blobs by filter: {self.reject_counts}",
+        #                            throttle_duration_sec=2.0)
         return self.remove_duplicates(cands)
  
     def detect_yolo(self, bgr):
@@ -506,17 +506,17 @@ class Detection(Node):
                 best['misses'] = 0
                 best['matched'] = True
                 ids.append(best['id'])
-                if best['hits'] == self.min_hits:
-                    self.get_logger().info(
-                        f"screw #{best['id']} confirmed at "
-                        f"({best['pos'][0]:.3f}, {best['pos'][1]:.3f}) -> TF '{self.frame_prefix}_{best['id']}'")
+                # if best['hits'] == self.min_hits:
+                #     self.get_logger().info(
+                #         f"screw #{best['id']} confirmed at "
+                #         f"({best['pos'][0]:.3f}, {best['pos'][1]:.3f}) -> TF '{self.frame_prefix}_{best['id']}'")
  
         for tr in self.tracks:
             if not tr['matched']:
                 tr['misses'] += 1
-        for t in self.tracks:
-            if t['misses'] > self.max_misses and t['hits'] >= self.min_hits:
-                self.get_logger().info(f"screw #{t['id']} lost (not seen for {t['misses']} frames)")
+        # for t in self.tracks:
+            # if t['misses'] > self.max_misses and t['hits'] >= self.min_hits:
+            #     self.get_logger().info(f"screw #{t['id']} lost (not seen for {t['misses']} frames)")
         self.tracks = [t for t in self.tracks if t['misses'] <= self.max_misses]
         return ids
  
