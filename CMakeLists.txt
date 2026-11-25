@@ -41,9 +41,9 @@ install(
 )
 
 install(
-  PROGRAMS nodes/manipulation/gripper_executor.py
+  PROGRAMS nodes/manipulation/grasp_executor.py
   DESTINATION lib/${PROJECT_NAME}
-  RENAME gripper_executor
+  RENAME grasp_executor
 )
 
 # Perception

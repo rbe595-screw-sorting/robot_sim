@@ -10,4 +10,4 @@
     bin_location_topic: "perception/bin_location"
     
     debug: True
-    use_sim_time: True
+    use_sim_time: False

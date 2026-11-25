@@ -3,7 +3,6 @@ import threading
 import cv2
 import rclpy
 from rclpy.node import Node
-from rclpy.action import ActionClient
 from rclpy.executors import MultiThreadedExecutor
 from cv_bridge import CvBridge
 from sensor_msgs.msg import Image
@@ -16,8 +15,8 @@ from rclpy.callback_groups import ReentrantCallbackGroup
 
 from rclpy.action import ActionClient
 
-from screw_sorting_interfaces.action import Relocalize
-from screw_sorting_interfaces.srv import GetLocations, StartGrasp
+from screw_sorting_interfaces.action import Relocalize, GraspScrew
+from screw_sorting_interfaces.srv import GetLocations
 
 # ROBOT CONFIGURATION
 
@@ -35,7 +34,7 @@ gripper_action = "/gen3_lite_2f_gripper_controller/gripper_cmd"
 waypoints = {
     "phase2_home" : (0.3, 0.06, 0.4, 1.0, 0.0, 0.0, 0.0),
     "phase2_floor" : (0.3, 0.06, 0.1142, 1.0, 0.0, 0.0, 0.0),
-    "screwattempt" : (0.201, -0.110, 0.1147, 1.0, 0.0, 0.0, 0.0)
+    "phase2_alt_home" : (0.3, -0.1, 0.4, 1.0, 0.0, 0.0, 0.0)
     # "bin_location_guess" : (-0.2, -0.3, 0.3, 1.0, 0.0, 0.0, 0.0)
 }
 
@@ -73,7 +72,7 @@ class Phase_2(Node):
             group="arm",
             ee_link="end_effector_link",
             base_frame="base_link",
-            speed=0.2,
+            speed=0.5,
             motion="cartesian",
             cartesian_fallback=False,
             callback_group=self.motion_client_group
@@ -100,10 +99,14 @@ class Phase_2(Node):
             '/localization/get_locations'
         )
 
-        self.start_grasp_client = self.create_client(
-            StartGrasp,
-            '/start_grasp'
+        self.grasp_client = ActionClient(
+            self,
+            GraspScrew,
+            '/grasp_screw',
+            callback_group=self.motion_client_group
         )
+        self.grasp_in_progress = False
+        self.grasp_goal_handle = None
 
         self.state = "UNLOCALIZED"
         self.localization_in_progress = False
@@ -255,39 +258,73 @@ class Phase_2(Node):
         self.state = "PHASE1"
         self.localization_in_progress = False
     # Movement
-    def grasp(self, screw_id):
-
-        if not self.start_grasp_client.wait_for_service(timeout_sec=5.0):
-            self.get_logger().error("StartGrasp service unavailable.")
+    def start_grasp(self, screw_id):
+        if self.grasp_in_progress:
             return False
 
-        request = StartGrasp.Request()
-        request.screw_id = screw_id
+        if not self.grasp_client.server_is_ready():
+            self.get_logger().error('Grasp action server not available')
+            return False
 
-        self.get_logger().info(f"Requesting grasp of screw {screw_id}")
+        goal = GraspScrew.Goal()
+        goal.screw_id = int(screw_id)
 
-        future = self.start_grasp_client.call_async(request)
+        self.grasp_in_progress = True
+        self.get_logger().info(f'Sending grasp request for screw {screw_id}')
 
-        response = wait_for(
-            future,
-            timeout=60.0
+        future = self.grasp_client.send_goal_async(
+            goal,
+            feedback_callback=self.grasp_feedback_callback
         )
 
-        if response is None:
-            self.get_logger().error("Grasp service timed out.")
-            return False
-
-        if not response.success:
-            self.get_logger().error(
-                f"Grasp failed for screw {screw_id}: {response.message}"
-            )
-            return False
-
-        self.get_logger().info(
-            f"Successfully grasped screw {screw_id}"
-        )
+        future.add_done_callback(self.grasp_goal_response_callback)
 
         return True
+
+    def grasp_goal_response_callback(self, future):
+        try:
+            goal_handle = future.result()
+        except Exception as e:
+            self.get_logger().error(f'Failed to send grasp goal: {e}')
+            self.grasp_in_progress = False
+            self.state = "ERROR"
+            return
+
+        if not goal_handle.accepted:
+            self.get_logger().error('Grasp goal rejected')
+            self.grasp_in_progress = False
+            self.state = "ERROR"
+            return
+
+        self.grasp_goal_handle = goal_handle
+        self.get_logger().info('Grasp goal accepted')
+
+        result_future = goal_handle.get_result_async()
+        result_future.add_done_callback(self.grasp_result_callback)
+    def grasp_feedback_callback(self, feedback_msg):
+        feedback = feedback_msg.feedback
+
+        self.get_logger().info(
+            f'Grasp state: {feedback.current_state}'
+        )
+    def grasp_result_callback(self, future):
+        self.grasp_in_progress = False
+
+        try:
+            action_result = future.result()
+            result = action_result.result
+        except Exception as e:
+            self.get_logger().error(f'Grasp action failed: {e}')
+            self.state = "ERROR"
+            return
+
+        if result.success:
+            self.get_logger().info('Grasp successful!')
+            self.state = "DEPOSIT"
+        else:
+            self.get_logger().error('Grasp failed')
+            self.state = "ERROR"
+        
     def move(self, target):
 
         # Case 1: Named waypoint from dictionary
@@ -346,7 +383,7 @@ class Phase_2(Node):
         goal = GripperCommand.Goal()
 
         goal.command.position = position
-        goal.command.max_effort = 10.0
+        goal.command.max_effort = 50.0
 
         future = self.gripper_client.send_goal_async(goal)
 
@@ -410,44 +447,52 @@ class Phase_2(Node):
 
         elif self.state == "PHASE1":
             #TODO implement phase 1
-            if not self.move("phase2_home"):
+            if not self.move("phase2_alt_home"):
                 self.state = "ERROR"
                 return
             self.state = "PHASE2"
 
         elif self.state == "PHASE2":
-            #TODO grab workspace scan, classify and segment
+
+            # TODO: Replace with actual screw detection
             scan = [0, 0, 0]
+
             if len(scan) == 0:
                 self.state = "PHASE1"
-
-            #TODO plan grasp then execute it
-
-            #placeholder grasp motion
-            # if not self.gripper(0.65):
-            #     self.state = "ERROR"
-            #     return
-            # if not self.move("phase2_floor"):
-            #     self.state = "ERROR"
-            #     return
-            # if not self.gripper(0.75):
-            #     self.state = "ERROR"
-            #     return
-            # if not self.move("phase2_home"):
-            #     self.state = "ERROR"
-            #     return
-            
-            if not self.grasp(0):
-                self.state = "ERROR"
                 return
 
-            
-            #Bin Deposit
-            # tf = self.object_transforms['bin'].transform
+            # Start grasp action
+            if not self.start_grasp(-1):
+                self.state = "ERROR"
+
+            return
+
+
+        elif self.state == "DEPOSIT":
+
+            # Bin Deposit
             tf = self.feature_transforms['container_0_4'].transform
 
             p = tf.translation
-            # q = tf.rotation
+
+            waypoint = (
+                p.x,
+                p.y,
+                p.z + 0.1475,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+            )
+
+            if not self.move(waypoint):
+                self.state = "ERROR"
+                return
+
+            if not self.gripper(0.65):
+                self.state = "ERROR"
+                return
+
             waypoint = (
                 p.x,
                 p.y,
@@ -460,30 +505,17 @@ class Phase_2(Node):
             if not self.move(waypoint):
                 self.state = "ERROR"
                 return
-            if not self.gripper(0.55):
-                return
-            if not self.move("phase2_home"):
+
+            if not self.move("phase2_alt_home"):
                 self.state = "ERROR"
                 return
+
             if not self.gripper(0.0):
+                self.state = "ERROR"
                 return
 
-
-            self.state = "COMPLETE"
-
-
-        # if not self.gripper(0.65):
-        #     self.state = "ERROR"
-        #     return
-        # if not self.move("screwattempt"):
-        #     self.state = "ERROR"
-        #     return
-        # # if not self.move("phase2_floor"):
-        # #     self.state = "ERROR"
-        # #     return
-        # if not self.gripper(0.75):
-        #     self.state = "ERROR"
-        #     return
+            
+            self.state = "PHASE2"
 
 
 # MAIN

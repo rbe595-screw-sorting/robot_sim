@@ -61,12 +61,12 @@ def generate_launch_description():
             output='screen',
             parameters=[config_file]
         ),
-        # Node(
-        #     package='robot_sim',
-        #     executable='gripper_executor',
-        #     name='gripper_executor',
-        #     output='screen',
-        #     parameters=[config_file]
-        # ),
+        Node(
+            package='robot_sim',
+            executable='grasp_executor',
+            name='grasp_executor',
+            output='screen',
+            parameters=[config_file]
+        ),
 
     ])

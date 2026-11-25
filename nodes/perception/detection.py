@@ -54,21 +54,21 @@ class Detection(Node):
         self.declare_parameter('polarities', ['dark', 'light'])
         self.declare_parameter('min_length', 5)             # px, long side of min-area rect
         self.declare_parameter('max_length', 100)
-        self.declare_parameter('min_area', 40)              # px^2
-        self.declare_parameter('max_area_frac', 0.001)        # reject blobs bigger than this fraction of image
-        self.declare_parameter('min_aspect', 1.2)            # set ~1.5-2.0 if screws are lying on their side
-        self.declare_parameter('min_solidity', 0.4)         # area / convex hull area
+        self.declare_parameter('min_area', 100)              # px^2
+        self.declare_parameter('max_area_frac', 0.004)        # reject blobs bigger than this fraction of image
+        self.declare_parameter('min_aspect', 1.6)            # set ~1.5-2.0 if screws are lying on their side
+        self.declare_parameter('min_solidity', 0.7)         # area / convex hull area
         self.declare_parameter('reject_border', True)
-        self.declare_parameter('min_width', 5)               # px, short side of min-area rect
-        self.declare_parameter('max_width', 100)
+        self.declare_parameter('min_width', 4)               # px, short side of min-area rect
+        self.declare_parameter('max_width', 50)
         self.declare_parameter('workspace', [-5.0, 5.0, -5.0, 5.0])  # [xmin, xmax, ymin, ymax] in world_frame (m)
         self.declare_parameter('debug_metrics', True)        # print per-blob numbers on /debug/image_proc
         self.declare_parameter('mask_methods', ['global', 'edges'])  # any of: global local edges
         self.declare_parameter('mask_close', 7)              # px; raise (15-25) to re-join fragmented shiny screws
         self.declare_parameter('local_thresh', 25)           # min brightness difference vs local background
         self.declare_parameter('local_bg_kernel', 61)        # px; must be wider than the screw's short side
-        self.declare_parameter('canny_low', 40)
-        self.declare_parameter('canny_high', 140)
+        self.declare_parameter('canny_low', 35)
+        self.declare_parameter('canny_high', 70)
         self.declare_parameter('duplicate_iou', 0.50)
         self.declare_parameter('duplicate_distance', 20)
  
